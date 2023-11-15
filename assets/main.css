@@ -102,7 +102,7 @@ header div h1 {
   }
 }
 header div .navbar-button {
-  background: url(/assets/menu-bar.png);
+  background: url(menu-bar.png);
   width: 51px;
   height: 32px;
   margin: 2px 20px 0 auto;
@@ -174,7 +174,7 @@ header .navBar {
     }
   }
   header .navBar--popup button {
-    background: url(/assets/close.png) no-repeat;
+    background: url(close.png) no-repeat;
     width: 40px;
     height: 41px;
     margin-left: calc(100% - 41px - 28px);
@@ -477,79 +477,79 @@ header .navBar {
   margin-right: 3px;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(1) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(2) {
-  background: url(/assets/emptyStar.svg) no-repeat;
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(3) {
-  background: url(/assets/emptyStar.svg) no-repeat;
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(4) {
-  background: url(/assets/emptyStar.svg) no-repeat;
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(5) {
-  background: url(/assets/emptyStar.svg) no-repeat;
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(1) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(2) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(3) {
-  background: url(/assets/emptyStar.svg) no-repeat;
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(4) {
-  background: url(/assets/emptyStar.svg) no-repeat;
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(5) {
-  background: url(/assets/emptyStar.svg) no-repeat;
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(1) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(2) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(3) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(4) {
-  background: url(/assets/emptyStar.svg) no-repeat;
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(5) {
-  background: url(/assets/emptyStar.svg) no-repeat;
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(1) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(2) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(3) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(4) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(5) {
-  background: url(/assets/emptyStar.svg) no-repeat;
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(1) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(2) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(3) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(4) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(5) {
-  background: url(/assets/filledStar.svg) no-repeat;
+  background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__participants {
   display: inline;
