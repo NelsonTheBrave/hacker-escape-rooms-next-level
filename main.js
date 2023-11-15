@@ -54,3 +54,65 @@ stars2.forEach((star, index1) => {
     });
   });
 });
+
+
+
+// Modal code needs to be linked to button.
+
+const bookBtn = document.querySelector('.challenges-container__challenge__button');
+
+
+// function for creating elements
+function createElement(tagName, id, className, textContent, type) {
+    let newElement = document.createElement(tagName);
+    
+    if (id) {
+        newElement.id =id;
+    }
+    if (className) {
+        newElement.className = className;
+    }
+    
+    if (textContent) {
+        newElement.textContent = textContent;
+    }
+
+    if (type)
+    newElement.type = type;
+    
+    return newElement;
+
+
+    }
+
+// Function for actually creating elements
+function createBookingPage() { 
+
+//Elements creating Modal
+const bookingSceneContainer = createElement('div', 'bookingSceneContainer__Id', 'bookingSceneContainer__class', null)
+document.body.appendChild(bookingSceneContainer)
+
+const bookingSceneContainer__section = createElement('section', 'bookingSceneContainer__SectionId', 'bookingSceneContainer__SectionClass', null )
+bookingSceneContainer.appendChild(bookingSceneContainer__section);
+
+const bookingSceneContainer__h1 = createElement('h1', null, 'bookingSceneContainer__h1Class', 'Book room "Variabel" (step 1) ');
+bookingSceneContainer__section.appendChild(bookingSceneContainer__h1);
+
+const bookingSceneContainer__ArrivalText = createElement('p', null, 'bookingSceneContainer__ArrivalTextClass', 'What date would you like to come?');
+bookingSceneContainer__section.appendChild(bookingSceneContainer__ArrivalText);
+
+const bookingSceneContainer__ContinueBtn = createElement('button', 'bookingSceneContainer__ContinueBtnID', 'bookingSceneContainer__ContinueBtnClass', 'Search available times', null)
+bookingSceneContainer__section.appendChild(bookingSceneContainer__ContinueBtn);
+
+
+// Could not set type attribute in createElment function.
+let bookingSceneContainer__TimeInput = document.createElement('input');
+bookingSceneContainer__TimeInput.setAttribute('type', 'date');
+bookingSceneContainer__section.appendChild(bookingSceneContainer__TimeInput);
+
+}
+
+// Listener for button on mainpage
+bookBtn.addEventListener('click', createBookingPage);
+
+
