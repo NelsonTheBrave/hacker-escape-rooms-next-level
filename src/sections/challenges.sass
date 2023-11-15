@@ -1,0 +1,167 @@
+.challenges-container
+    padding-bottom: 19px
+    padding-left: 10%
+    padding-right: 2%
+    display: flex
+    overflow-x: scroll
+    scroll-snap-type: x mandatory
+    gap: 5%
+    @include screen-700-1200
+        padding-left: 15%
+        padding-right: 20%
+        gap: 2%
+    @include screen-1200
+        width: fit-content
+        overflow-x: auto
+        padding-left: 0px
+        padding-right: 0px
+        justify-content: space-evenly
+        margin: 0 0px 0 10px
+        gap: 0
+    @include screen-1750
+        padding-left: 0px
+        padding-right: 0px
+        justify-content: space-evenly
+        margin: 0 0px 0 10px
+        gap: 0
+    &__title
+        margin: 105px 20px 0 20px
+        font-size: 32px
+        text-align: center
+        @media screen and (min-width: 1200px)
+            font-size: 36px
+    &__challenge
+        width: 85%
+        max-width: 400px
+        flex: none
+        margin: 44px 20px 0 0px
+        border: 0px solid white
+        border-radius: 8px
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25)
+        scroll-snap-align: center
+        @media screen and (min-width: 700px)
+            max-width: 520px
+            margin: 44px 5% 0 5%
+        @media screen and (min-width: 1200px)
+            max-width: 29%
+            margin: 87px 10px 77px 0px
+        @media screen and (min-width: 1750px)
+            max-width: 29%
+            margin: 87px 10px 77px 0px
+        &__img
+            width: 100%
+            border-radius: 8px 8px 0 0
+        &__lowerWrapper
+            margin: 0px auto
+            padding-left: 17px
+            padding-bottom: 12px
+            @media screen and (700px <= width < 1200px)
+                padding-right: 10px
+                padding-bottom: 30px
+            @media screen and (min-width: 1750px)
+                margin: 0px auto
+                padding-left: 47px
+                padding-right: 25px
+                padding-bottom: 30px
+        &__title
+            margin-top: 12px
+            font-size: 28px
+            @media screen and (min-width: 1750px)
+                margin-top: 20px
+        &__rating
+            display: flex
+            &__stars
+                display: flex
+                i
+                    background-color: blue
+                    display: block
+                    width: 23px
+                    margin-right: 3px
+                &[aria-valuenow="1"]
+                    i:nth-child(1)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(2)
+                        background: url(/assets/emptyStar.svg) no-repeat
+                    i:nth-child(3)
+                        background: url(/assets/emptyStar.svg) no-repeat
+                    i:nth-child(4)
+                        background: url(/assets/emptyStar.svg) no-repeat
+                    i:nth-child(5)
+                        background: url(/assets/emptyStar.svg) no-repeat
+                &[aria-valuenow="2"]
+                    i:nth-child(1)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(2)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(3)
+                        background: url(/assets/emptyStar.svg) no-repeat
+                    i:nth-child(4)
+                        background: url(/assets/emptyStar.svg) no-repeat
+                    i:nth-child(5)
+                        background: url(/assets/emptyStar.svg) no-repeat
+                &[aria-valuenow="3"]
+                    i:nth-child(1)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(2)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(3)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(4)
+                        background: url(/assets/emptyStar.svg) no-repeat
+                    i:nth-child(5)
+                        background: url(/assets/emptyStar.svg) no-repeat
+                &[aria-valuenow="4"]
+                    i:nth-child(1)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(2)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(3)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(4)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(5)
+                        background: url(/assets/emptyStar.svg) no-repeat
+                &[aria-valuenow="5"]
+                    i:nth-child(1)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(2)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(3)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(4)
+                        background: url(/assets/filledStar.svg) no-repeat
+                    i:nth-child(5)
+                        background: url(/assets/filledStar.svg) no-repeat
+            &__participants
+                display: inline
+                font-size: 14px
+                margin-left: 10px
+                @media screen and (min-width: 1200px)
+                    margin-right: 11px
+                    margin-left: auto
+        &__text
+            margin-top: 23px
+            margin-right: 10px
+            font-size: 18px
+            @media screen and (700px <= width < 1200px)
+                margin-top: 23px
+                margin-right: 10px
+                font-size: 22px
+                padding-bottom: 60px
+            @media screen and (min-width: 1750px)
+                margin-top: 23px
+                margin-right: 10px
+                font-size: 22px
+                padding-bottom: 60px
+        &__button
+            margin-top: 25px
+            margin-right: 17px
+            width: 180px
+            height: 44px
+            background-color: $red
+            color: white
+            font-size: 16px
+            @media screen and (min-width: 1750px)
+                width: 210px
+                height: 55px
+                font-size: 18px

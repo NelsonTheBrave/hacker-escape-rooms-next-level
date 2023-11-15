@@ -1,0 +1,108 @@
+header
+    height: 144px
+    background-color: $purple
+    color: white
+    padding-top: 26px
+    @media (min-width: 700px)
+        height: 16vw
+        min-height: 144px
+    @media (min-width: 900px)
+        height: 216px
+    div
+        display: flex
+        .logo
+            height: 82px
+            width: 128px
+            font-family: "Monofett", monospace
+            font-size: 40px
+            border: solid 6px
+            border-radius: 17px
+            margin: 0px 0 0 27px
+            padding: 26px 0px 5px 5px
+        h1
+            width: 80px
+            font-size: 24px
+            font-weight: 700
+            margin-left: 13px
+            @media screen and (min-width: 1200px)
+                font-size: 40px
+                width: fit-content
+                margin: 35px 0 0 24px
+            @media screen and (min-width: 1750px)
+                font-size: 50px
+                margin: 28px 0 0 24px
+        .navbar-button
+            background: url(/assets/menu-bar.png)
+            width: 51px
+            height: 32px
+            margin: 2px 20px 0 auto
+            @media (min-width: 900px)
+                display: none
+
+    // ░░░░░░░░░░░░░░░ NAVIGATION BAR ░░░░░░░░░░░░░░░
+    .navBar
+        display: none
+        @media screen and (min-width: 900px)
+            display: unset
+            &__close-button
+                display: none
+            &__list
+                display: flex
+                justify-content: space-evenly
+                width: 80%
+                margin: 58px auto 0 auto
+            @media screen and (min-width: 1750px)
+                margin: 50px auto 0 auto
+                li
+                    font-size: 24px
+                    font-weight: 700
+                    @media screen and (min-width: 1750px)
+                        font-size: 28px
+        &--popup
+            @media (max-width: 899px)
+                background-color: $purple
+                width: calc( 100vw - 44px )
+                height: calc( 100vh - 44px )
+                position: fixed
+                top: 22px
+                left: 22px
+                outline: 22px #FFFFFF80 solid
+                animation: popup-background 100ms linear
+                @keyframes popup-background
+                    0%
+                        width: calc( 100vw - 54px )
+                        height: calc( 100vh - 54px )
+                        top: 27px
+                        left: 27px
+                        outline: 27px #FFFFFF80 solid
+                        opacity: 0.8
+                    100%
+                        width: calc( 100vw - 44px )
+                        height: calc( 100vh - 44px )
+                        position: fixed
+                        top: 22px
+                        left: 22px
+                        outline: 22px #FFFFFF80 solid
+                        opacity: 1
+                button
+                    background: url(/assets/close.png) no-repeat
+                    width: 40px
+                    height: 41px
+                    margin-left: calc( 100% - 41px - 28px )
+                    margin-top: 25px
+                    // position: relative
+                ul
+                    position: relative
+                    top: calc( 50% - 66px )
+                    transform: translateY(-50%)
+                    text-align: center
+                    li
+                        font-weight: 700
+                        font-size: 36px
+                        padding: 2.7vh 0
+                        animation: list-item-sizes 100ms linear
+                        @keyframes list-item-sizes
+                            0%
+                                font-size: 35.3px
+                            100%
+                                font-size: 36px

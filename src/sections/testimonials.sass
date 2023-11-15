@@ -1,0 +1,51 @@
+.quotes-section
+    @include screen-1200
+        display: flex
+        width: 87%
+        margin: 0 auto
+
+    //░░░░░░░░░ QUOTE 1 ░░░░░░░░░░
+    .quote-container
+        display: flex
+        margin-top: 50px
+        @include screen-max-420
+            display: block
+        @include screen-700-1200
+            margin: 50px 8%
+        @include screen-1200
+            margin: 70px auto 0 auto
+        &__head
+            margin: 0 0 0 21px
+            width: 73px
+            height: 72px
+            @include screen-max-420
+                margin: 0 auto
+            @include screen-700-1200
+                width: 96px
+                height: 96px
+            @include screen-1200
+                width: 96px
+                height: 96px
+        &__texts
+            @include screen-max-420
+                width: 85%
+                margin: 20px auto 0 auto
+        &__quoteText
+            margin-left: 22px
+            margin-right: 25px
+            font-style: italic
+            font-size: 24px
+        &__name
+            margin-left: 21px
+            margin-top: 4px
+            font-size: 18px
+            @include screen-1200
+                margin-top: 14px
+                max-width: 300px
+
+    //░░░░░░░ QUOTE 2 ░░░░░░░
+    .quote-container.quote2
+        display: none
+        @include screen-1200
+            display: flex
+            margin-top: 70px
