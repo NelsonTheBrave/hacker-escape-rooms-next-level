@@ -476,79 +476,104 @@ header .navBar {
   width: 23px;
   margin-right: 3px;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"]
+  i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"]
+  i:nth-child(2) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"]
+  i:nth-child(3) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"]
+  i:nth-child(4) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"]
+  i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"]
+  i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"]
+  i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"]
+  i:nth-child(3) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"]
+  i:nth-child(4) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"]
+  i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"]
+  i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"]
+  i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"]
+  i:nth-child(3) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"]
+  i:nth-child(4) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"]
+  i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"]
+  i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"]
+  i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"]
+  i:nth-child(3) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"]
+  i:nth-child(4) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"]
+  i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"]
+  i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"]
+  i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"]
+  i:nth-child(3) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"]
+  i:nth-child(4) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"]
+  i:nth-child(5) {
   background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__participants {
@@ -869,6 +894,87 @@ header .navBar {
   .footer {
     font-size: 22px;
   }
+}
+.filterDiv {
+  height: 400px;
+  max-width: 100vw;
+  border: solid 2px black;
+  justify-content: center;
+  margin: 10px;
+}
+.filterDiv h1 {
+  margin: 10px;
+}
+.closeMenu {
+  float: right;
+  position: relative;
+  margin: 10px;
+  width: 25px;
+  height: 25px;
+}
+.middleSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.checkBoxContainer {
+  display: flex;
+  flex-direction: column;
+}
+.starSelection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.starSelection p {
+  font-size: 25px;
+  margin: 0px 10px;
+}
+.starSelection h2 {
+  position: absolute;
+  margin-bottom: 50px;
+  margin-right: 120px;
+}
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.stars2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.stars i.active {
+  color: red;
+}
+.stars2 i.active {
+  color: red;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.tagButtonContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tagButton {
+  height: 25px;
+  width: 100px;
+}
+.keywordFilter {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */
