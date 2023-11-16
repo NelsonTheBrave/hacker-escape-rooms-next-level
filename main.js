@@ -1,4 +1,8 @@
 // Variables
+
+// HTML elements
+const stars = document.querySelectorAll(".stars i");
+const stars2 = document.querySelectorAll(".stars2 i");
 const navBar = document.querySelector(".navBar");
 
 // Event listeners
@@ -27,13 +31,8 @@ function closePopup(event) {
     document.querySelector("body").style.overflow = "auto";
   }
 }
-// pull request test
 
-stars = document.querySelectorAll(".stars i");
-console.log(stars);
-
-stars2 = document.querySelectorAll(".stars2 i");
-console.log(stars2);
+// Function for adding and removing stars
 
 stars.forEach((star, index1) => {
   star.addEventListener("click", () => {
