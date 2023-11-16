@@ -43,6 +43,10 @@ body {
   font-size: 18px;
 }
 
+body.challengesBody {
+  background-color: #011827;
+}
+
 html {
   opacity: 1;
   scroll-behavior: smooth;
