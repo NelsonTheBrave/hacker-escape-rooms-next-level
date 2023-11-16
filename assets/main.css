@@ -16,7 +16,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #8acfe5;
+  color: #f99;
 }
 
 img {
@@ -54,7 +54,7 @@ html.--transparant {
 
 header {
   height: 144px;
-  background-color: #011827;
+  background-color: #f99;
   color: white;
   padding-top: 26px;
 }
@@ -145,7 +145,7 @@ header .navBar {
 }
 @media (max-width: 899px) {
   header .navBar--popup {
-    background-color: #011827;
+    background-color: #f99;
     width: calc(100vw - 44px);
     height: calc(100vh - 44px);
     position: fixed;
@@ -247,8 +247,8 @@ header .navBar {
   }
 }
 .buttons__onsiteBtn {
-  color: #011827;
-  background: #8acfe5;
+  color: #f99;
+  background: #f99;
   margin-top: 25px;
 }
 @media screen and (min-width: 1200px) {
@@ -263,7 +263,7 @@ header .navBar {
   font-size: 16px;
   font-weight: 700;
   text-decoration: underline;
-  color: #36769d;
+  color: #f99;
   background-color: inherit;
 }
 @media screen and (min-width: 1200px) {
@@ -272,7 +272,7 @@ header .navBar {
     font-size: 24px;
     text-decoration: none;
     color: white;
-    background-color: #e3170a;
+    background-color: #f99;
     order: 1;
   }
 }
@@ -588,7 +588,7 @@ header .navBar {
   margin-right: 17px;
   width: 180px;
   height: 44px;
-  background-color: #e3170a;
+  background-color: #f99;
   color: white;
   font-size: 16px;
 }
@@ -605,7 +605,7 @@ header .navBar {
   margin-top: 56px;
   padding-top: 95px;
   padding-bottom: 91px;
-  background-color: #011827;
+  background-color: #f99;
 }
 @media (min-width: 1200px) {
   .ourStory-container {
@@ -633,9 +633,9 @@ header .navBar {
 }
 .ourStory-container__btn {
   margin-top: 60px;
-  background-color: #011827;
-  color: #8acfe5;
-  border: 2px solid #8acfe5;
+  background-color: #f99;
+  color: #f99;
+  border: 2px solid #f99;
 }
 @media (min-width: 1200px) {
   .ourStory-container__btn {
@@ -660,7 +660,7 @@ header .navBar {
   font-size: 24px;
 }
 .PLAY-WITH-FRIENDS-AND-ONLINE-CONTAINER section button {
-  background-color: #e3170a;
+  background-color: #f99;
   margin-top: 50px;
   margin-left: 0;
   color: white;
@@ -700,7 +700,7 @@ header .navBar {
     font-size: 18px;
   }
   .PLAY-WITH-FRIENDS-AND-ONLINE-CONTAINER section button {
-    background-color: #e3170a;
+    background-color: #f99;
     margin-top: 25px;
     margin-left: 10%;
     padding: 0 0;
@@ -744,7 +744,7 @@ header .navBar {
     font-size: 24px;
   }
   .PLAY-WITH-FRIENDS-AND-ONLINE-CONTAINER section button {
-    background-color: #e3170a;
+    background-color: #f99;
     margin-top: 25px;
     margin-left: 0;
     color: white;
@@ -752,7 +752,7 @@ header .navBar {
 }
 
 .footer {
-  background-color: #011827;
+  background-color: #f99;
   margin-top: 38px;
   color: white;
   padding: 64px 20px 70px 20px;
