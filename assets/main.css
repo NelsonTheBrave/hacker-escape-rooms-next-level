@@ -16,7 +16,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #f99;
+  color: #8acfe5;
 }
 
 img {
@@ -43,10 +43,6 @@ body {
   font-size: 18px;
 }
 
-body.challengesBody {
-  background-color: #011827;
-}
-
 html {
   opacity: 1;
   scroll-behavior: smooth;
@@ -58,7 +54,7 @@ html.--transparant {
 
 header {
   height: 144px;
-  background-color: #f99;
+  background-color: #011827;
   color: white;
   padding-top: 26px;
 }
@@ -149,7 +145,7 @@ header .navBar {
 }
 @media (max-width: 899px) {
   header .navBar--popup {
-    background-color: #f99;
+    background-color: #011827;
     width: calc(100vw - 44px);
     height: calc(100vh - 44px);
     position: fixed;
@@ -251,8 +247,8 @@ header .navBar {
   }
 }
 .buttons__onsiteBtn {
-  color: #f99;
-  background: #f99;
+  color: #011827;
+  background: #8acfe5;
   margin-top: 25px;
 }
 @media screen and (min-width: 1200px) {
@@ -267,7 +263,7 @@ header .navBar {
   font-size: 16px;
   font-weight: 700;
   text-decoration: underline;
-  color: #f99;
+  color: #36769d;
   background-color: inherit;
 }
 @media screen and (min-width: 1200px) {
@@ -276,7 +272,7 @@ header .navBar {
     font-size: 24px;
     text-decoration: none;
     color: white;
-    background-color: #f99;
+    background-color: #e3170a;
     order: 1;
   }
 }
@@ -480,104 +476,79 @@ header .navBar {
   width: 23px;
   margin-right: 3px;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"]
-  i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"]
-  i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(2) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"]
-  i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(3) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"]
-  i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(4) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"]
-  i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"]
-  i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"]
-  i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"]
-  i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(3) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"]
-  i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(4) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"]
-  i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"]
-  i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"]
-  i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"]
-  i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(3) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"]
-  i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(4) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"]
-  i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"]
-  i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"]
-  i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"]
-  i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(3) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"]
-  i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(4) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"]
-  i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"]
-  i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"]
-  i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"]
-  i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(3) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"]
-  i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(4) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"]
-  i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(5) {
   background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__participants {
@@ -617,7 +588,7 @@ header .navBar {
   margin-right: 17px;
   width: 180px;
   height: 44px;
-  background-color: #f99;
+  background-color: #e3170a;
   color: white;
   font-size: 16px;
 }
@@ -634,7 +605,7 @@ header .navBar {
   margin-top: 56px;
   padding-top: 95px;
   padding-bottom: 91px;
-  background-color: #f99;
+  background-color: #011827;
 }
 @media (min-width: 1200px) {
   .ourStory-container {
@@ -662,9 +633,9 @@ header .navBar {
 }
 .ourStory-container__btn {
   margin-top: 60px;
-  background-color: #f99;
-  color: #f99;
-  border: 2px solid #f99;
+  background-color: #011827;
+  color: #8acfe5;
+  border: 2px solid #8acfe5;
 }
 @media (min-width: 1200px) {
   .ourStory-container__btn {
@@ -689,7 +660,7 @@ header .navBar {
   font-size: 24px;
 }
 .PLAY-WITH-FRIENDS-AND-ONLINE-CONTAINER section button {
-  background-color: #f99;
+  background-color: #e3170a;
   margin-top: 50px;
   margin-left: 0;
   color: white;
@@ -729,7 +700,7 @@ header .navBar {
     font-size: 18px;
   }
   .PLAY-WITH-FRIENDS-AND-ONLINE-CONTAINER section button {
-    background-color: #f99;
+    background-color: #e3170a;
     margin-top: 25px;
     margin-left: 10%;
     padding: 0 0;
@@ -773,7 +744,7 @@ header .navBar {
     font-size: 24px;
   }
   .PLAY-WITH-FRIENDS-AND-ONLINE-CONTAINER section button {
-    background-color: #f99;
+    background-color: #e3170a;
     margin-top: 25px;
     margin-left: 0;
     color: white;
@@ -781,7 +752,7 @@ header .navBar {
 }
 
 .footer {
-  background-color: #f99;
+  background-color: #011827;
   margin-top: 38px;
   color: white;
   padding: 64px 20px 70px 20px;
