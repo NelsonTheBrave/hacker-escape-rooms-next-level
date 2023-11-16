@@ -43,6 +43,10 @@ body {
   font-size: 18px;
 }
 
+body.challengesBody {
+  background-color: #011827;
+}
+
 html {
   opacity: 1;
   scroll-behavior: smooth;
@@ -476,79 +480,104 @@ header .navBar {
   width: 23px;
   margin-right: 3px;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"]
+  i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"]
+  i:nth-child(2) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"]
+  i:nth-child(3) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"]
+  i:nth-child(4) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="1"]
+  i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"]
+  i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"]
+  i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"]
+  i:nth-child(3) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"]
+  i:nth-child(4) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="2"] i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="2"]
+  i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"]
+  i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"]
+  i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"]
+  i:nth-child(3) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"]
+  i:nth-child(4) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="3"] i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="3"]
+  i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"]
+  i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"]
+  i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"]
+  i:nth-child(3) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"]
+  i:nth-child(4) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="4"] i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="4"]
+  i:nth-child(5) {
   background: url(emptyStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(1) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"]
+  i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(2) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"]
+  i:nth-child(2) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(3) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"]
+  i:nth-child(3) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(4) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"]
+  i:nth-child(4) {
   background: url(filledStar.svg) no-repeat;
 }
-.challenges-container__challenge__rating__stars[aria-valuenow="5"] i:nth-child(5) {
+.challenges-container__challenge__rating__stars[aria-valuenow="5"]
+  i:nth-child(5) {
   background: url(filledStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__participants {
