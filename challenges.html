@@ -13,6 +13,10 @@
       content="https://nelsonthebrave.github.io/hacker-escape-rooms/assets/image 2large.png"
     />
     <link rel="stylesheet" href="assets/main.css" />
+    <script
+      src="https://kit.fontawesome.com/c866a2c3b1.js"
+      crossorigin="anonymous"
+    ></script>
     <title>[ESC] Hacker Escape Rooms</title>
   </head>
 
@@ -44,6 +48,66 @@
     <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ POPULAR CHALLENGES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
 
     <h2 class="challenges-container__title">Our challenges</h2>
+    <div class="filterDiv">
+      <button class="closeMenu" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h1>Filter challenges</h1>
+      <div class="middleSection">
+        <div class="checkBoxContainer">
+          <h2>By type</h2>
+          <div class="checkbox1">
+            <input
+              type="checkbox"
+              name="Include online challenges"
+              id="includeOnline"
+            />
+            <label for="includeOnline">Include Online challenges</label>
+          </div>
+          <div class="checkbox2">
+            <input
+              type="checkbox"
+              name="Include on-site challenges"
+              id="includeOnsite"
+            />
+            <label for="includeOnsite">Include on-site challenges</label>
+          </div>
+        </div>
+        <div class="starSelection">
+          <h2>By rating</h2>
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p>to</p>
+          <div class="stars2">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <div class="tagsContainer">
+          <h2>By tags</h2>
+          <div class="tagButtonContainer">
+            <button class="tagButton">Web</button>
+            <button class="tagButton">Linux</button>
+            <button class="tagButton">Cryptography</button>
+            <button class="tagButton">Coding</button>
+            <button class="tagButton">Some other tag</button>
+            <button class="tagButton">A final tag</button>
+          </div>
+        </div>
+      </div>
+      <div class="keywordFilter">
+        <h2>Or type to search for keyword</h2>
+        <input type="text" placeholder="Start typing to filter" />
+      </div>
+    </div>
     <section class="challenges-container">
       <!-- ░░░░░░░░░░░░░░░ CHALLENGE 1 ░░░░░░░░░░░░░░░ -->
       <div class="challenges-container__challenge">
