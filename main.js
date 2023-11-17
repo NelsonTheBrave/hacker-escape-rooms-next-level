@@ -1,4 +1,11 @@
 // Variables
+
+// HTML elements
+const stars = document.querySelectorAll(".stars i");
+const filterDiv = document.querySelector(".filterDiv");
+const filterButton = document.querySelector(".filterButton");
+const closeMenu = document.querySelector(".closeMenu");
+const stars2 = document.querySelectorAll(".stars2 i");
 const navBar = document.querySelector(".navBar");
 
 // Event listeners
@@ -27,13 +34,18 @@ function closePopup(event) {
     document.querySelector("body").style.overflow = "auto";
   }
 }
-// pull request test
 
-stars = document.querySelectorAll(".stars i");
-console.log(stars);
+// Filter button and close filter
+filterButton.addEventListener("click", () => {
+  filterDiv.style.display = "block";
+  filterButton.style.display = "none";
+});
+closeMenu.addEventListener("click", () => {
+  filterDiv.style.display = "none";
+  filterButton.style.display = "block";
+});
 
-stars2 = document.querySelectorAll(".stars2 i");
-console.log(stars2);
+// Function for adding and removing stars
 
 stars.forEach((star, index1) => {
   star.addEventListener("click", () => {

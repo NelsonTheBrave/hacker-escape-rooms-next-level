@@ -82,6 +82,9 @@ header div .logo {
   margin: 0px 0 0 27px;
   padding: 26px 0px 5px 5px;
 }
+header div .logo:hover {
+  color: inherit;
+}
 header div h1 {
   width: 80px;
   font-size: 24px;
@@ -868,6 +871,128 @@ header .navBar {
 @media (min-width: 1750px) {
   .footer {
     font-size: 22px;
+  }
+}
+
+.filterButton {
+  background-color: #8acfe5;
+  margin: 2em auto 1em auto;
+}
+
+.filterDiv {
+  display: none;
+  max-width: 90vw;
+  border: solid 2px black;
+  border-radius: 8px;
+  margin: 2em auto 0 auto;
+}
+.filterDiv h1 {
+  font-size: 1.4em;
+  margin: 1.2em 0 0 1.5em;
+}
+.filterDiv .closeMenu {
+  position: relative;
+  float: right;
+  top: -50px;
+  left: 30px;
+  margin: 1em;
+  background-color: transparent;
+  font-size: 3em;
+  width: fit-content;
+  height: fit-content;
+}
+.filterDiv .middleSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 3em;
+  padding-right: 2em;
+  width: 100%;
+}
+.filterDiv .middleSection h2 {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+.filterDiv .middleSection .checkBoxContainer {
+  display: flex;
+  flex-direction: column;
+}
+.filterDiv .middleSection .starSelection {
+  display: flex;
+  flex-direction: column;
+}
+.filterDiv .middleSection .starSelection .starsContainer {
+  display: flex;
+  flex-direction: row;
+}
+.filterDiv .middleSection .starSelection .starsContainer p {
+  font-size: 25px;
+  margin: 0px 10px;
+}
+.filterDiv .middleSection .starSelection .starsContainer .stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.filterDiv .middleSection .starSelection .starsContainer .stars i.active {
+  color: red;
+}
+.filterDiv .middleSection .starSelection .starsContainer .stars2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.filterDiv .middleSection .starSelection .starsContainer .stars2 i.active {
+  color: red;
+}
+.filterDiv .middleSection .starSelection .keywordFilter {
+  display: flex;
+  flex-direction: column;
+  margin: 4em 0 2em 0;
+}
+.filterDiv .middleSection .starSelection .keywordFilter input {
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 300px;
+  height: 40px;
+  padding: 0 0.5em;
+}
+.filterDiv .tagsContainer {
+  display: flex;
+  flex-direction: column;
+}
+.filterDiv .tagsContainer .tagButtonContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 400px;
+}
+.filterDiv .tagsContainer .tagButton {
+  margin: 0;
+  height: 35px;
+  width: fit-content;
+  padding: 0 1em;
+  border-radius: 30px;
+  font-size: 0.8em;
+}
+
+.challenges-container.challenges-site {
+  padding-bottom: 19px;
+  padding-left: 2%;
+  padding-right: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  justify-content: left;
+  gap: 5%;
+  margin: 0 auto;
+}
+@media (width < 1200px) {
+  .challenges-container.challenges-site {
+    justify-content: center;
   }
 }
 
