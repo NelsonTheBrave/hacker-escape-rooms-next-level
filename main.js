@@ -57,7 +57,7 @@ stars2.forEach((star, index1) => {
 
 
 
-// Modal code needs to be linked to button.
+// Modal code needs to be linked to buttonS.
 
 const bookBtn = document.querySelector('.challenges-container__challenge__button');
 
@@ -110,9 +110,27 @@ let bookingSceneContainer__TimeInput = document.createElement('input');
 bookingSceneContainer__TimeInput.setAttribute('type', 'date');
 bookingSceneContainer__section.appendChild(bookingSceneContainer__TimeInput);
 
+// Creating second booking page.
+bookingSceneContainer__ContinueBtn.addEventListener('click', () => {
+
+  bookingSceneContainer__section.style.display = 'none';
+
+  const bookingSceneContainer__SecondSection = createElement('div', 'bookingSceneContainer__SecondSectionID', 'bookingSceneContainer__SecondSectionClass', null, null);
+  bookingSceneContainer.appendChild(bookingSceneContainer__SecondSection);
+
+  const bookingScene__SecondRoomH1 = createElement('h1', null, 'bookingScene__SecondRoomH1Class', 'Book Room "Variable" (step 2)', null)
+  bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomH1);
+  
+
+
+});
+
 }
 
 // Listener for button on mainpage
 bookBtn.addEventListener('click', createBookingPage);
+
+
+
 
 
