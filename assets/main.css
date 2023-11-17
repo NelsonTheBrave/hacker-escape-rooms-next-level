@@ -82,6 +82,9 @@ header div .logo {
   margin: 0px 0 0 27px;
   padding: 26px 0px 5px 5px;
 }
+header div .logo:hover {
+  color: inherit;
+}
 header div h1 {
   width: 80px;
   font-size: 24px;
@@ -871,7 +874,13 @@ header .navBar {
   }
 }
 
+.filterButton {
+  background-color: #8acfe5;
+  margin: 2em auto 1em auto;
+}
+
 .filterDiv {
+  display: none;
   max-width: 90vw;
   border: solid 2px black;
   border-radius: 8px;
