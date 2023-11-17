@@ -86,8 +86,12 @@ async function fetchChallengesAndSortFromRating() {
   );
   // Create new array with only three highest ranked cards
   const topThreeChallenges = fetchedChallengesData.challenges.splice(0, 3);
+  //Declaring function to determine text on button later  
+  function onsiteOrOnline(i) {
+    if (topThreeChallenges[i].type === "onsite") {
+      return "Book this room"} else {return "Take challenge online"
+  }}  
   // Create 3 new cards to add to DOM
-
   for (let i = 0; i < 3; i++) {
   newCard = document.createElement("div");
   newCard.classList = "challenges-container__challenge";
@@ -102,7 +106,7 @@ async function fetchChallengesAndSortFromRating() {
 ${topThreeChallenges[i].title}
 </h3>
 <small class="challenges-container__challenge__rating">
-  <span class="challenges-container__challenge__rating__stars" aria-label="Rating" role="meter" aria-valuemin="0" aria-valuemax="5" aria-valuenow="${topThreeChallenges[i].rating}">
+  <span class="challenges-container__challenge__rating__stars" aria-label="Rating" role="meter" aria-valuemin="0" aria-valuemax="5" aria-valuenow="${Math.ceil(topThreeChallenges[i].rating)}">
     <i aria-hidden="true"></i>
     <i aria-hidden="true"></i>
     <i aria-hidden="true"></i>
@@ -117,9 +121,10 @@ ${topThreeChallenges[i].title}
 ${topThreeChallenges[i].description}
 </p>
 <button class="challenges-container__challenge__button" "${topThreeChallenges[i].type}">
-${topThreeChallenges[i].type}</button>
+${onsiteOrOnline(i)}</button>
 </div>`;
-  challengesContainer.appendChild(newCard);
+  
+challengesContainer.appendChild(newCard);
 }
 }
 

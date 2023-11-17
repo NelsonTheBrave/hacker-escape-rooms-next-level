@@ -370,12 +370,10 @@ header .navBar {
   scroll-snap-type: x mandatory;
   gap: 5%;
 }
-@media (700px < width < 1200px) {
-  .challenges-container {
-    padding-left: 15%;
-    padding-right: 20%;
-    gap: 2%;
-  }
+.challenges-container git {
+  padding-left: 15%;
+  padding-right: 20%;
+  gap: 2%;
 }
 @media (min-width: 1200px) {
   .challenges-container {
