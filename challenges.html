@@ -43,10 +43,11 @@
       </nav>
     </header>
 
-    <!-- ███████████████ Filter ███████████████ -->
-    <div></div>
+    <!-- ███████████████ MAIN SECTIONS ███████████████ -->
 
-    <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ POPULAR CHALLENGES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+    <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ FILTER FIELD ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+    <!-- What is this div for? -->
+    <div></div>
 
     <h2 class="challenges-container__title">Our challenges</h2>
     <div class="filterDiv">
@@ -54,6 +55,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
       <h1>Filter challenges</h1>
+
       <div class="middleSection">
         <div class="checkBoxContainer">
           <h2>By type</h2>
@@ -74,24 +76,32 @@
             <label for="includeOnsite">Include on-site challenges</label>
           </div>
         </div>
+
         <div class="starSelection">
           <h2>By rating</h2>
-          <div class="stars">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+          <div class="starsContainer">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p>to</p>
+            <div class="stars2">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
           </div>
-          <p>to</p>
-          <div class="stars2">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+          <div class="keywordFilter">
+            <h2>Or type to search for keyword</h2>
+            <input type="text" placeholder="Start typing to filter" />
           </div>
         </div>
+
         <div class="tagsContainer">
           <h2>By tags</h2>
           <div class="tagButtonContainer">
@@ -104,12 +114,9 @@
           </div>
         </div>
       </div>
-      <div class="keywordFilter">
-        <h2>Or type to search for keyword</h2>
-        <input type="text" placeholder="Start typing to filter" />
-      </div>
     </div>
     <section class="challenges-container">
+      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ CHALLENGES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
       <!-- ░░░░░░░░░░░░░░░ CHALLENGE 1 ░░░░░░░░░░░░░░░ -->
       <div class="challenges-container__challenge">
         <img
