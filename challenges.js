@@ -5,7 +5,7 @@ class APIAdapter {
       'https://lernia-sjj-assignments.vercel.app/api/challenges'
     );
     const data = await res.json();
-    challenges = data.challenges;
-    renderChallenges(challenges);
+
+    return data.challenges.map((challengeData) => new Challenge(challengeData));
   }
 }
