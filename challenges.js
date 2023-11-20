@@ -1,7 +1,11 @@
 // Fetch resources from API
-async function createChallenges() {
-  const res = await fetch(
-    "https://lernia-sjj-assignments.vercel.app/api/challenges"
-  );
-  const data = await res.json();
+class APIAdapter {
+  async getApi() {
+    const res = await fetch(
+      'https://lernia-sjj-assignments.vercel.app/api/challenges'
+    );
+    const data = await res.json();
+    challenges = data.challenges;
+    renderChallenges(challenges);
+  }
 }
