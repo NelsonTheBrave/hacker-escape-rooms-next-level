@@ -77,29 +77,11 @@
 const bookBtns = document.querySelectorAll('.challenges-container__challenge__button');
 // Listener for button on mainpage
 for (let index = 0; index < bookBtns.length; index++) {
-  const element = bookBtns[index];
-  element.addEventListener('click', createBookingPage);
+  const bookingBtns = bookBtns[index];
+  bookingBtns.addEventListener('click', createBookingPage);
 
 }
-// async function getdatesandtimes() {
-//   let url = 'https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=2023-12-3&challenge=3';
-//   const res = await fetch(url);
-//   const data= await res.json();
-//   data.slots.forEach(slot => {
-//     console.log(data);
-//   })
-//  };
 
-//  getdatesandtimes();
-
-// bookBtn.forEach(function (i) {
-// i.addEventListener('click', createBookingPage)
-// });
-
-
-
-
-// bookBtn.addEventListener('click', createBookingPage);
 
 // function for creating elements
 function createElement(tagName, id, className, textContent, type) {
@@ -126,7 +108,7 @@ function createElement(tagName, id, className, textContent, type) {
 
 }
 
-// Function for actually creating elements
+// Function for actually creating elements getting API etc.
 function createBookingPage() {
 
   //Elements creating Modal
@@ -146,7 +128,7 @@ function createBookingPage() {
   bookingSceneContainer__section.appendChild(bookingSceneContainer__ContinueBtn);
 
 
-  // Could not set type attribute in createElment function.
+  // Could not set type attribute in createElment function. Creating date-option. When ContinueBtn is clicked data is fetcehd from API.
   let bookingSceneContainer__DateInput = document.createElement('input');
   bookingSceneContainer__DateInput.setAttribute('type', 'date');
   bookingSceneContainer__section.appendChild(bookingSceneContainer__DateInput);
@@ -156,29 +138,31 @@ function createBookingPage() {
 
   // Creating second booking page.
   bookingSceneContainer__ContinueBtn.addEventListener('click', async () => {
+    //Fetching date and Timeslots Api
+    let availableDates = bookingSceneContainer__DateInput.value;
+    let fullUrl = `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${availableDates}&challenge=1`
+    const resultDates = await fetch(fullUrl);
+    const timesAndDateResult = await resultDates.json();
+    let availableTimes = timesAndDateResult.slots;
 
-    //Fetching api
-    let dateval = bookingSceneContainer__DateInput.value;
-    let fullUrl = `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${dateval}&challenge=1`
-    const result = await fetch(fullUrl);
-    const data = await result.json();
-    let availableTimes = data.slots;
+    //Fetching card ID and min/max participants API
+
+    const resultChallenge = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
+    const challengeData = await resultChallenge.json();
 
 
-
-
-
-    // Set first page css to noshow
+  
+    // Set first page css to display none
     bookingSceneContainer__section.style.display = 'none';
 
-    // Create Second page
+    // Create Second modal-page
     const bookingSceneContainer__SecondSection = createElement('div', 'bookingSceneContainer__SecondSectionID', 'bookingSceneContainer__SecondSectionClass', null, null);
     bookingSceneContainer.appendChild(bookingSceneContainer__SecondSection);
 
     const bookingScene__SecondRoomH1 = createElement('h1', null, 'bookingScene__SecondRoomH1Class', 'Book Room "Variable" (step 2)', null)
     bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomH1);
 
-    // Input guest name
+    // Input guest name needs to be saved somewhere
     const bookingScene__SecondRoomLabelName = createElement('label', null, null, 'Name');
     bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomLabelName);
 
@@ -188,14 +172,14 @@ function createBookingPage() {
     // label connection to InputName
     bookingScene__SecondRoomLabelName.setAttribute('for', 'bookingScene__SecondRoomInputNameID');
 
-    // Input Email
+    // Input Email needs to be saved somewhere
     const bookingScene__SecondRoomLabelEmail = createElement('label', null, null, 'E-mail');
     bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomLabelEmail);
 
     const bookingScene__SecondRoomInputEmail = createElement('input', 'bookingScene__SecondRoomInputEmailID', 'bookingScene__SecondRoomInputEmailClass', null, 'text');
     bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomInputEmail);
 
-    // label connection to InputEmail
+    // label connection to InputEmail, 
     bookingScene__SecondRoomLabelEmail.setAttribute('for', 'bookingScene__SecondRoomInputEmailID');
 
     // Iput timeSelect for Second section
@@ -203,32 +187,49 @@ function createBookingPage() {
     bookingScene__SecondRoomSelectTime.setAttribute('name', 'availableTimes');
     bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomSelectTime);
 
+    // availableTimes is  date.slots from API.
     availableTimes.forEach(function (time, index) {
       const bookingScene__SecondRoomSelectTimeOption = document.createElement('option');
       bookingScene__SecondRoomSelectTimeOption.value = index;
       bookingScene__SecondRoomSelectTimeOption.text = time;
 
       bookingScene__SecondRoomSelectTime.appendChild(bookingScene__SecondRoomSelectTimeOption);
+      console.log(index, time);
 
     })
 
-
+    // Creating select-Element for max/min participants
     const bookingScene__SecondRoomSelectParticipants = createElement('select', 'bookingScene__SecondRoomSelectParticipantsID', 'bookingScene__SecondRoomSelectParticipantsClass', null, null);
-    bookingScene__SecondRoomSelectTime.setAttribute('name', 'minMaxParticipants');
+    bookingScene__SecondRoomSelectParticipants.setAttribute('name', 'minMaxParticipants');
     bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomSelectParticipants);
 
-    
 
-    let minMaxPart = bookingScene__SecondRoomSelectParticipants.value;
-    const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
-    const participantsData = await res.json();
-    
-    participantsData.challenges.forEach( () => {
 
-    }) 
-      
-    
-    
+    // creating array for min-max selection in select-element.
+    // FirstChallenge = first-challange from API. Need to link this to wichever challenge user is choosing.
+    firstChallenge = challengeData.challenges[0];
+    const minParticipants = firstChallenge.minParticipants
+    const maxParticipants = firstChallenge.maxParticipants
+
+    const challengeMinMaxPart = Array.from({ length: maxParticipants - minParticipants + 1 }, (_, index) => minParticipants + index);
+
+    challengeMinMaxPart.forEach(participants => {
+      const bookingSceneContainer__SecondRoomParticipantsOption = document.createElement('option');
+      bookingSceneContainer__SecondRoomParticipantsOption.value = participants;
+      bookingSceneContainer__SecondRoomParticipantsOption.text = participants;
+      bookingScene__SecondRoomSelectParticipants.appendChild(bookingSceneContainer__SecondRoomParticipantsOption);
+
+
+    })
+
+    console.log(firstChallenge);
+
+
+
+
+
+
+
 
 
   })
