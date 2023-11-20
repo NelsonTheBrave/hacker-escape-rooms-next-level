@@ -1,20 +1,19 @@
-async function getApi() {
-  const res = await fetch(
-    'https://lernia-sjj-assignments.vercel.app/api/challenges'
-  );
-  const data = await res.json();
-  challenges = data.challenges;
-  renderChallenges(challenges);
+class APIAdapter {
+  async getApi() {
+    const res = await fetch(
+      'https://lernia-sjj-assignments.vercel.app/api/challenges'
+    );
+    const data = await res.json();
+    challenges = data.challenges;
+    renderChallenges(challenges);
+  }
 }
-
-getApi();
 
 // Render challenges in cards
 function renderChallenges(challenges) {
-  let challengesRender = challenges;
   const challengesContainer = document.querySelector('.challenges-container');
 
-  challengesRender.forEach((challenges) => {
+  challenges.forEach((challenges) => {
     // Create challenge card
     const challengeCard = document.createElement('div');
     const titleDiv = document.createElement('div');
