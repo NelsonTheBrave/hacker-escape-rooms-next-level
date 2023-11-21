@@ -56,7 +56,7 @@ class Challenge {
 }
 
 class APIAdapter {
-  async getApi() {
+  async getChallenges() {
     const res = await fetch(
       'https://lernia-sjj-assignments.vercel.app/api/challenges'
     );
@@ -71,7 +71,7 @@ class APIAdapter {
 class ChallengeListView {
   async render(container) {
     const api = new APIAdapter();
-    const challenges = await api.getApi();
+    const challenges = await api.getChallenges();
 
     for (let i = 0; i < challenges.length; i++) {
       const challenge = challenges[i];
