@@ -10,7 +10,7 @@ class Challenge {
 
     const img = document.createElement('img');
     img.classList.add('challenges-container__challenge__img');
-    img.src = this.data.image;
+    img.src = this.data.image + '?image=' + Math.floor(Math.random() * 16);
     challengeCard.append(img);
 
     const titleDiv = document.createElement('div');
@@ -28,7 +28,7 @@ class Challenge {
     titleDiv.append(type);
 
     const ratingContainer = document.createElement('small');
-    ratingContainer.classList.add('.challenges-container__challenge__rating');
+    ratingContainer.classList.add('challenges-container__challenge__rating');
     challengeCard.append(ratingContainer);
 
     const rating = document.createElement('span');
