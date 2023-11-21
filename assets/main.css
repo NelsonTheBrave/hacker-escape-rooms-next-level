@@ -366,6 +366,7 @@ header .navBar {
   padding-left: 10%;
   padding-right: 2%;
   display: flex;
+  flex-flow: wrap;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   gap: 5%;
@@ -408,6 +409,7 @@ header .navBar {
   }
 }
 .challenges-container__challenge {
+  background-color: #fff;
   width: 85%;
   max-width: 400px;
   flex: none;
