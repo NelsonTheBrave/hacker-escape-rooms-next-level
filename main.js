@@ -1,9 +1,6 @@
 // Variables
 
 // HTML elements
-const challengesContainer = document.querySelector(
-  ".challenges-container.main-page"
-);
 const filterDiv = document.querySelector(".filterDiv");
 const filterButton = document.querySelector(".filterButton");
 const closeMenu = document.querySelector(".closeMenu");
@@ -40,7 +37,6 @@ function closePopup(event) {
 
 // Filter button and close filter
 if (filterButton == null) {
-  console.log("null");
 } else {
   filterButton.addEventListener("click", () => {
     filterDiv.style.display = "block";
@@ -73,70 +69,3 @@ stars2.forEach((star, index1) => {
     });
   });
 });
-
-// Top three rated cards on main page
-// Fetch card data from API
-async function fetchSortAndPublishTopThree() {
-  const fetchedChallengesResponse = await fetch(
-    "https://ler  ni-sjj-assignments.  vercel.app/api/challenges"
-  );
-
-  const fetchedChallengesData = await fetchedChallengesResponse.json();
-  // Sort card data according to rating
-  fetchedChallengesData.challenges.sort((r1, r2) =>
-    r1.rating < r2.rating ? 1 : r1.rating > r2.rating ? -1 : 0
-  );
-  // Create new array with only three highest ranked cards
-  const topThreeChallenges = fetchedChallengesData.challenges.splice(0, 3);
-  //Declaring function to determine text on button later
-  function onsiteOrOnline(i) {
-    if (topThreeChallenges[i].type === "onsite") {
-      return "Book this room";
-    } else {
-      return "Take challenge online";
-    }
-  }
-  // Create 3 new cards to add to DOM
-  for (let i = 0; i < 3; i++) {
-    newCard = document.createElement("div");
-    newCard.classList = "challenges-container__challenge";
-    newCard.innerHTML = `
-<img
-  class="challenges-container__challenge__img"
-  src="${topThreeChallenges[i].image}"
-  alt="Image that illustrates the challenge"
-/>
-<div class="challenges-container__challenge__lowerWrapper">
-<h3 class="challenges-container__challenge__title">
-${topThreeChallenges[i].title}
-</h3>
-<small class="challenges-container__challenge__rating">
-  <span class="challenges-container__challenge__rating__stars" aria-label="Rating" role="meter" aria-valuemin="0" aria-valuemax="5" aria-valuenow="${Math.ceil(
-    topThreeChallenges[i].rating
-  )}">
-    <i aria-hidden="true"></i>
-    <i aria-hidden="true"></i>
-    <i aria-hidden="true"></i>
-    <i aria-hidden="true"></i>
-    <i aria-hidden="true"></i>
-  </span>
-  <span
-    class="challenges-container__challenge__rating__participants"
-  >${topThreeChallenges[i].minParticipants}-${
-      topThreeChallenges[i].maxParticipants
-    } participants</span>
-</small>
-<p class="challenges-container__challenge__text">
-${topThreeChallenges[i].description}
-</p>
-<button class="challenges-container__challenge__button" "${
-      topThreeChallenges[i].type
-    }">
-${onsiteOrOnline(i)}</button>
-</div>`;
-    challengesContainer.appendChild(newCard);
-  }
-}
-
-// Run Fetch function
-fetchChallengesAndSortFromRating();
