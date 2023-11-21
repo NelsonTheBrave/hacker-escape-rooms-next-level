@@ -3,6 +3,7 @@
     padding-left: 10%
     padding-right: 2%
     display: flex
+    flex-flow: wrap
     overflow-x: scroll
     scroll-snap-type: x mandatory
     gap: 5%
@@ -31,6 +32,7 @@
         @media screen and (min-width: 1200px)
             font-size: 36px
     &__challenge
+        background-color: #fff
         width: 85%
         max-width: 400px
         flex: none
@@ -78,6 +80,17 @@
                     display: block
                     width: 23px
                     margin-right: 3px
+                &[aria-valuenow="0"]
+                    i:nth-child(1)
+                        background: url(emptyStar.svg) no-repeat
+                    i:nth-child(2)
+                        background: url(emptyStar.svg) no-repeat
+                    i:nth-child(3)
+                        background: url(emptyStar.svg) no-repeat
+                    i:nth-child(4)
+                        background: url(emptyStar.svg) no-repeat
+                    i:nth-child(5)
+                        background: url(emptyStar.svg) no-repeat
                 &[aria-valuenow="1"]
                     i:nth-child(1)
                         background: url(filledStar.svg) no-repeat
