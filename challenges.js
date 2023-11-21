@@ -1,65 +1,89 @@
+class Challenge {
+  constructor(data) {
+    this.data = data;
+  }
+
+  render() {
+    const challengeCard = document.createElement('div');
+    challengeCard.classList.add('challenges-container__challenge');
+
+    const img = document.createElement('img');
+    img.classList.add('challenges-container__challenge__img');
+    img.src = this.data.image;
+    challengeCard.append(img);
+
+    const titleDiv = document.createElement('div');
+    titleDiv.classList.add('challenges-container__challenge__lowerWrapper');
+    challengeCard.append(titleDiv);
+
+    const title = document.createElement('h3');
+    title.classList.add('.challenges-container__challenge__title');
+    title.textContent = this.data.title;
+    titleDiv.append(title);
+
+    const type = document.createElement('h3');
+    type.classList.add('challenges-container__challenge__type');
+    type.textContent = '(' + this.data.type + ')';
+    titleDiv.append(type);
+
+    const rating = document.createElement('small'); // Need to add the ratings
+    rating.classList.add('.challenges-container__challenge__rating');
+    challengeCard.append(rating);
+
+    const participants = document.createElement('span');
+    participants.classList.add(
+      'challenges-container__challenge__rating__participants'
+    );
+    participants.textContent =
+      this.data.minParticipants === this.data.maxParticipants
+        ? `${this.data.minParticipants} participants`
+        : `${this.data.minParticipants}-${this.data.maxParticipants} participants`;
+    rating.append(participants);
+
+    const challengeText = document.createElement('p');
+    challengeText.classList.add('challenges-container__challenge__text');
+    challengeText.textContent = this.data.description;
+    challengeCard.append(challengeText);
+
+    const challengeButton = document.createElement('button');
+    challengeButton.classList.add('challenges-container__challenge__button');
+    challengeButton.textContent =
+      this.data.type === 'online' ? 'Take challenge online' : 'Book this room';
+    challengeCard.append(challengeButton);
+
+    return challengeCard;
+  }
+}
+
 class APIAdapter {
   async getApi() {
     const res = await fetch(
       'https://lernia-sjj-assignments.vercel.app/api/challenges'
     );
-    const data = await res.json();
-    challenges = data.challenges;
-    renderChallenges(challenges);
+    const payload = await res.json();
+
+    return payload.challenges.map(
+      (challengeData) => new Challenge(challengeData)
+    );
   }
 }
 
-// Render challenges in cards
-function renderChallenges(challenges) {
-  const challengesContainer = document.querySelector('.challenges-container');
+class ChallengeListView {
+  async render(container) {
+    const api = new APIAdapter();
+    const challenges = await api.getApi();
 
-  challenges.forEach((challenges) => {
-    // Create challenge card
-    const challengeCard = document.createElement('div');
-    const titleDiv = document.createElement('div');
-    const title = document.createElement('h3');
-    const type = document.createElement('h3');
-    const img = document.createElement('img');
-    const rating = document.createElement('small');
-    const participants = document.createElement('span');
-    const challengeText = document.createElement('p');
-    const challengeButton = document.createElement('button');
+    for (let i = 0; i < challenges.length; i++) {
+      const challenge = challenges[i];
+      const element = challenge.render();
 
-    // Add classes to challenge card elements
-    challengeCard.classList.add('challenges-container__challenge');
-    titleDiv.classList.add('challenges-container__challenge__lowerWrapper');
-    title.classList.add('.challenges-container__challenge__title');
-    type.classList.add('challenges-container__challenge__type');
-    img.classList.add('challenges-container__challenge__img');
-    rating.classList.add('.challenges-container__challenge__rating');
-    participants.classList.add(
-      'challenges-container__challenge__rating__participants'
-    );
-    challengeText.classList.add('challenges-container__challenge__text');
-    challengeButton.classList.add('challenges-container__challenge__button');
-
-    // Add content to challenge card elements
-    challengeCard.id = challenges.id;
-    title.textContent = challenges.title;
-    type.textContent = '(' + challenges.type + ')';
-    img.src = challenges.image;
-    participants.textContent =
-      challenges.minParticipants === challenges.maxParticipants
-        ? `${challenges.minParticipants} participants`
-        : `${challenges.minParticipants}-${challenges.maxParticipants} participants`;
-    challengeText.textContent = challenges.description;
-    challengeButton.textContent =
-      challenges.type === 'online' ? 'Take challenge online' : 'Book this room';
-
-    // Append challenge elements
-    challengesContainer.appendChild(challengeCard);
-    challengeCard.appendChild(img);
-    challengeCard.appendChild(titleDiv);
-    titleDiv.appendChild(title);
-    titleDiv.appendChild(type);
-    challengeCard.appendChild(rating);
-    rating.appendChild(participants);
-    challengeCard.appendChild(challengeText);
-    challengeCard.appendChild(challengeButton);
-  });
+      container.append(element);
+    }
+  }
 }
+
+// Starting point
+const challengesContainer = document.querySelector('#challenges');
+
+let view = new ChallengeListView();
+view.render(challengesContainer);
