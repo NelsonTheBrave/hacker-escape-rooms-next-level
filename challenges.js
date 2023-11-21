@@ -27,9 +27,38 @@ class Challenge {
     type.textContent = '(' + this.data.type + ')';
     titleDiv.append(type);
 
-    const rating = document.createElement('small'); // Need to add the ratings
-    rating.classList.add('.challenges-container__challenge__rating');
-    challengeCard.append(rating);
+    const ratingContainer = document.createElement('small');
+    ratingContainer.classList.add('.challenges-container__challenge__rating');
+    challengeCard.append(ratingContainer);
+
+    const rating = document.createElement('span');
+    rating.classList.add('challenges-container__challenge__rating__stars');
+    rating.ariaLabel = 'Rating';
+    rating.role = 'meter';
+    rating.ariaValueMin = '0';
+    rating.ariaValueMax = '5';
+    rating.ariaValueNow = this.data.rating;
+    ratingContainer.append(rating);
+
+    const star1 = document.createElement('i');
+    star1.ariaHidden = true;
+    rating.append(star1);
+
+    const star2 = document.createElement('i');
+    star2.ariaHidden = true;
+    rating.append(star2);
+
+    const star3 = document.createElement('i');
+    star3.ariaHidden = true;
+    rating.append(star3);
+
+    const star4 = document.createElement('i');
+    star4.ariaHidden = true;
+    rating.append(star4);
+
+    const star5 = document.createElement('i');
+    star5.ariaHidden = true;
+    rating.append(star5);
 
     const participants = document.createElement('span');
     participants.classList.add(
@@ -39,7 +68,7 @@ class Challenge {
       this.data.minParticipants === this.data.maxParticipants
         ? `${this.data.minParticipants} participants`
         : `${this.data.minParticipants}-${this.data.maxParticipants} participants`;
-    rating.append(participants);
+    ratingContainer.append(participants);
 
     const challengeText = document.createElement('p');
     challengeText.classList.add('challenges-container__challenge__text');
@@ -84,7 +113,7 @@ class ChallengeListView {
 }
 
 // Starting point
-const challengesContainer = document.querySelector('#challenges');
+const challengesContainer = document.querySelector('.challenges-container');
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
