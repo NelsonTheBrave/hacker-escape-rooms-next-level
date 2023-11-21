@@ -5,6 +5,7 @@ class Challenge {
 
   render() {
     const challengeCard = document.createElement('div');
+    challengeCard.id = this.data.id;
     challengeCard.classList.add('challenges-container__challenge');
 
     const img = document.createElement('img');
