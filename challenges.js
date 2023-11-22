@@ -7,29 +7,32 @@ class Challenge {
     const challengeCard = document.createElement('div');
     challengeCard.id = this.data.id;
     challengeCard.classList.add('challenges-container__challenge');
+    for (let i = 0; i < this.data.labels.length; i++) {
+      challengeCard.classList.add(this.data.labels[i]);
+    }
 
     const img = document.createElement('img');
     img.classList.add('challenges-container__challenge__img');
     img.src = this.data.image + '?image=' + Math.floor(Math.random() * 16);
     challengeCard.append(img);
 
-    const titleDiv = document.createElement('div');
-    titleDiv.classList.add('challenges-container__challenge__lowerWrapper');
-    challengeCard.append(titleDiv);
+    const wrapperDiv = document.createElement('div');
+    wrapperDiv.classList.add('challenges-container__challenge__lowerWrapper');
+    challengeCard.append(wrapperDiv);
 
     const title = document.createElement('h3');
     title.classList.add('.challenges-container__challenge__title');
     title.textContent = this.data.title;
-    titleDiv.append(title);
+    wrapperDiv.append(title);
 
     const type = document.createElement('h3');
     type.classList.add('challenges-container__challenge__type');
     type.textContent = '(' + this.data.type + ')';
-    titleDiv.append(type);
+    wrapperDiv.append(type);
 
     const ratingContainer = document.createElement('small');
     ratingContainer.classList.add('challenges-container__challenge__rating');
-    challengeCard.append(ratingContainer);
+    wrapperDiv.append(ratingContainer);
 
     const rating = document.createElement('span');
     rating.classList.add('challenges-container__challenge__rating__stars');
@@ -73,13 +76,13 @@ class Challenge {
     const challengeText = document.createElement('p');
     challengeText.classList.add('challenges-container__challenge__text');
     challengeText.textContent = this.data.description;
-    challengeCard.append(challengeText);
+    wrapperDiv.append(challengeText);
 
     const challengeButton = document.createElement('button');
     challengeButton.classList.add('challenges-container__challenge__button');
     challengeButton.textContent =
       this.data.type === 'online' ? 'Take challenge online' : 'Book this room';
-    challengeCard.append(challengeButton);
+    wrapperDiv.append(challengeButton);
 
     return challengeCard;
   }
