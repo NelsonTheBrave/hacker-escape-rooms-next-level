@@ -112,6 +112,12 @@ class ChallengeListView {
   }
 }
 
+
+
+
+
+
+
 // Starting point
 const challengesContainer = document.querySelector('.challenges-container');
 
