@@ -37,7 +37,7 @@ class Challenge {
     rating.role = "meter";
     rating.ariaValueMin = "0";
     rating.ariaValueMax = "5";
-    rating.ariaValueNow = Math.ceil(this.data.rating);
+    rating.ariaValueNow = this.data.rating;
     ratingContainer.append(rating);
 
     const star1 = document.createElement("i");
@@ -153,8 +153,26 @@ class ChallengeListView {
   }
 }
 
+class TopThreeView {
+  async render(container) {
+    const challenges = await new APIAdapter().getChallenges();
+    const challengesSortedByRating = challenges.sort(
+      (a, b) => b.data.rating - a.data.rating
+    );
+    for (let i = 0; i < 3; i++) {
+      const challenge = challengesSortedByRating[i];
+      const element = challenge.render();
+      container.append(element);
+    }
+  }
+}
+
 // Starting point
-const challengesContainer = document.querySelector(".challenges-container");
+const challengesContainer = document.querySelector(".challenges-container.challenges-site");
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
+
+const topThreeContainer = document.querySelector(".challenges-container.main-page");
+console.log(topThreeContainer);
+new TopThreeView().render(topThreeContainer);
