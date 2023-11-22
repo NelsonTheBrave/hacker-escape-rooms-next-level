@@ -13,15 +13,15 @@
       content="https://nelsonthebrave.github.io/hacker-escape-rooms/assets/image 2large.png"
     />
     <link rel="stylesheet" href="assets/main.css" />
-    <script src="challenges.js"></script>
     <script
       src="https://kit.fontawesome.com/c866a2c3b1.js"
       crossorigin="anonymous"
     ></script>
+    <script defer src="challenges.js"></script>
     <title>[ESC] Hacker Escape Rooms</title>
   </head>
 
-  <body class="challengesBody">
+  <body>
     <!-- ███████████████ HEADER ███████████████ -->
     <header>
       <div>
@@ -48,274 +48,85 @@
     </header>
 
     <!-- ███████████████ MAIN SECTIONS ███████████████ -->
+    <main>
+      <h2 class="challenges-container__title">Our challenges</h2>
+      <button class="filterButton">Filter challenges</button>
 
-    <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ FILTER FIELD ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ FILTER FIELD ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
 
-    <h2 class="challenges-container__title">Our challenges</h2>
-    <button class="filterButton">Filter challenges</button>
-    <div class="filterDiv">
-      <button class="closeMenu" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <h1>Filter challenges</h1>
+      <div class="filterDiv">
+        <button class="closeMenu" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h1>Filter challenges</h1>
 
-      <div class="middleSection">
-        <div class="checkBoxContainer">
-          <h2>By type</h2>
-          <div class="checkbox1">
-            <input
-              type="checkbox"
-              name="Include online challenges"
-              id="includeOnline"
-            />
-            <label for="includeOnline">Include Online challenges</label>
-          </div>
-          <div class="checkbox2">
-            <input
-              type="checkbox"
-              name="Include on-site challenges"
-              id="includeOnsite"
-            />
-            <label for="includeOnsite">Include on-site challenges</label>
-          </div>
-        </div>
-
-        <div class="starSelection">
-          <h2>By rating</h2>
-          <div class="starsContainer">
-            <div class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p>to</p>
-            <div class="stars2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-          <div class="keywordFilter">
-            <h2>Or type to search for keyword</h2>
-            <input type="text" placeholder="Start typing to filter" />
-          </div>
-        </div>
-
-        <div class="tagsContainer">
-          <h2>By tags</h2>
-          <div class="tagButtonContainer">
-            <button class="tagButton">Web</button>
-            <button class="tagButton">Linux</button>
-            <button class="tagButton">Cryptography</button>
-            <button class="tagButton">Coding</button>
-            <button class="tagButton">Some other tag</button>
-            <button class="tagButton">A final tag</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <section class="challenges-container challenges-site">
-      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ CHALLENGES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
-      <!-- ░░░░░░░░░░░░░░░ CHALLENGE 1 ░░░░░░░░░░░░░░░ -->
-      <div class="challenges-container__challenge">
-        <img
-          class="challenges-container__challenge__img"
-          src="assets/image 2small.png"
-          alt="Image of the challenge"
-        />
-        <div class="challenges-container__challenge__lowerWrapper">
-          <h3 class="challenges-container__challenge__title">
-            Title of room (on-site)
-          </h3>
-          <small class="challenges-container__challenge__rating">
-            <span
-              class="challenges-container__challenge__rating__stars"
-              aria-label="Rating"
-              role="meter"
-              aria-valuemin="0"
-              aria-valuemax="5"
-              aria-valuenow="5"
-            >
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-            </span>
-            <span class="challenges-container__challenge__rating__participants"
-              >2-6 participants</span
-            >
-          </small>
-          <p class="challenges-container__challenge__text">
-            Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-            nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-          </p>
-          <button class="challenges-container__challenge__button">
-            Book this room
-          </button>
-        </div>
-      </div>
-      <!-- ░░░░░░░░░░░░░░░ CHALLENGE 2 ░░░░░░░░░░░░░░░ -->
-      <div class="challenges-container__challenge">
-        <img
-          class="challenges-container__challenge__img"
-          src="assets/image 2small.png"
-          alt="Image of the challenge"
-        />
-        <div class="challenges-container__challenge__lowerWrapper">
-          <h3 class="challenges-container__challenge__title">
-            Title of room (on-site)
-          </h3>
-          <small class="challenges-container__challenge__rating">
-            <span
-              class="challenges-container__challenge__rating__stars"
-              aria-label="Rating"
-              role="meter"
-              aria-valuemin="0"
-              aria-valuemax="5"
-              aria-valuenow="2"
-            >
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-            </span>
-            <span class="challenges-container__challenge__rating__participants"
-              >4-8 participants</span
-            >
-          </small>
-          <p class="challenges-container__challenge__text">
-            Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-            nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-          </p>
-          <button class="challenges-container__challenge__button">
-            Book this room
-          </button>
-        </div>
-      </div>
-      <!-- ░░░░░░░░░░░░░░░ CHALLENGE 3 ░░░░░░░░░░░░░░░ -->
-      <div class="challenges-container__challenge">
-        <img
-          class="challenges-container__challenge__img"
-          src="assets/image 2small.png"
-          alt="Image of the challenge"
-        />
-        <div class="challenges-container__challenge__lowerWrapper">
-          <h3 class="challenges-container__challenge__title">
-            Title of room (on-site)
-          </h3>
-          <small class="challenges-container__challenge__rating">
-            <span
-              class="challenges-container__challenge__rating__stars"
-              aria-label="Rating"
-              role="meter"
-              aria-valuemin="0"
-              aria-valuemax="5"
-              aria-valuenow="4"
-            >
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-            </span>
-            <span class="challenges-container__challenge__rating__participants"
-              >2-4 participants</span
-            >
-          </small>
-          <p class="challenges-container__challenge__text">
-            Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-            nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-          </p>
-          <button class="challenges-container__challenge__button">
-            Book this room
-          </button>
-        </div>
-      </div>
-            <!-- ░░░░░░░░░░░░░░░ CHALLENGE 3 ░░░░░░░░░░░░░░░ -->
-            <div class="challenges-container__challenge">
-              <img
-                class="challenges-container__challenge__img"
-                src="assets/image 2small.png"
-                alt="Image of the challenge"
+        <div class="middleSection">
+          <div class="checkBoxContainer">
+            <h2>By type</h2>
+            <div class="checkbox1">
+              <input
+                type="checkbox"
+                name="Include online challenges"
+                id="includeOnline"
               />
-              <div class="challenges-container__challenge__lowerWrapper">
-                <h3 class="challenges-container__challenge__title">
-                  Title of room (on-site)
-                </h3>
-                <small class="challenges-container__challenge__rating">
-                  <span
-                    class="challenges-container__challenge__rating__stars"
-                    aria-label="Rating"
-                    role="meter"
-                    aria-valuemin="0"
-                    aria-valuemax="5"
-                    aria-valuenow="4"
-                  >
-                    <i aria-hidden="true"></i>
-                    <i aria-hidden="true"></i>
-                    <i aria-hidden="true"></i>
-                    <i aria-hidden="true"></i>
-                    <i aria-hidden="true"></i>
-                  </span>
-                  <span class="challenges-container__challenge__rating__participants"
-                    >2-4 participants</span
-                  >
-                </small>
-                <p class="challenges-container__challenge__text">
-                  Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-                  nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-                </p>
-                <button class="challenges-container__challenge__button">
-                  Book this room
-                </button>
+              <label for="includeOnline">Include Online challenges</label>
+            </div>
+            <div class="checkbox2">
+              <input
+                type="checkbox"
+                name="Include on-site challenges"
+                id="includeOnsite"
+              />
+              <label for="includeOnsite">Include on-site challenges</label>
+            </div>
+          </div>
+
+          <div class="starSelection">
+            <h2>By rating</h2>
+            <div class="starsContainer">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p>to</p>
+              <div class="stars2">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
               </div>
             </div>
-                  <!-- ░░░░░░░░░░░░░░░ CHALLENGE 3 ░░░░░░░░░░░░░░░ -->
-      <div class="challenges-container__challenge">
-        <img
-          class="challenges-container__challenge__img"
-          src="assets/image 2small.png"
-          alt="Image of the challenge"
-        />
-        <div class="challenges-container__challenge__lowerWrapper">
-          <h3 class="challenges-container__challenge__title">
-            Title of room (on-site)
-          </h3>
-          <small class="challenges-container__challenge__rating">
-            <span
-              class="challenges-container__challenge__rating__stars"
-              aria-label="Rating"
-              role="meter"
-              aria-valuemin="0"
-              aria-valuemax="5"
-              aria-valuenow="4"
-            >
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-              <i aria-hidden="true"></i>
-            </span>
-            <span class="challenges-container__challenge__rating__participants"
-              >2-4 participants</span
-            >
-          </small>
-          <p class="challenges-container__challenge__text">
-            Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-            nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-          </p>
-          <button class="challenges-container__challenge__button">
-            Book this room
-          </button>
+            <div class="keywordFilter">
+              <h2>Or type to search for keyword</h2>
+              <input type="text" placeholder="Start typing to filter" />
+            </div>
+          </div>
+
+          <div class="tagsContainer">
+            <h2>By tags</h2>
+            <div class="tagButtonContainer">
+              <button class="tagButton">linux</button>
+              <button class="tagButton">web</button>
+              <button class="tagButton">javascript</button>
+              <button class="tagButton">phreaking</button>
+              <button class="tagButton">bash</button>
+              <button class="tagButton">ssh</button>
+              <button class="tagButton">coding</button>
+              <button class="tagButton">hacking</button>
+              <button class="tagButton">ctf</button>
+              <button class="tagButton">electronics</button>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+
+      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Challenges container ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+      <section id="challenges" class="challenges-container"></section>
+    </main>
 
     <!-- ███████████████ FOOTER ███████████████ -->
 

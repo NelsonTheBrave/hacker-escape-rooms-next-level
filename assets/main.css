@@ -366,6 +366,7 @@ header .navBar {
   padding-left: 10%;
   padding-right: 2%;
   display: flex;
+  flex-flow: wrap;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   gap: 5%;
@@ -408,6 +409,7 @@ header .navBar {
   }
 }
 .challenges-container__challenge {
+  background-color: #fff;
   width: 85%;
   max-width: 400px;
   flex: none;
@@ -478,6 +480,21 @@ header .navBar {
   display: block;
   width: 23px;
   margin-right: 3px;
+}
+.challenges-container__challenge__rating__stars[aria-valuenow="0"] i:nth-child(1) {
+  background: url(emptyStar.svg) no-repeat;
+}
+.challenges-container__challenge__rating__stars[aria-valuenow="0"] i:nth-child(2) {
+  background: url(emptyStar.svg) no-repeat;
+}
+.challenges-container__challenge__rating__stars[aria-valuenow="0"] i:nth-child(3) {
+  background: url(emptyStar.svg) no-repeat;
+}
+.challenges-container__challenge__rating__stars[aria-valuenow="0"] i:nth-child(4) {
+  background: url(emptyStar.svg) no-repeat;
+}
+.challenges-container__challenge__rating__stars[aria-valuenow="0"] i:nth-child(5) {
+  background: url(emptyStar.svg) no-repeat;
 }
 .challenges-container__challenge__rating__stars[aria-valuenow="1"] i:nth-child(1) {
   background: url(filledStar.svg) no-repeat;
