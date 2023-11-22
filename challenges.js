@@ -18,7 +18,7 @@ class Challenge {
     challengeCard.append(titleDiv);
 
     const title = document.createElement('h3');
-    title.classList.add('.challenges-container__challenge__title');
+    title.classList.add('challenges-container__challenge__title');
     title.textContent = this.data.title;
     titleDiv.append(title);
 
@@ -117,3 +117,45 @@ const challengesContainer = document.querySelector('.challenges-container');
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
+
+//function keyword filter
+
+function keyFilter() {
+  // Declare variables
+  var input, filter, challenges, title, infoText, i;
+  input = document.getElementById('textFilter');
+  if (!input) {
+    console.error('Input element not found.!');
+    return;
+  }
+  filter = input.value.toUpperCase();
+  challenges = document.querySelectorAll('.challenges-container__challenge');
+
+  // loop through challenges
+  for (i = 0; i < challenges.length; i++) {
+    /* console.log('Challenge:', challenges[i]); */
+    title = challenges[i].querySelector(
+      '.challenges-container__challenge__title'
+    );
+    /* console.log(title); */
+    infoText = challenges[i].querySelector(
+      '.challenges-container__challenge__text'
+    );
+    /* console.log(infoText); */
+    if (title && infoText) {
+      const titleText = title.textContent || title.innerHTML;
+      const textContent = infoText.textContent || infoText.innerText;
+
+      if (
+        titleText.toUpperCase().indexOf(filter) > -1 ||
+        textContent.toUpperCase().indexOf(filter) > -1
+      ) {
+        challenges[i].style.display = '';
+      } else {
+        challenges[i].style.display = 'none';
+      }
+    }
+  }
+}
+
+document.getElementById('textFilter').addEventListener('input', keyFilter);
