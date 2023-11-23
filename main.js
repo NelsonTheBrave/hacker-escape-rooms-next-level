@@ -46,23 +46,29 @@ closeMenu.addEventListener("click", () => {
 });
 
 // Function for adding and removing stars
+let lowerRating = 0;
+let upperRating = 0;
 
 stars.forEach((star, index1) => {
   star.addEventListener("click", () => {
+    lowerRating = 0;
     stars.forEach((star, index2) => {
-      index1 >= index2
-        ? star.classList.add("active")
-        : star.classList.remove("active");
-    });
+      if (index1 >= index2) {
+        star.classList.add("active"); 
+        lowerRating = lowerRating + 1 }
+        else {
+        star.classList.remove("active");}
+      })});
   });
-});
 
 stars2.forEach((star, index1) => {
   star.addEventListener("click", () => {
+    upperRating = 0;
     stars2.forEach((star, index2) => {
-      index1 >= index2
-        ? star.classList.add("active")
-        : star.classList.remove("active");
-    });
+      if (index1 >= index2) {
+        star.classList.add("active"); 
+        upperRating = upperRating + 1 }
+        else {
+        star.classList.remove("active");}
+      })});
   });
-});
