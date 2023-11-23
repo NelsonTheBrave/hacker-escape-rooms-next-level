@@ -134,15 +134,14 @@ function keyFilter() {
 
   // loop through challenges
   for (i = 0; i < challenges.length; i++) {
-    /* console.log('Challenge:', challenges[i]); */
     title = challenges[i].querySelector(
       '.challenges-container__challenge__title'
     );
-    /* console.log(title); */
+
     infoText = challenges[i].querySelector(
       '.challenges-container__challenge__text'
     );
-    /* console.log(infoText); */
+
     if (title && infoText) {
       const titleText = title.textContent || title.innerHTML;
       const textContent = infoText.textContent || infoText.innerText;
