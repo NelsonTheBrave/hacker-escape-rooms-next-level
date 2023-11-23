@@ -43,9 +43,9 @@ class Challenge {
     function addStar(starRating, starNumber) {
       const newStar = document.createElement("i");
       newStar.classList.add("fa");
-      if (starRating < starNumber-0.5) {
+      if (starRating < starNumber - 0.5) {
         newStar.classList.add("fa-star-o");
-      } else if (starRating === starNumber-0.5) {
+      } else if (starRating === starNumber - 0.5) {
         newStar.classList.add("fa-star-half-o");
       } else {
         newStar.classList.add("fa-star");
@@ -57,7 +57,7 @@ class Challenge {
     for (let i = 1; i < 6; i++) {
       addStar(this.data.rating, i);
     }
-    
+
     const participants = document.createElement("span");
     participants.classList.add(
       "challenges-container__challenge__rating__participants"
@@ -116,17 +116,14 @@ const challengesContainer = document.querySelector(".challenges-container");
 let view = new ChallengeListView();
 view.render(challengesContainer);
 
-
 class FilterByRating {
   filter() {
     let challenges = document.querySelectorAll(
-      ".challenges-container.challenges-page>div")
-
+      ".challenges-container.challenges-page>div"
+    );
     for (let i = 0; i < challenges.length; i++) {
-      let cardRating = challenges[i].querySelector("").textContent;
-
-      let cardText = challenges[i].querySelector("h3").textContent;
-      if (cardText.toUpperCase().indexOf(filterText) > -1) {
+      let cardRating = challenges[i].querySelector("span").ariaValueNow;
+      if (lowerRating < cardRating && upperRating > cardRating) {
         challenges[i].style.display = "";
       } else {
         challenges[i].style.display = "none";
