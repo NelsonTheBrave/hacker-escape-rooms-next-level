@@ -115,3 +115,30 @@ const challengesContainer = document.querySelector(".challenges-container");
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
+
+
+class FilterByRating {
+  filter() {
+    let challenges = document.querySelectorAll(
+      ".challenges-container.challenges-page>div")
+
+    for (let i = 0; i < challenges.length; i++) {
+      let cardRating = challenges[i].querySelector("").textContent;
+
+      let cardText = challenges[i].querySelector("h3").textContent;
+      if (cardText.toUpperCase().indexOf(filterText) > -1) {
+        challenges[i].style.display = "";
+      } else {
+        challenges[i].style.display = "none";
+      }
+    }
+  }
+}
+
+document
+  .querySelector(".starsContainer")
+  .addEventListener("click", filterByRating);
+
+function filterByRating() {
+  new FilterByRating().filter();
+}
