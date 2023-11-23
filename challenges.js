@@ -21,7 +21,7 @@ class Challenge {
     challengeCard.append(wrapperDiv);
 
     const title = document.createElement('h3');
-    title.classList.add('.challenges-container__challenge__title');
+    title.classList.add('challenges-container__challenge__title');
     title.textContent = this.data.title;
     wrapperDiv.append(title);
 
@@ -40,28 +40,26 @@ class Challenge {
     rating.role = 'meter';
     rating.ariaValueMin = '0';
     rating.ariaValueMax = '5';
-    rating.ariaValueNow = Math.ceil(this.data.rating);
+    rating.ariaValueNow = this.data.rating;
     ratingContainer.append(rating);
 
-    const star1 = document.createElement('i');
-    star1.ariaHidden = true;
-    rating.append(star1);
+    function addStar(starRating, starNumber) {
+      const newStar = document.createElement('i');
+      newStar.classList.add('fa');
+      if (starRating < starNumber - 0.5) {
+        newStar.classList.add('fa-star-o');
+      } else if (starRating === starNumber - 0.5) {
+        newStar.classList.add('fa-star-half-o');
+      } else {
+        newStar.classList.add('fa-star');
+      }
+      newStar.ariaHidden = true;
+      rating.append(newStar);
+    }
 
-    const star2 = document.createElement('i');
-    star2.ariaHidden = true;
-    rating.append(star2);
-
-    const star3 = document.createElement('i');
-    star3.ariaHidden = true;
-    rating.append(star3);
-
-    const star4 = document.createElement('i');
-    star4.ariaHidden = true;
-    rating.append(star4);
-
-    const star5 = document.createElement('i');
-    star5.ariaHidden = true;
-    rating.append(star5);
+    for (let i = 1; i < 6; i++) {
+      addStar(this.data.rating, i);
+    }
 
     const participants = document.createElement('span');
     participants.classList.add(
@@ -120,3 +118,45 @@ const challengesContainer = document.querySelector('.challenges-container');
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
+
+//function keyword filter
+
+function keyFilter() {
+  // Declare variables
+  var input, filter, challenges, title, infoText, i;
+  input = document.getElementById('textFilter');
+  if (!input) {
+    console.error('Input element not found.!');
+    return;
+  }
+  filter = input.value.toUpperCase();
+  challenges = document.querySelectorAll('.challenges-container__challenge');
+
+  // loop through challenges
+  for (i = 0; i < challenges.length; i++) {
+    /* console.log('Challenge:', challenges[i]); */
+    title = challenges[i].querySelector(
+      '.challenges-container__challenge__title'
+    );
+    /* console.log(title); */
+    infoText = challenges[i].querySelector(
+      '.challenges-container__challenge__text'
+    );
+    /* console.log(infoText); */
+    if (title && infoText) {
+      const titleText = title.textContent || title.innerHTML;
+      const textContent = infoText.textContent || infoText.innerText;
+
+      if (
+        titleText.toUpperCase().indexOf(filter) > -1 ||
+        textContent.toUpperCase().indexOf(filter) > -1
+      ) {
+        challenges[i].style.display = '';
+      } else {
+        challenges[i].style.display = 'none';
+      }
+    }
+  }
+}
+
+document.getElementById('textFilter').addEventListener('input', keyFilter);
