@@ -120,3 +120,5 @@ const challengesContainer = document.querySelector('.challenges-container');
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
+
+// Filter by tags
