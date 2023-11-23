@@ -128,7 +128,7 @@ class TopThreeView {
 }
 
 // Starting point
-const challengesContainer = document.querySelector('.challenges-container');
+const challengesContainer = document.querySelector('.challenges-container.challenges-site');
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
@@ -136,7 +136,6 @@ view.render(challengesContainer);
 const topThreeContainer = document.querySelector(
   '.challenges-container.main-page'
 );
-console.log(topThreeContainer);
 new TopThreeView().render(topThreeContainer);
 //function keyword filter
 
