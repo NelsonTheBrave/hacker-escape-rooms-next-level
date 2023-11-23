@@ -37,7 +37,7 @@ class Challenge {
     rating.role = "meter";
     rating.ariaValueMin = "0";
     rating.ariaValueMax = "5";
-    rating.ariaValueNow = Math.ceil(this.data.rating);
+    rating.ariaValueNow = this.data.rating;
     ratingContainer.append(rating);
 
     function addStar(starRating, starNumber) {
