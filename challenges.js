@@ -4,65 +4,63 @@ class Challenge {
   }
 
   render() {
-    const challengeCard = document.createElement('div');
+    const challengeCard = document.createElement("div");
     challengeCard.id = this.data.id;
-    challengeCard.classList.add('challenges-container__challenge');
+    challengeCard.classList.add("challenges-container__challenge");
 
-    const img = document.createElement('img');
-    img.classList.add('challenges-container__challenge__img');
-    img.src = this.data.image + '?image=' + Math.floor(Math.random() * 16);
+    const img = document.createElement("img");
+    img.classList.add("challenges-container__challenge__img");
+    img.src = this.data.image + "?image=" + Math.floor(Math.random() * 16);
     challengeCard.append(img);
 
-    const titleDiv = document.createElement('div');
-    titleDiv.classList.add('challenges-container__challenge__lowerWrapper');
+    const titleDiv = document.createElement("div");
+    titleDiv.classList.add("challenges-container__challenge__lowerWrapper");
     challengeCard.append(titleDiv);
 
-    const title = document.createElement('h3');
-    title.classList.add('challenges-container__challenge__title');
+    const title = document.createElement("h3");
+    title.classList.add("challenges-container__challenge__title");
     title.textContent = this.data.title;
     titleDiv.append(title);
 
-    const type = document.createElement('h3');
-    type.classList.add('challenges-container__challenge__type');
-    type.textContent = '(' + this.data.type + ')';
+    const type = document.createElement("h3");
+    type.classList.add("challenges-container__challenge__type");
+    type.textContent = "(" + this.data.type + ")";
     titleDiv.append(type);
 
-    const ratingContainer = document.createElement('small');
-    ratingContainer.classList.add('challenges-container__challenge__rating');
+    const ratingContainer = document.createElement("small");
+    ratingContainer.classList.add("challenges-container__challenge__rating");
     challengeCard.append(ratingContainer);
 
-    const rating = document.createElement('span');
-    rating.classList.add('challenges-container__challenge__rating__stars');
-    rating.ariaLabel = 'Rating';
-    rating.role = 'meter';
-    rating.ariaValueMin = '0';
-    rating.ariaValueMax = '5';
-    rating.ariaValueNow = Math.ceil(this.data.rating);
+    const rating = document.createElement("span");
+    rating.classList.add("challenges-container__challenge__rating__stars");
+    rating.ariaLabel = "Rating";
+    rating.role = "meter";
+    rating.ariaValueMin = "0";
+    rating.ariaValueMax = "5";
+    rating.ariaValueNow = this.data.rating;
     ratingContainer.append(rating);
 
-    const star1 = document.createElement('i');
-    star1.ariaHidden = true;
-    rating.append(star1);
+    function addStar(starRating, starNumber) {
+      const newStar = document.createElement("i");
+      newStar.classList.add("fa");
+      if (starRating < starNumber-0.5) {
+        newStar.classList.add("fa-star-o");
+      } else if (starRating === starNumber-0.5) {
+        newStar.classList.add("fa-star-half-o");
+      } else {
+        newStar.classList.add("fa-star");
+      }
+      newStar.ariaHidden = true;
+      rating.append(newStar);
+    }
 
-    const star2 = document.createElement('i');
-    star2.ariaHidden = true;
-    rating.append(star2);
-
-    const star3 = document.createElement('i');
-    star3.ariaHidden = true;
-    rating.append(star3);
-
-    const star4 = document.createElement('i');
-    star4.ariaHidden = true;
-    rating.append(star4);
-
-    const star5 = document.createElement('i');
-    star5.ariaHidden = true;
-    rating.append(star5);
-
-    const participants = document.createElement('span');
+    for (let i = 1; i < 6; i++) {
+      addStar(this.data.rating, i);
+    }
+    
+    const participants = document.createElement("span");
     participants.classList.add(
-      'challenges-container__challenge__rating__participants'
+      "challenges-container__challenge__rating__participants"
     );
     participants.textContent =
       this.data.minParticipants === this.data.maxParticipants
@@ -70,15 +68,15 @@ class Challenge {
         : `${this.data.minParticipants}-${this.data.maxParticipants} participants`;
     ratingContainer.append(participants);
 
-    const challengeText = document.createElement('p');
-    challengeText.classList.add('challenges-container__challenge__text');
+    const challengeText = document.createElement("p");
+    challengeText.classList.add("challenges-container__challenge__text");
     challengeText.textContent = this.data.description;
     challengeCard.append(challengeText);
 
-    const challengeButton = document.createElement('button');
-    challengeButton.classList.add('challenges-container__challenge__button');
+    const challengeButton = document.createElement("button");
+    challengeButton.classList.add("challenges-container__challenge__button");
     challengeButton.textContent =
-      this.data.type === 'online' ? 'Take challenge online' : 'Book this room';
+      this.data.type === "online" ? "Take challenge online" : "Book this room";
     challengeCard.append(challengeButton);
 
     return challengeCard;
@@ -88,7 +86,7 @@ class Challenge {
 class APIAdapter {
   async getChallenges() {
     const res = await fetch(
-      'https://lernia-sjj-assignments.vercel.app/api/challenges'
+      "https://lernia-sjj-assignments.vercel.app/api/challenges"
     );
     const payload = await res.json();
 
@@ -113,7 +111,7 @@ class ChallengeListView {
 }
 
 // Starting point
-const challengesContainer = document.querySelector('.challenges-container');
+const challengesContainer = document.querySelector(".challenges-container");
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
