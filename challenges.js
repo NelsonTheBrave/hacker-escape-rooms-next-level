@@ -40,67 +40,24 @@ class Challenge {
     rating.ariaValueNow = Math.ceil(this.data.rating);
     ratingContainer.append(rating);
 
-    const star1 = document.createElement("i");
-    star1.classList.add('fa');
-    if (this.data.rating < 0.5) {
-      star1.classList.add("fa-star-o");
-    } else if (this.data.rating === 0.5) {
-      star1.classList.add("fa-star-half-o");
-    } else {
-      star1.classList.add("fa-star");
+    function addStar(starRating, starNumber) {
+      const newStar = document.createElement("i");
+      newStar.classList.add("fa");
+      if (starRating < starNumber-0.5) {
+        newStar.classList.add("fa-star-o");
+      } else if (starRating === starNumber-0.5) {
+        newStar.classList.add("fa-star-half-o");
+      } else {
+        newStar.classList.add("fa-star");
+      }
+      newStar.ariaHidden = true;
+      rating.append(newStar);
     }
-    star1.ariaHidden = true;
-    rating.append(star1);
 
-    const star2 = document.createElement("i");
-    star2.classList.add('fa');
-    if (this.data.rating < 1.5) {
-      star2.classList.add("fa-star-o");
-    } else if (this.data.rating === 1.5) {
-      star2.classList.add("fa-star-half-o");
-    } else {
-      star2.classList.add("fa-star");
+    for (let i = 1; i < 6; i++) {
+      addStar(this.data.rating, i);
     }
-    star2.ariaHidden = true;
-    rating.append(star2);
-
-    const star3 = document.createElement("i");
-    star3.classList.add('fa');
-
-    if (this.data.rating < 2.5) {
-      star3.classList.add("fa-star-o");
-    } else if (this.data.rating === 2.5) {
-      star3.classList.add("fa-star-half-o");
-    } else {
-      star3.classList.add("fa-star");
-    }
-    star3.ariaHidden = true;
-    rating.append(star3);
-
-    const star4 = document.createElement("i");
-    star4.classList.add('fa');
-    if (this.data.rating < 3.5) {
-      star4.classList.add("fa-star-o");
-    } else if (this.data.rating === 3.5) {
-      star4.classList.add("fa-star-half-o");
-    } else {
-      star4.classList.add("fa-star");
-    }
-    star4.ariaHidden = true;
-    rating.append(star4);
-
-    const star5 = document.createElement("i");
-    star5.classList.add('fa');
-    if (this.data.rating < 4.5) {
-      star5.classList.add("fa-star-o");
-    } else if (this.data.rating === 4.5) {
-      star5.classList.add("fa-star-half-o");
-    } else {
-      star5.classList.add("fa-star");
-    }
-    star5.ariaHidden = true;
-    rating.append(star5);
-
+    
     const participants = document.createElement("span");
     participants.classList.add(
       "challenges-container__challenge__rating__participants"
