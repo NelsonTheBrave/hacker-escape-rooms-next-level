@@ -115,10 +115,71 @@ class ChallengeListView {
   }
 }
 
-// Starting point
+// Starting point render challenges för challenge page
 const challengesContainer = document.querySelector('.challenges-container');
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
 
 // Filter by tags
+
+class Filter {
+  constructor(tagSelector) {
+    this.tagSelector = document.querySelectorAll(tagSelector);
+    this.filterActive = false;
+  }
+
+  filterTags(tag) {
+    const cards = document.querySelectorAll('.challenges-container__challenge');
+
+    if (this.filterActive) {
+      cards.forEach((card) => {
+        card.style.display = '';
+      });
+      this.filterActive = false;
+    } else {
+      cards.forEach((card) => {
+        if (card.classList.contains(tag)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      this.filterActive = true;
+    }
+  }
+}
+
+// Filter by tag starting point
+let viewTag = new Filter();
+
+// Filter tag buttons
+const linuxButton = document.getElementById('linuxTag');
+const webButton = document.getElementById('webTag');
+const javascriptButton = document.getElementById('javascriptTag');
+const phreakingButton = document.getElementById('phreakingTag');
+const bashButton = document.getElementById('bashTag');
+const sshButton = document.getElementById('sshTag');
+const codingButton = document.getElementById('codingTag');
+const hackingButton = document.getElementById('hackingTag');
+const ctfButton = document.getElementById('ctfTag');
+const electronicsButton = document.getElementById('electronicsTag');
+
+// Eventlistener's for tag buttons
+linuxButton.addEventListener('click', () => viewTag.filterTags('linux'));
+webButton.addEventListener('click', () => viewTag.filterTags('web'));
+javascriptButton.addEventListener('click', () =>
+  viewTag.filterTags('javascript')
+);
+phreakingButton.addEventListener('click', () =>
+  viewTag.filterTags('phreaking')
+);
+bashButton.addEventListener('click', () => viewTag.filterTags('bash'));
+sshButton.addEventListener('click', () => viewTag.filterTags('ssh'));
+codingButton.addEventListener('click', () => viewTag.filterTags('coding'));
+hackingButton.addEventListener('click', () => viewTag.filterTags('hacking'));
+ctfButton.addEventListener('click', () => viewTag.filterTags('ctf'));
+electronicsButton.addEventListener('click', () =>
+  viewTag.filterTags('electronics')
+);
