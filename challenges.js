@@ -123,39 +123,49 @@ class ChallengeKeyFilter {
   constructor(challengesContainer) {
     this.input = document.getElementById('textFilter');
     this.challengesContainer = challengesContainer;
+    //create the no challenges message
+    this.noMatchingChallenges = document.createElement('h1');
+    this.noMatchingChallenges.classList.add('no-match-message');
+    this.noMatchingChallenges.textContent = 'No matching challenges';
+    this.noMatchingChallenges.style.display = 'none';
+    this.challengesContainer.appendChild(this.noMatchingChallenges);
 
     this.input.addEventListener('input', this.keyFilter.bind(this));
   }
-
+  // get the input
   keyFilter() {
     const filter = this.input.value.toUpperCase();
     const challenges = this.challengesContainer.querySelectorAll(
       '.challenges-container__challenge'
     );
 
+    let anyChallengeVisible = false;
+
     challenges.forEach((challenge) => {
-      this.filterChallenge(challenge, filter);
+      const title = challenge.querySelector(
+        '.challenges-container__challenge__title'
+      );
+      const infoText = challenge.querySelector(
+        '.challenges-container__challenge__text'
+      );
+
+      if (title && infoText) {
+        const titleText = title.textContent || title.innerHTML;
+        const textContent = infoText.textContent || infoText.innerText;
+
+        const isVisible =
+          titleText.toUpperCase().includes(filter) ||
+          textContent.toUpperCase().includes(filter);
+        challenge.style.display = isVisible ? '' : 'none';
+
+        if (isVisible) {
+          anyChallengeVisible = true;
+        }
+      }
     });
-  }
 
-  filterChallenge(challenge, filter) {
-    const title = challenge.querySelector(
-      '.challenges-container__challenge__title'
-    );
-    const infoText = challenge.querySelector(
-      '.challenges-container__challenge__text'
-    );
-
-    if (title && infoText) {
-      const titleText = title.textContent || title.innerHTML;
-      const textContent = infoText.textContent || infoText.innerText;
-
-      const isVisible =
-        titleText.toUpperCase().includes(filter) ||
-        textContent.toUpperCase().includes(filter);
-      challenge.style.display = isVisible ? '' : 'none';
-    }
+    //Show or not show the "no matching challenges"
+    this.noMatchingChallenges.style.display = anyChallengeVisible ? 'none' : '';
   }
 }
-
 const filter = new ChallengeKeyFilter(challengesContainer);
