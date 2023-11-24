@@ -119,26 +119,30 @@ const challengesContainer = document.querySelector('.challenges-container');
 let view = new ChallengeListView();
 view.render(challengesContainer);
 
-//function keyword filter
+class ChallengeKeyFilter {
+  constructor(challengesContainer) {
+    this.input = document.getElementById('textFilter');
+    this.challengesContainer = challengesContainer;
 
-function keyFilter() {
-  // Declare variables
-  var input, filter, challenges, title, infoText, i;
-  input = document.getElementById('textFilter');
-  if (!input) {
-    console.error('Input element not found.!');
-    return;
+    this.input.addEventListener('input', this.keyFilter.bind(this));
   }
-  filter = input.value.toUpperCase();
-  challenges = document.querySelectorAll('.challenges-container__challenge');
 
-  // loop through challenges
-  for (i = 0; i < challenges.length; i++) {
-    title = challenges[i].querySelector(
-      '.challenges-container__challenge__title'
+  keyFilter() {
+    const filter = this.input.value.toUpperCase();
+    const challenges = this.challengesContainer.querySelectorAll(
+      '.challenges-container__challenge'
     );
 
-    infoText = challenges[i].querySelector(
+    challenges.forEach((challenge) => {
+      this.filterChallenge(challenge, filter);
+    });
+  }
+
+  filterChallenge(challenge, filter) {
+    const title = challenge.querySelector(
+      '.challenges-container__challenge__title'
+    );
+    const infoText = challenge.querySelector(
       '.challenges-container__challenge__text'
     );
 
@@ -146,16 +150,12 @@ function keyFilter() {
       const titleText = title.textContent || title.innerHTML;
       const textContent = infoText.textContent || infoText.innerText;
 
-      if (
-        titleText.toUpperCase().indexOf(filter) > -1 ||
-        textContent.toUpperCase().indexOf(filter) > -1
-      ) {
-        challenges[i].style.display = '';
-      } else {
-        challenges[i].style.display = 'none';
-      }
+      const isVisible =
+        titleText.toUpperCase().includes(filter) ||
+        textContent.toUpperCase().includes(filter);
+      challenge.style.display = isVisible ? '' : 'none';
     }
   }
 }
 
-document.getElementById('textFilter').addEventListener('input', keyFilter);
+const filter = new ChallengeKeyFilter(challengesContainer);
