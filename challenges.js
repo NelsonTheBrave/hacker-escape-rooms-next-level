@@ -1,4 +1,5 @@
-class Challenge {
+import { bookingManager } from "./main.js";
+export class Challenge {
   constructor(data) {
     this.data = data;
   }
@@ -80,7 +81,14 @@ class Challenge {
     challengeButton.classList.add('challenges-container__challenge__button');
     challengeButton.textContent =
       this.data.type === 'online' ? 'Take challenge online' : 'Book this room';
-    wrapperDiv.append(challengeButton);
+
+      
+      challengeButton.addEventListener('click', () => {
+      bookingManager.createBookingPage(this.data);
+
+      })
+    challengeCard.append(challengeButton);
+
 
     return challengeCard;
   }
@@ -132,6 +140,7 @@ const challengesContainer = document.querySelector('.challenges-container.challe
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
+
 
 const topThreeContainer = document.querySelector(
   '.challenges-container.main-page'
