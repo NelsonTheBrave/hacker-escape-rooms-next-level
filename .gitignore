@@ -2,5 +2,3 @@ node_modules
 .DS_Store
 OOP.html
 OOP.js
-sections/*.css
-assets/*.css
