@@ -1,3 +1,4 @@
+
 class Challenge {
   constructor(data) {
     this.data = data;
@@ -86,6 +87,7 @@ class Challenge {
   }
 }
 
+
 class APIAdapter {
   async getChallenges() {
     const res = await fetch(
@@ -113,12 +115,24 @@ class ChallengeListView {
   }
 }
 
+class TopThreeView {
+  async render(container) {
+    const challenges = await new APIAdapter().getChallenges();
+    const challengesSortedByRating = challenges.sort(
+      (a, b) => b.data.rating - a.data.rating
+    );
+    for (let i = 0; i < 3; i++) {
+      const challenge = challengesSortedByRating[i];
+      const element = challenge.render();
+      container.append(element);
+    }
+  }
+}
 class FilterByRating {
   filter(challengesContainer) {
     const challenges = challengesContainer.querySelectorAll(
       '.challenges-container__challenge'
     );
-    console.log(challenges);
     for (let i = 0; i < challenges.length; i++) {
       let cardRating = challenges[i].querySelector('span').ariaValueNow;
       if (lowerRating <= cardRating && upperRating >= cardRating) {
@@ -126,94 +140,70 @@ class FilterByRating {
       } else {
         challenges[i].style.display = 'none';
       }
-      class TopThreeView {
-        async render(container) {
-          const challenges = await new APIAdapter().getChallenges();
-          const challengesSortedByRating = challenges.sort(
-            (a, b) => b.data.rating - a.data.rating
-          );
-          for (let i = 0; i < 3; i++) {
-            const challenge = challengesSortedByRating[i];
-            const element = challenge.render();
-            container.append(element);
-          }
-        }
-      }
-
-      // Starting point
-      const challengesContainer = document.querySelector(
-        '.challenges-container.challenges-site'
-      );
-
-      let view = new ChallengeListView();
-      view.render(challengesContainer);
-
-      // Listening to filter (rating)
-
-      document
-        .querySelector('.starsContainer')
-        .addEventListener('click', filterByRating);
-
-      function filterByRating() {
-        new FilterByRating().filter(challengesContainer);
-      }
-      const topThreeContainer = document.querySelector(
-        '.challenges-container.main-page'
-      );
-      new TopThreeView().render(topThreeContainer);
-    }
-
-    class ChallengeKeyFilter {
-      constructor(challengesContainer) {
-        this.input = document.getElementById('textFilter');
-        this.challengesContainer = challengesContainer;
-        //create the no challenges message
-        this.noMatchingChallenges = document.createElement('h1');
-        this.noMatchingChallenges.classList.add('no-match-message');
-        this.noMatchingChallenges.textContent = 'No matching challenges';
-        this.noMatchingChallenges.style.display = 'none';
-        this.challengesContainer.appendChild(this.noMatchingChallenges);
-
-        this.input.addEventListener('input', this.keyFilter.bind(this));
-      }
-      // get the input
-      keyFilter() {
-        const filter = this.input.value.toUpperCase();
-        const challenges = this.challengesContainer.querySelectorAll(
-          '.challenges-container__challenge'
-        );
-
-        let anyChallengeVisible = false;
-
-        challenges.forEach((challenge) => {
-          const title = challenge.querySelector(
-            '.challenges-container__challenge__title'
-          );
-          const infoText = challenge.querySelector(
-            '.challenges-container__challenge__text'
-          );
-
-          if (title && infoText) {
-            const titleText = title.textContent || title.innerHTML;
-            const textContent = infoText.textContent || infoText.innerText;
-
-            const isVisible =
-              titleText.toUpperCase().includes(filter) ||
-              textContent.toUpperCase().includes(filter);
-            challenge.style.display = isVisible ? '' : 'none';
-
-            if (isVisible) {
-              anyChallengeVisible = true;
-            }
-          }
-        });
-
-        //Show or not show the "no matching challenges"
-        this.noMatchingChallenges.style.display = anyChallengeVisible
-          ? 'none'
-          : '';
-      }
     }
   }
 }
-let filter = new ChallengeKeyFilter(challengesContainer);
+class ChallengeKeyFilter {
+  constructor(challengesContainer) {
+    this.input = document.getElementById('textFilter');
+    this.challengesContainer = challengesContainer;
+    //create the no challenges message
+    this.noMatchingChallenges = document.createElement('h1');
+    this.noMatchingChallenges.classList.add('no-match-message');
+    this.noMatchingChallenges.textContent = 'No matching challenges';
+    this.noMatchingChallenges.style.display = 'none';
+    this.challengesContainer.appendChild(this.noMatchingChallenges);
+    this.input.addEventListener('input', this.keyFilter.bind(this));
+  }
+  // get the input
+  keyFilter() {
+    const filter = this.input.value.toUpperCase();
+    const challenges = this.challengesContainer.querySelectorAll(
+      '.challenges-container__challenge'
+    );
+    let anyChallengeVisible = false;
+    challenges.forEach((challenge) => {
+      const title = challenge.querySelector(
+        '.challenges-container__challenge__title'
+      );
+      const infoText = challenge.querySelector(
+        '.challenges-container__challenge__text'
+      );
+      if (title && infoText) {
+        const titleText = title.textContent || title.innerHTML;
+        const textContent = infoText.textContent || infoText.innerText;
+        const isVisible =
+          titleText.toUpperCase().includes(filter) ||
+          textContent.toUpperCase().includes(filter);
+        challenge.style.display = isVisible ? '' : 'none';
+        if (isVisible) {
+          anyChallengeVisible = true;
+        }
+      }
+    });
+    //Show or not show the "no matching challenges"
+    this.noMatchingChallenges.style.display = anyChallengeVisible ? 'none' : '';
+  }
+}
+
+// Starting point -------------------------------------------------------------------------
+const challengesContainer = document.querySelector(
+  '.challenges-container.challenges-site'
+);
+let view = new ChallengeListView();
+view.render(challengesContainer);
+
+
+const starsContainer = document.querySelector('.starsContainer')
+if (starsContainer) {starsContainer.addEventListener('click', filterByRating)}
+
+
+function filterByRating() {
+new FilterByRating().filter(challengesContainer);
+}
+const topThreeContainer = document.querySelector(
+  '.challenges-container.main-page'
+);
+new TopThreeView().render(topThreeContainer);
+
+const filter = new ChallengeKeyFilter(challengesContainer);
