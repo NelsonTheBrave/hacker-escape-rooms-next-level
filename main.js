@@ -45,11 +45,12 @@ closeMenu.addEventListener('click', () => {
   filterButton.style.display = 'block';
 });
 
-// Function for adding and removing stars
+
+
+// Rating Filter visual appearance
 let lowerRating = 0;
 let upperRating = 5;
 
-// Felix's code
 stars.forEach((star, index1) => {
   let clickedStar = index1 + 1;
   star.addEventListener('click', () => {
@@ -77,9 +78,6 @@ stars.forEach((star, index1) => {
   });
 });
 
-
-
-
 /* Tested code for making mouse-over effect on stars but skipped it or now
 stars.forEach((star, index1) => {
   star.addEventListener('mouseover', () => {
@@ -93,7 +91,6 @@ stars.forEach((star, index1) => {
   });
 });
  */
-
 
 stars2.forEach((star, index1) => {
   let clickedStar = index1 + 1;
