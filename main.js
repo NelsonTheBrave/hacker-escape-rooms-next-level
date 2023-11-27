@@ -52,6 +52,7 @@ let lowerRating = 0;
 let upperRating = 5;
 
 stars.forEach((star, index1) => {
+<<<<<<< HEAD
   let clickedStar = index1 + 1;
   star.addEventListener('click', () => {
     if (clickedStar > upperRating) {
@@ -74,10 +75,18 @@ stars.forEach((star, index1) => {
       } else {
         star.classList.remove('active');
       }
+=======
+  star.addEventListener('click', () => {
+    stars.forEach((star, index2) => {
+      index1 >= index2
+        ? star.classList.add('active')
+        : star.classList.remove('active');
+>>>>>>> main
     });
   });
 });
 
+<<<<<<< HEAD
 /* Tested code for making mouse-over effect on stars but skipped it or now
 stars.forEach((star, index1) => {
   star.addEventListener('mouseover', () => {
@@ -114,6 +123,14 @@ stars2.forEach((star, index1) => {
       } else {
         star.classList.remove('active');
       }
+=======
+stars2.forEach((star, index1) => {
+  star.addEventListener('click', () => {
+    stars2.forEach((star, index2) => {
+      index1 >= index2
+        ? star.classList.add('active')
+        : star.classList.remove('active');
+>>>>>>> main
     });
   });
 });
