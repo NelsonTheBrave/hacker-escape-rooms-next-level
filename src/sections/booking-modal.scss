@@ -1,0 +1,166 @@
+// Modal page container
+
+
+.bookingSceneContainer__class {
+position: fixed;
+top: 0;
+z-index: 1;
+width: 100%;
+height: 100%;
+background-color: rgba(255, 255, 255, 0.5);
+padding: 20px 0px 0px 50px;
+color: white;
+}
+// First Modal page
+.bookingSceneContainer__SectionClass { 
+    position: sticky;
+    z-index: 1;
+    width: 95%;
+    height: 95%;
+    background-color: #011827;
+    display: flex;
+    flex-flow: column;
+    padding: 20px;
+.bookingSceneContainer__h1Class {
+font-size: 60px ;
+}
+
+.bookingSceneContainer__ArrivalTextClass {
+font-size: 50px;
+margin-top: 50px;
+}
+
+
+
+
+.datelabel {
+font-size: 25px;
+margin-top: 50px;
+}
+
+.dateInput {
+    width: 290px;
+    height: 50px;
+    font-size: 25px;
+}
+
+.bookingSceneContainer__ContinueBtnClass {
+height: 60px;
+background-color: white;
+margin: 480px 0px 0px 1400px;
+}
+
+}
+
+// Second modal page
+.bookingSceneContainer__SecondSectionClass {
+    position: sticky;
+    z-index: 1;
+    width: 95%;
+    height: 95%;
+    background-color: #011827;
+    display: flex;
+    flex-flow: column;
+    padding: 20px;
+
+
+.bookingScene__SecondRoomH1Class {
+    font-size: 60px ;
+
+}
+
+
+
+.userNameLabelClass {
+    font-size: 25px;
+}
+
+
+.bookingScene__SecondRoomInputNameClass {
+    width: 290px;
+    width: 290px;
+    height: 50px;
+    font-size: 25px;
+    margin-bottom: 20px;
+
+}
+
+.E-MailClassLabel {
+    font-size: 25px;
+
+}
+
+.bookingScene__SecondRoomInputEmailClass {
+    width: 290px;
+    height: 50px;
+    font-size: 25px;
+    margin-bottom: 20px;
+
+}
+
+
+.SelectTimeClassLabel {
+    font-size: 25px;
+
+}
+
+.bookingScene__SecondRoomSelectTimeClass {
+    width: 290px;
+    height: 50px;
+    font-size: 25px;
+    margin-bottom: 20px;
+
+
+}
+
+.bookingScene__SecondRoomSelectParticipantslabelClass {
+
+    font-size: 25px;
+}
+
+.bookingScene__SecondRoomSelectParticipantsClass {
+    width: 290px;
+    height: 50px;
+    font-size: 25px;
+
+}
+
+.bookingSceneContainer__SecondRoomSubmitBtnClass {
+    background-color: white;
+    margin: 400px 0px 0px 1400px;
+    font-size: 25px;
+    
+
+}
+}
+
+// Third modal page
+
+.bookingSceneContainer__LastSectionClass {
+    position: sticky;
+    z-index: 1;
+    width: 95%;
+    height: 95%;
+    background-color: #011827;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+.bookingSceneContainer__LastSectionh2Class {
+    font-size: 60px ;
+
+}
+
+.bookingSceneContainer__LastSectionLinkClass {
+    
+    font-size: 25px;
+    color: rgb(93, 61, 209);
+    border-bottom: rgb(61, 48, 110) solid 2px;
+}
+
+}
+
+
+

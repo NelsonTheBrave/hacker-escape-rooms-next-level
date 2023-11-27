@@ -1,6 +1,9 @@
 import { Challenge } from "./challenges.js";
 
 
+
+
+
 class BookingManager {
   constructor() {
     this.bookBtns = document.querySelectorAll('.challenges-container__challenge__button');
@@ -33,56 +36,56 @@ class BookingManager {
     return newElement;
   }
 
-  // Skapa en variabel som hämtar användarens klick på ett kort? Hitta kortets unika ID och stoppa den i parametern.
 
 
+  // Method for creating the modal
   async createBookingPage(challenge) {
     // Creating the modal, container is the same all the way through booking
     const bookingSceneContainer = this.createElement('div', 'bookingSceneContainer__Id', 'bookingSceneContainer__class', null)
     document.body.appendChild(bookingSceneContainer)
-    // Modal Section
+    // First Modal Section
     const bookingSceneContainer__section = this.createElement('section', 'bookingSceneContainer__SectionId', 'bookingSceneContainer__SectionClass', null)
     bookingSceneContainer.appendChild(bookingSceneContainer__section);
     //Titel for booking Room
     const bookingSceneContainer__h1 = this.createElement('h1', null, 'bookingSceneContainer__h1Class', `Book room ${challenge.title} (step 1)`, null)
     bookingSceneContainer__section.appendChild(bookingSceneContainer__h1);
-
+    // Arrival Paragraph
     const bookingSceneContainer__ArrivalText = this.createElement('p', null, 'bookingSceneContainer__ArrivalTextClass', 'What date would you like to come?');
     bookingSceneContainer__section.appendChild(bookingSceneContainer__ArrivalText);
 
+
+    //Adding label for date element
+    const bookingScene__DateInputLabel = this.createElement('label', null, 'datelabel', 'Date');
+    bookingScene__DateInputLabel.setAttribute('for', 'bookingSceneContainer__DateInput');
+    bookingSceneContainer__section.appendChild(bookingScene__DateInputLabel);
+    // Could not set type attribute in createElment function. Creating date-option. 
+    let bookingSceneContainer__DateInput = document.createElement('input');
+    bookingSceneContainer__DateInput.setAttribute('type', 'date');
+    bookingSceneContainer__DateInput.classList.add('dateInput');
+    bookingSceneContainer__section.appendChild(bookingSceneContainer__DateInput);
+
+    // Continue button, when this button is clicked, data is fetched from api, data-participants and available times.
     const bookingSceneContainer__ContinueBtn = this.createElement('button', 'bookingSceneContainer__ContinueBtnID', 'bookingSceneContainer__ContinueBtnClass', 'Search available times', null)
     bookingSceneContainer__section.appendChild(bookingSceneContainer__ContinueBtn);
 
-    //Adding label for date element
-    const bookingScene__DateInputLabel = this.createElement('label', null, null, 'Date');
-    bookingScene__DateInputLabel.setAttribute('for', 'bookingSceneContainer__DateInput');
-    bookingSceneContainer__section.appendChild(bookingScene__DateInputLabel);
-    // Could not set type attribute in createElment function. Creating date-option. When ContinueBtn is clicked data is fetcehd from API.
-    let bookingSceneContainer__DateInput = document.createElement('input');
-    bookingSceneContainer__DateInput.setAttribute('type', 'date');
-    bookingSceneContainer__section.appendChild(bookingSceneContainer__DateInput);
 
 
-
-
-
-    // Creating second page and fetchin api.data
-
+    // Creating second modal-section
     bookingSceneContainer__ContinueBtn.addEventListener('click', async () => {
+
+      // Fetching user date-input
       let selectedDate = bookingSceneContainer__DateInput.value;
-
-      if (!selectedDate) {
-        alert('Please choose a date');
-        return;
-      }
-
+      //Fetching available times and using user-input as template litral on YYYY-MM-DD on api-URL. 
       console.log(challenge);
       let fullUrl = `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${selectedDate}&challenge=${challenge.id}`
       const resultDates = await fetch(fullUrl);
       const timesAndDateResult = await resultDates.json();
       let availableTimes = timesAndDateResult.slots;
 
-
+      if (!selectedDate) {
+        alert('Please choose a date');
+        return;
+      }
 
       //Creating second modul
       bookingSceneContainer__section.style.display = 'none';
@@ -94,7 +97,7 @@ class BookingManager {
       bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomH1);
 
       // label connection to InputName
-      const bookingScene__SecondRoomLabelName = this.createElement('label', null, 'userNameClass', 'Name');
+      const bookingScene__SecondRoomLabelName = this.createElement('label', null, 'userNameLabelClass', 'Name');
       bookingScene__SecondRoomLabelName.setAttribute('for', 'bookingScene__SecondRoomInputNameID');
       bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomLabelName);
       //Input guest name needs to be saved somewhere
@@ -107,7 +110,7 @@ class BookingManager {
 
 
       // label connection to InputEmail, 
-      const bookingScene__SecondRoomLabelEmail = this.createElement('label', null, 'E-MailClass', 'E-mail');
+      const bookingScene__SecondRoomLabelEmail = this.createElement('label', null, 'E-MailClassLabel', 'E-mail');
       bookingScene__SecondRoomLabelEmail.setAttribute('for', 'bookingScene__SecondRoomInputEmailID');
       //Apending label
       bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomLabelEmail);
@@ -118,13 +121,13 @@ class BookingManager {
 
       //Creating select-element for timeselection,cant set attribute before creating selectElement. Something with the api fetch perhaps? Doable on the username/email elements.
       //Label Connection for Selecting time
-      const bookingScene__SecondRoomSelectTimeLabel = this.createElement('label', null, 'SelectTimeClass', 'What time?')
+      const bookingScene__SecondRoomSelectTimeLabel = this.createElement('label', null, 'SelectTimeClassLabel', 'What time?')
       bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomSelectTimeLabel);
-      bookingScene__SecondRoomSelectTimeLabel.setAttribute('for', 'bookingScene__SecondRoomSelectTimeID');
+      bookingScene__SecondRoomSelectTimeLabel.setAttribute('for', 'bookingScene__SecondRoomSelectTime');
 
-      const bookingScene__SecondRoomSelectTime = this.createElement('select', 'bookingScene__SecondRoomSelectTimeID', 'bookingScene__SecondRoomSelectTimeID', null, null);
+      const bookingScene__SecondRoomSelectTime = this.createElement('select', 'bookingScene__SecondRoomSelectTimeID', 'bookingScene__SecondRoomSelectTimeClass', null, null);
       bookingScene__SecondRoomSelectTime.setAttribute('name', 'availableTimes');
-      
+
       bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomSelectTime);
 
 
@@ -137,8 +140,8 @@ class BookingManager {
         bookingScene__SecondRoomSelectTime.appendChild(bookingScene__SecondRoomSelectTimeOption);
       })
 
-      //Creating select-element for participants selection,cant set attribute before creating selectElement. Something with the api fetch perhaps? Doable on the username/email elements.
-      const bookingScene__SecondRoomSelectParticipantsLabel = this.createElement('label', null, 'bookingScene__SecondRoomSelectParticipantslabelID', 'How many participants?', null)
+      //Creating select-element label for participants selection,cant set attribute before creating selectElement. Something with the api fetch perhaps? Doable on the username/email elements.
+      const bookingScene__SecondRoomSelectParticipantsLabel = this.createElement('label', 'bookingScene__SecondRoomSelectParticipantslabelID', 'bookingScene__SecondRoomSelectParticipantslabelClass', 'How many participants?', null)
       bookingSceneContainer__SecondSection.appendChild(bookingScene__SecondRoomSelectParticipantsLabel);
 
       // Creating select-Element for max/min participants
@@ -148,11 +151,10 @@ class BookingManager {
       bookingScene__SecondRoomSelectParticipantsLabel.setAttribute('for', 'bookingScene__SecondRoomSelectParticipantsID')
 
       // Creating Submit button
-      const bookingSceneContainer__SecondRoomSubmitBtn = this.createElement('button', 'bookingSceneContainer__SecondRoomSubmitBtnID', 'bookingSceneContainer__SecondRoomSubmitBtnClass', 'Submit', null)
+      const bookingSceneContainer__SecondRoomSubmitBtn = this.createElement('button', 'bookingSceneContainer__SecondRoomSubmitBtnID', 'bookingSceneContainer__SecondRoomSubmitBtnClass', 'Submit booking', null)
       bookingSceneContainer__SecondSection.appendChild(bookingSceneContainer__SecondRoomSubmitBtn);
 
       // creating array for min-max selection in select-element.
-      // FirstChallenge = first-challange from API. Need to link this to wichever challenge user is choosing.
       const minParticipants = challenge.minParticipants;
       const maxParticipants = challenge.maxParticipants;
 
@@ -166,7 +168,7 @@ class BookingManager {
       })
 
 
-
+      // Creating the last bookingScene and post data to api.
       bookingSceneContainer__SecondRoomSubmitBtn.addEventListener('click', async () => {
 
         const body = {
@@ -190,13 +192,13 @@ class BookingManager {
 
         const data = await res.json();
         console.log(data);
-        // Creating the last bookingScene
+
         bookingSceneContainer__SecondSection.style.display = "none";
-        const bookingSceneContainer__LastSection = this.createElement('div', 'bookingSceneContainer__LastSectionID', 'bookingSceneContainer__LastSectionClass', null, null);
+        const bookingSceneContainer__LastSection = this.createElement('section', 'bookingSceneContainer__LastSectionID', 'bookingSceneContainer__LastSectionClass', null, null);
         bookingSceneContainer.appendChild(bookingSceneContainer__LastSection);
         const bookingSceneContainer__LastSectionh2 = this.createElement('h2', 'bookingSceneContainer__LastSectionh2ID', 'bookingSceneContainer__LastSectionh2Class', 'Thank You!', null);
         bookingSceneContainer__LastSection.appendChild(bookingSceneContainer__LastSectionh2);
-        const bookingSceneContainer__LastSectionLink = this.createElement('a', 'bookingSceneContainer__LastSectionLinkID', 'bookingSceneContainer__LastSectionLinkClass', 'back to challenges', null)
+        const bookingSceneContainer__LastSectionLink = this.createElement('a', 'bookingSceneContainer__LastSectionLinkID', 'bookingSceneContainer__LastSectionLinkClass', 'Back to challenges', null)
         bookingSceneContainer__LastSection.appendChild(bookingSceneContainer__LastSectionLink);
         bookingSceneContainer__LastSectionLink.href = 'challenges.html';
 
@@ -211,14 +213,17 @@ class BookingManager {
   }
 }
 
-
+export const bookingManager = new BookingManager();
 // init() {
 // this.bookBtns.forEach((bookingBtn) => {
 // bookingBtn.addEventListener('click', () => this.createBookingPage());
 // });
 // Usage
 // bookingManager.init();
-export const bookingManager = new BookingManager();
 
-// Variables
+// HTML elements
+
+
+
+
 
