@@ -125,61 +125,76 @@ view.render(challengesContainer);
 
 class Filter {
   constructor(tagSelector) {
-    this.tagSelector = document.querySelectorAll(tagSelector);
-    this.filterActive = false;
+    this.tagSelector = document.querySelectorAll(tagSelector); // What tag to filter
+    this.activeTags = []; //Array to store active tags
   }
 
-  filterTags(tag) {
+  /*  Filter method to display the selected tags and hide the other tags.
+      This will also reset the filter and display all challenges when none is selected */
+  filterTags() {
     const cards = document.querySelectorAll('.challenges-container__challenge');
 
-    if (this.filterActive) {
+    if (this.activeTags.length === 0) {
       cards.forEach((card) => {
         card.style.display = '';
       });
-      this.filterActive = false;
     } else {
       cards.forEach((card) => {
-        if (card.classList.contains(tag)) {
+        if (this.activeTags.some((tag) => card.classList.contains(tag))) {
           card.style.display = '';
         } else {
           card.style.display = 'none';
         }
       });
-
-      this.filterActive = true;
     }
+  }
+
+  // Method to Toggle the chosen tag as active
+  toggleTag(tag) {
+    const index = this.activeTags.indexOf(tag);
+    if (index === -1) {
+      this.activeTags.push(tag);
+    } else {
+      this.activeTags.splice(index, 1);
+    }
+  }
+}
+
+// class for eventlistener and handlers for the tag buttons
+class FilterButton {
+  constructor(buttonId, filterInstance, tag) {
+    this.button = document.getElementById(buttonId);
+    this.filterInstance = filterInstance;
+    this.tag = tag;
+
+    this.button.addEventListener('click', this.handleButtonClick.bind(this));
+  }
+
+  handleButtonClick() {
+    this.filterInstance.toggleTag(this.tag);
+    this.filterInstance.filterTags();
   }
 }
 
 // Filter by tag starting point
 let viewTag = new Filter();
 
-// Filter tag buttons
-const linuxButton = document.getElementById('linuxTag');
-const webButton = document.getElementById('webTag');
-const javascriptButton = document.getElementById('javascriptTag');
-const phreakingButton = document.getElementById('phreakingTag');
-const bashButton = document.getElementById('bashTag');
-const sshButton = document.getElementById('sshTag');
-const codingButton = document.getElementById('codingTag');
-const hackingButton = document.getElementById('hackingTag');
-const ctfButton = document.getElementById('ctfTag');
-const electronicsButton = document.getElementById('electronicsTag');
-
-// Eventlistener's for tag buttons
-linuxButton.addEventListener('click', () => viewTag.filterTags('linux'));
-webButton.addEventListener('click', () => viewTag.filterTags('web'));
-javascriptButton.addEventListener('click', () =>
-  viewTag.filterTags('javascript')
+// Buttons to filter by tag
+const linuxButton = new FilterButton('linuxTag', viewTag, 'linux');
+const webButton = new FilterButton('webTag', viewTag, 'web');
+const javascriptButton = new FilterButton(
+  'javascriptTag',
+  viewTag,
+  'javascript'
 );
-phreakingButton.addEventListener('click', () =>
-  viewTag.filterTags('phreaking')
-);
-bashButton.addEventListener('click', () => viewTag.filterTags('bash'));
-sshButton.addEventListener('click', () => viewTag.filterTags('ssh'));
-codingButton.addEventListener('click', () => viewTag.filterTags('coding'));
-hackingButton.addEventListener('click', () => viewTag.filterTags('hacking'));
-ctfButton.addEventListener('click', () => viewTag.filterTags('ctf'));
-electronicsButton.addEventListener('click', () =>
-  viewTag.filterTags('electronics')
+const phreakingButton = new FilterButton('phreakingTag', viewTag, 'phreaking');
+const bashButton = new FilterButton('bashTag', viewTag, 'bash');
+const sshButton = new FilterButton('sshTag', viewTag, 'ssh');
+const codingButton = new FilterButton('codingTag', viewTag, 'coding');
+const hackingButton = new FilterButton('hackingTag', viewTag, 'hacking');
+const ctfButton = new FilterButton('ctfTag', viewTag, 'ctf');
+const electronicsButton = new FilterButton(
+  'electronicsTag',
+  viewTag,
+  'electronics'
 );
