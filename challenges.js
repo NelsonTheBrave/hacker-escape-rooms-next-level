@@ -1,3 +1,5 @@
+const isOnChallengeSite = document.querySelector('.challenges-site');
+
 class Challenge {
   constructor(data) {
     this.data = data;
@@ -126,19 +128,21 @@ class TopThreeView {
     }
   }
 }
-
-// Starting point
-const challengesContainer = document.querySelector(
-  '.challenges-container.challenges-site'
-);
-
-let view = new ChallengeListView();
-view.render(challengesContainer);
-
-const topThreeContainer = document.querySelector(
-  '.challenges-container.main-page'
-);
-new TopThreeView().render(topThreeContainer);
+class FilterByRating {
+  filter(challengesContainer) {
+    const challenges = challengesContainer.querySelectorAll(
+      '.challenges-container__challenge'
+    );
+    for (let i = 0; i < challenges.length; i++) {
+      let cardRating = challenges[i].querySelector('span').ariaValueNow;
+      if (lowerRating <= cardRating && upperRating >= cardRating) {
+        challenges[i].style.display = '';
+      } else {
+        challenges[i].style.display = 'none';
+      }
+    }
+  }
+}
 class ChallengeKeyFilter {
   constructor(challengesContainer) {
     this.input = document.getElementById('textFilter');
@@ -149,7 +153,6 @@ class ChallengeKeyFilter {
     this.noMatchingChallenges.textContent = 'No matching challenges';
     this.noMatchingChallenges.style.display = 'none';
     this.challengesContainer.appendChild(this.noMatchingChallenges);
-
     this.input.addEventListener('input', this.keyFilter.bind(this));
   }
   // get the input
@@ -158,9 +161,7 @@ class ChallengeKeyFilter {
     const challenges = this.challengesContainer.querySelectorAll(
       '.challenges-container__challenge'
     );
-
     let anyChallengeVisible = false;
-
     challenges.forEach((challenge) => {
       const title = challenge.querySelector(
         '.challenges-container__challenge__title'
@@ -168,24 +169,44 @@ class ChallengeKeyFilter {
       const infoText = challenge.querySelector(
         '.challenges-container__challenge__text'
       );
-
       if (title && infoText) {
         const titleText = title.textContent || title.innerHTML;
         const textContent = infoText.textContent || infoText.innerText;
-
         const isVisible =
           titleText.toUpperCase().includes(filter) ||
           textContent.toUpperCase().includes(filter);
         challenge.style.display = isVisible ? '' : 'none';
-
         if (isVisible) {
           anyChallengeVisible = true;
         }
       }
     });
-
     //Show or not show the "no matching challenges"
     this.noMatchingChallenges.style.display = anyChallengeVisible ? 'none' : '';
   }
 }
-const filter = new ChallengeKeyFilter(challengesContainer);
+
+// Starting point -------------------------------------------------------------------------
+
+if (isOnChallengeSite) {
+  const challengesContainer = document.querySelector(
+    '.challenges-container.challenges-site'
+  );
+  let view = new ChallengeListView();
+  view.render(challengesContainer);
+  const starsContainer = document.querySelector('.starsContainer');
+  if (starsContainer) {
+    starsContainer.addEventListener('click', filterByRating);
+  }
+  function filterByRating() {
+    new FilterByRating().filter(challengesContainer);
+  }
+  const filter = new ChallengeKeyFilter(challengesContainer);
+}
+
+if (!isOnChallengeSite) {
+  const topThreeContainer = document.querySelector(
+    '.challenges-container.main-page'
+  );
+new TopThreeView().render(topThreeContainer);
+}
