@@ -7,7 +7,9 @@ class Filter {
   /*  Filter method to display the selected tags and hide the other tags.
         This will also reset the filter and display all challenges when none is selected */
   filterTags() {
-    const cards = document.querySelectorAll('.challenges-container__challenge');
+    const cards = document.querySelectorAll(
+      '.challenges-container challenges-site'
+    );
 
     if (this.activeTags.length === 0) {
       cards.forEach((card) => {
