@@ -129,8 +129,12 @@ class TopThreeView {
 
 // Starting point
 const challengesContainer = document.querySelector(
+<<<<<<< HEAD
   '.challenges-container.challenges-site'
 );
+=======
+  '.challenges-container.challenges-site');
+>>>>>>> 4a4e293c765eab2746f3fc247a8f715290c4c80c
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
@@ -140,6 +144,7 @@ const topThreeContainer = document.querySelector(
 );
 
 new TopThreeView().render(topThreeContainer);
+<<<<<<< HEAD
 
 class ChallengeKeyFilter {
   constructor(challengesContainer) {
@@ -152,6 +157,19 @@ class ChallengeKeyFilter {
     this.noMatchingChallenges.style.display = 'none';
     this.challengesContainer.appendChild(this.noMatchingChallenges);
 
+=======
+class ChallengeKeyFilter {
+  constructor(challengesContainer) {
+    this.input = document.getElementById('textFilter');
+    this.challengesContainer = challengesContainer;
+    //create the no challenges message
+    this.noMatchingChallenges = document.createElement('h1');
+    this.noMatchingChallenges.classList.add('no-match-message');
+    this.noMatchingChallenges.textContent = 'No matching challenges';
+    this.noMatchingChallenges.style.display = 'none';
+    this.challengesContainer.appendChild(this.noMatchingChallenges);
+
+>>>>>>> 4a4e293c765eab2746f3fc247a8f715290c4c80c
     this.input.addEventListener('input', this.keyFilter.bind(this));
   }
   // get the input
