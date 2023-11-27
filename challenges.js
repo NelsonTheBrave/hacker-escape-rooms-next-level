@@ -113,7 +113,9 @@ class ChallengeListView {
   }
 }
 
-const challengesContainer = document.querySelector('.challenges-container.challenges-site');
+const challengesContainer = document.querySelector(
+  '.challenges-container challenges-site'
+);
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
@@ -162,4 +164,4 @@ function keyFilter() {
   }
 }
 
-document.getElementById('textFilter').addEventListener('input', keyFilter)
+document.getElementById('textFilter').addEventListener('input', keyFilter);
