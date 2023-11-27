@@ -111,10 +111,9 @@ class ChallengeListView {
 }
 
 class FilterByRating {
-  filter() {
-    let challenges = document.querySelectorAll(
-      '.challenges-container.challenges-page>div'
-    );
+  filter(challengesContainer) {
+    const challenges = challengesContainer.querySelectorAll('.challenges-container__challenge');
+    console.log(challenges);
     for (let i = 0; i < challenges.length; i++) {
       let cardRating = challenges[i].querySelector('span').ariaValueNow;
       if (lowerRating <= cardRating && upperRating >= cardRating) {
@@ -127,16 +126,17 @@ class FilterByRating {
 }
 
 // Starting point -----------------------------------------------------------------------
-const challengesContainer = document.querySelector('.challenges-container');
+const challengesContainer = document.querySelector('.challenges-container.challenges-page');
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
 
 // Listening to filter (rating)
+
 document
   .querySelector('.starsContainer')
   .addEventListener('click', filterByRating);
 
 function filterByRating() {
-  new FilterByRating().filter();
+  new FilterByRating().filter(challengesContainer);
 }
