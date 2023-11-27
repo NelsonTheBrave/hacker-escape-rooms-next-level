@@ -21,7 +21,7 @@ class Challenge {
     challengeCard.append(wrapperDiv);
 
     const title = document.createElement('h3');
-    title.classList.add('.challenges-container__challenge__title');
+    title.classList.add('challenges-container__challenge__title');
     title.textContent = this.data.title;
     wrapperDiv.append(title);
 
@@ -40,28 +40,26 @@ class Challenge {
     rating.role = 'meter';
     rating.ariaValueMin = '0';
     rating.ariaValueMax = '5';
-    rating.ariaValueNow = Math.ceil(this.data.rating);
+    rating.ariaValueNow = this.data.rating;
     ratingContainer.append(rating);
 
-    const star1 = document.createElement('i');
-    star1.ariaHidden = true;
-    rating.append(star1);
+    function addStar(starRating, starNumber) {
+      const newStar = document.createElement('i');
+      newStar.classList.add('fa');
+      if (starRating < starNumber - 0.5) {
+        newStar.classList.add('fa-star-o');
+      } else if (starRating === starNumber - 0.5) {
+        newStar.classList.add('fa-star-half-o');
+      } else {
+        newStar.classList.add('fa-star');
+      }
+      newStar.ariaHidden = true;
+      rating.append(newStar);
+    }
 
-    const star2 = document.createElement('i');
-    star2.ariaHidden = true;
-    rating.append(star2);
-
-    const star3 = document.createElement('i');
-    star3.ariaHidden = true;
-    rating.append(star3);
-
-    const star4 = document.createElement('i');
-    star4.ariaHidden = true;
-    rating.append(star4);
-
-    const star5 = document.createElement('i');
-    star5.ariaHidden = true;
-    rating.append(star5);
+    for (let i = 1; i < 6; i++) {
+      addStar(this.data.rating, i);
+    }
 
     const participants = document.createElement('span');
     participants.classList.add(
@@ -115,93 +113,53 @@ class ChallengeListView {
   }
 }
 
-// Starting point render challenges för challenge page
-const challengesContainer = document.querySelector('.challenges-container');
+const challengesContainer = document.querySelector('.challenges-container.challenges-site');
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
 
-// Filter by tags
+const topThreeContainer = document.querySelector(
+  '.challenges-container.main-page'
+);
+new TopThreeView().render(topThreeContainer);
+//function keyword filter
 
-class Filter {
-  constructor(tagSelector) {
-    this.tagSelector = document.querySelectorAll(tagSelector); // What tag to filter
-    this.activeTags = []; //Array to store active tags
+function keyFilter() {
+  // Declare variables
+  var input, filter, challenges, title, infoText, i;
+  input = document.getElementById('textFilter');
+  if (!input) {
+    console.error('Input element not found.!');
+    return;
   }
+  filter = input.value.toUpperCase();
+  challenges = document.querySelectorAll('.challenges-container__challenge');
 
-  /*  Filter method to display the selected tags and hide the other tags.
-      This will also reset the filter and display all challenges when none is selected */
-  filterTags() {
-    const cards = document.querySelectorAll('.challenges-container__challenge');
+  // loop through challenges
+  for (i = 0; i < challenges.length; i++) {
+    /* console.log('Challenge:', challenges[i]); */
+    title = challenges[i].querySelector(
+      '.challenges-container__challenge__title'
+    );
+    /* console.log(title); */
+    infoText = challenges[i].querySelector(
+      '.challenges-container__challenge__text'
+    );
+    /* console.log(infoText); */
+    if (title && infoText) {
+      const titleText = title.textContent || title.innerHTML;
+      const textContent = infoText.textContent || infoText.innerText;
 
-    if (this.activeTags.length === 0) {
-      cards.forEach((card) => {
-        card.style.display = '';
-      });
-    } else {
-      cards.forEach((card) => {
-        if (this.activeTags.some((tag) => card.classList.contains(tag))) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  }
-
-  // Method to Toggle the chosen tag as active
-  toggleTag(tag) {
-    const index = this.activeTags.indexOf(tag);
-    if (index === -1) {
-      this.activeTags.push(tag);
-    } else {
-      this.activeTags.splice(index, 1);
+      if (
+        titleText.toUpperCase().indexOf(filter) > -1 ||
+        textContent.toUpperCase().indexOf(filter) > -1
+      ) {
+        challenges[i].style.display = '';
+      } else {
+        challenges[i].style.display = 'none';
+      }
     }
   }
 }
 
-// class for eventlistener and handlers for the tag buttons
-class FilterButton {
-  constructor(buttonId, filterInstance, tag) {
-    this.button = document.getElementById(buttonId);
-    this.filterInstance = filterInstance;
-    this.tag = tag;
-
-    this.button.addEventListener('click', this.handleButtonClick.bind(this));
-  }
-
-  handleButtonClick() {
-    this.filterInstance.toggleTag(this.tag);
-    this.filterInstance.filterTags();
-
-    //Add class -active to the active tag button
-    if (this.filterInstance.activeTags.includes(this.tag)) {
-      this.button.classList.add('-active');
-    } else {
-      this.button.classList.remove('-active');
-    }
-  }
-}
-
-// Filter by tag starting point
-let viewTag = new Filter();
-
-// Buttons to filter by tag
-const linuxButton = new FilterButton('linuxTag', viewTag, 'linux');
-const webButton = new FilterButton('webTag', viewTag, 'web');
-const javascriptButton = new FilterButton(
-  'javascriptTag',
-  viewTag,
-  'javascript'
-);
-const phreakingButton = new FilterButton('phreakingTag', viewTag, 'phreaking');
-const bashButton = new FilterButton('bashTag', viewTag, 'bash');
-const sshButton = new FilterButton('sshTag', viewTag, 'ssh');
-const codingButton = new FilterButton('codingTag', viewTag, 'coding');
-const hackingButton = new FilterButton('hackingTag', viewTag, 'hacking');
-const ctfButton = new FilterButton('ctfTag', viewTag, 'ctf');
-const electronicsButton = new FilterButton(
-  'electronicsTag',
-  viewTag,
-  'electronics'
-);
+document.getElementById('textFilter').addEventListener('input', keyFilter)
