@@ -1,4 +1,4 @@
-// Variables
+const isOnMainPage = document.querySelector('.main-page');
 
 // HTML elements
 const stars = document.querySelectorAll('.stars i');
@@ -36,6 +36,7 @@ function closePopup(event) {
 }
 
 // Filter button and close filter
+if (!isOnMainPage) {
 filterButton.addEventListener('click', () => {
   filterDiv.style.display = 'block';
   filterButton.style.display = 'none';
@@ -43,7 +44,7 @@ filterButton.addEventListener('click', () => {
 closeMenu.addEventListener('click', () => {
   filterDiv.style.display = 'none';
   filterButton.style.display = 'block';
-});
+});}
 
 
 

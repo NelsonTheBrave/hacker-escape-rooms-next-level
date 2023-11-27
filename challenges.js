@@ -1,3 +1,4 @@
+const isOnChallengeSite = document.querySelector('.challenges-site');
 
 class Challenge {
   constructor(data) {
@@ -86,7 +87,6 @@ class Challenge {
     return challengeCard;
   }
 }
-
 
 class APIAdapter {
   async getChallenges() {
@@ -187,23 +187,26 @@ class ChallengeKeyFilter {
 }
 
 // Starting point -------------------------------------------------------------------------
-const challengesContainer = document.querySelector(
-  '.challenges-container.challenges-site'
-);
-let view = new ChallengeListView();
-view.render(challengesContainer);
 
-
-const starsContainer = document.querySelector('.starsContainer')
-if (starsContainer) {starsContainer.addEventListener('click', filterByRating)}
-
-
-function filterByRating() {
-new FilterByRating().filter(challengesContainer);
+if (isOnChallengeSite) {
+  const challengesContainer = document.querySelector(
+    '.challenges-container.challenges-site'
+  );
+  let view = new ChallengeListView();
+  view.render(challengesContainer);
+  const starsContainer = document.querySelector('.starsContainer');
+  if (starsContainer) {
+    starsContainer.addEventListener('click', filterByRating);
+  }
+  function filterByRating() {
+    new FilterByRating().filter(challengesContainer);
+  }
+  const filter = new ChallengeKeyFilter(challengesContainer);
 }
-const topThreeContainer = document.querySelector(
-  '.challenges-container.main-page'
-);
-new TopThreeView().render(topThreeContainer);
 
-const filter = new ChallengeKeyFilter(challengesContainer);
+if (!isOnChallengeSite) {
+  const topThreeContainer = document.querySelector(
+    '.challenges-container.main-page'
+  );
+new TopThreeView().render(topThreeContainer);
+}
