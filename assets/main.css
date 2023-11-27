@@ -994,6 +994,13 @@ header .navBar {
   padding: 0 1em;
   border-radius: 30px;
   font-size: 0.8em;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+.filterDiv .tagsContainer .tagButton:hover {
+  background-color: #8ACFE5;
+}
+.filterDiv .tagsContainer .-active {
+  background-color: #8ACFE5;
 }
 
 .challenges-container.challenges-site {

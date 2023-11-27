@@ -173,6 +173,13 @@ class FilterButton {
   handleButtonClick() {
     this.filterInstance.toggleTag(this.tag);
     this.filterInstance.filterTags();
+
+    //Add class -active to the active tag button
+    if (this.filterInstance.activeTags.includes(this.tag)) {
+      this.button.classList.add('-active');
+    } else {
+      this.button.classList.remove('-active');
+    }
   }
 }
 
