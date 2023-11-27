@@ -15,7 +15,7 @@ class Filter {
       });
     } else {
       cards.forEach((card) => {
-        if (this.activeTags.some((tag) => card.classList.contains(tag))) {
+        if (this.activeTags.every((tag) => card.classList.contains(tag))) {
           card.style.display = '';
         } else {
           card.style.display = 'none';
@@ -80,3 +80,8 @@ const electronicsButton = new FilterButton(
   viewTag,
   'electronics'
 );
+
+// Filter by type
+
+const onlineCheckbox = new FilterButton('includeOnline', viewTag, 'online');
+const onsiteCheckbox = new FilterButton('includeOnsite', viewTag, 'onsite');

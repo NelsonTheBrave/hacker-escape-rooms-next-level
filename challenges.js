@@ -9,6 +9,7 @@ class Challenge {
     const challengeCard = document.createElement('div');
     challengeCard.id = this.data.id;
     challengeCard.classList.add('challenges-container__challenge');
+    challengeCard.classList.add(this.data.type);
     for (let i = 0; i < this.data.labels.length; i++) {
       challengeCard.classList.add(this.data.labels[i]);
     }
@@ -208,5 +209,5 @@ if (!isOnChallengeSite) {
   const topThreeContainer = document.querySelector(
     '.challenges-container.main-page'
   );
-new TopThreeView().render(topThreeContainer);
+  new TopThreeView().render(topThreeContainer);
 }
