@@ -113,9 +113,23 @@ class ChallengeListView {
   }
 }
 
+class TopThreeView {
+  async render(container) {
+    const challenges = await new APIAdapter().getChallenges();
+    const challengesSortedByRating = challenges.sort(
+      (a, b) => b.data.rating - a.data.rating
+    );
+    for (let i = 0; i < 3; i++) {
+      const challenge = challengesSortedByRating[i];
+      const element = challenge.render();
+      container.append(element);
+    }
+  }
+}
+
+// Starting point
 const challengesContainer = document.querySelector(
-  '.challenges-container challenges-site'
-);
+  '.challenges-container.challenges-site');
 
 let view = new ChallengeListView();
 view.render(challengesContainer);
@@ -124,44 +138,53 @@ const topThreeContainer = document.querySelector(
   '.challenges-container.main-page'
 );
 new TopThreeView().render(topThreeContainer);
-//function keyword filter
+class ChallengeKeyFilter {
+  constructor(challengesContainer) {
+    this.input = document.getElementById('textFilter');
+    this.challengesContainer = challengesContainer;
+    //create the no challenges message
+    this.noMatchingChallenges = document.createElement('h1');
+    this.noMatchingChallenges.classList.add('no-match-message');
+    this.noMatchingChallenges.textContent = 'No matching challenges';
+    this.noMatchingChallenges.style.display = 'none';
+    this.challengesContainer.appendChild(this.noMatchingChallenges);
 
-function keyFilter() {
-  // Declare variables
-  var input, filter, challenges, title, infoText, i;
-  input = document.getElementById('textFilter');
-  if (!input) {
-    console.error('Input element not found.!');
-    return;
+    this.input.addEventListener('input', this.keyFilter.bind(this));
   }
-  filter = input.value.toUpperCase();
-  challenges = document.querySelectorAll('.challenges-container__challenge');
-
-  // loop through challenges
-  for (i = 0; i < challenges.length; i++) {
-    /* console.log('Challenge:', challenges[i]); */
-    title = challenges[i].querySelector(
-      '.challenges-container__challenge__title'
+  // get the input
+  keyFilter() {
+    const filter = this.input.value.toUpperCase();
+    const challenges = this.challengesContainer.querySelectorAll(
+      '.challenges-container__challenge'
     );
-    /* console.log(title); */
-    infoText = challenges[i].querySelector(
-      '.challenges-container__challenge__text'
-    );
-    /* console.log(infoText); */
-    if (title && infoText) {
-      const titleText = title.textContent || title.innerHTML;
-      const textContent = infoText.textContent || infoText.innerText;
 
-      if (
-        titleText.toUpperCase().indexOf(filter) > -1 ||
-        textContent.toUpperCase().indexOf(filter) > -1
-      ) {
-        challenges[i].style.display = '';
-      } else {
-        challenges[i].style.display = 'none';
+    let anyChallengeVisible = false;
+
+    challenges.forEach((challenge) => {
+      const title = challenge.querySelector(
+        '.challenges-container__challenge__title'
+      );
+      const infoText = challenge.querySelector(
+        '.challenges-container__challenge__text'
+      );
+
+      if (title && infoText) {
+        const titleText = title.textContent || title.innerHTML;
+        const textContent = infoText.textContent || infoText.innerText;
+
+        const isVisible =
+          titleText.toUpperCase().includes(filter) ||
+          textContent.toUpperCase().includes(filter);
+        challenge.style.display = isVisible ? '' : 'none';
+
+        if (isVisible) {
+          anyChallengeVisible = true;
+        }
       }
-    }
+    });
+
+    //Show or not show the "no matching challenges"
+    this.noMatchingChallenges.style.display = anyChallengeVisible ? 'none' : '';
   }
 }
-
-document.getElementById('textFilter').addEventListener('input', keyFilter);
+const filter = new ChallengeKeyFilter(challengesContainer);
