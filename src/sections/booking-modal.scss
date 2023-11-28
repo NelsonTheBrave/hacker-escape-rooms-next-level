@@ -53,8 +53,11 @@
     .bookingSceneContainer__ContinueBtnClass {
     height: 60px;
     background-color: white;
-    margin: 480px 0px 0px 1400px;
+    margin: 0px;
     border-radius: 5px;
+    flex-direction: row;
+    align-self: flex-end;
+    margin: 280px 0px 0px 0px;
     }
     
     }
