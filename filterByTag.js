@@ -15,7 +15,7 @@ class Filter {
       });
     } else {
       cards.forEach((card) => {
-        if (this.activeTags.some((tag) => card.classList.contains(tag))) {
+        if (this.activeTags.every((tag) => card.classList.contains(tag))) {
           card.style.display = '';
         } else {
           card.style.display = 'none';
