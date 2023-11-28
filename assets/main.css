@@ -906,13 +906,6 @@ header .navBar {
   padding: 0 1em;
   border-radius: 30px;
   font-size: 0.8em;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
-}
-.filterDiv .tagsContainer .tagButton:hover {
-  background-color: #8ACFE5;
-}
-.filterDiv .tagsContainer .-active {
-  background-color: #8ACFE5;
 }
 
 .challenges-container.challenges-site {
@@ -932,26 +925,140 @@ header .navBar {
   }
 }
 
-.no-match-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #011827;
-  font-size: 50px;
-  margin: 50px 0px;
-  font-weight: 700;
+.bookingSceneContainer__class {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px 0px 0px 50px;
+  color: white;
 }
 
-@keyframes challengeCard {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.bookingSceneContainer__SectionClass {
+  position: sticky;
+  z-index: 1;
+  width: 95%;
+  min-height: 700px;
+  background-color: #011827;
+  display: flex;
+  flex-flow: column;
+  padding: 20px;
+  border-radius: 10px;
 }
-.challenges-container__challenge {
-  animation: challengeCard 0.5s;
+.bookingSceneContainer__SectionClass .bookingSceneContainer__h1Class {
+  font-size: 60px;
+}
+.bookingSceneContainer__SectionClass .bookingSceneContainer__ArrivalTextClass {
+  font-size: 50px;
+  margin-top: 50px;
+}
+.bookingSceneContainer__SectionClass .datelabel {
+  font-size: 25px;
+  margin-top: 50px;
+}
+.bookingSceneContainer__SectionClass .dateInput {
+  width: 290px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.bookingSceneContainer__SectionClass .bookingSceneContainer__ContinueBtnClass {
+  height: 60px;
+  background-color: white;
+  margin: 480px 0px 0px 1400px;
+  border-radius: 5px;
+}
+
+.bookingSceneContainer__SecondSectionClass {
+  position: sticky;
+  z-index: 1;
+  width: 95%;
+  height: 95%;
+  background-color: #011827;
+  display: flex;
+  flex-flow: column;
+  padding: 20px;
+  border-radius: 5px;
+}
+.bookingSceneContainer__SecondSectionClass .bookingScene__SecondRoomH1Class {
+  font-size: 60px;
+}
+.bookingSceneContainer__SecondSectionClass .userNameLabelClass {
+  font-size: 25px;
+}
+.bookingSceneContainer__SecondSectionClass .bookingScene__SecondRoomInputNameClass {
+  width: 290px;
+  width: 290px;
+  height: 50px;
+  font-size: 25px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.bookingSceneContainer__SecondSectionClass .E-MailClassLabel {
+  font-size: 25px;
+}
+.bookingSceneContainer__SecondSectionClass .bookingScene__SecondRoomInputEmailClass {
+  width: 290px;
+  height: 50px;
+  font-size: 25px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.bookingSceneContainer__SecondSectionClass .SelectTimeClassLabel {
+  font-size: 25px;
+}
+.bookingSceneContainer__SecondSectionClass .bookingScene__SecondRoomSelectTimeClass {
+  width: 290px;
+  height: 50px;
+  font-size: 25px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.bookingSceneContainer__SecondSectionClass .bookingScene__SecondRoomSelectParticipantslabelClass {
+  font-size: 25px;
+}
+.bookingSceneContainer__SecondSectionClass .bookingScene__SecondRoomSelectParticipantsClass {
+  width: 290px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.bookingSceneContainer__SecondSectionClass .bookingSceneContainer__SecondRoomSubmitBtnClass {
+  background-color: white;
+  margin: 400px 0px 0px 1400px;
+  height: 100px;
+  font-size: 25px;
+  border-radius: 5px;
+}
+
+.bookingSceneContainer__LastSectionClass {
+  position: sticky;
+  z-index: 1;
+  width: 95%;
+  height: 95%;
+  background-color: #011827;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+.bookingSceneContainer__LastSectionClass .bookingSceneContainer__LastSectionh2Class {
+  font-size: 60px;
+}
+.bookingSceneContainer__LastSectionClass .bookingSceneContainer__LastSectionLinkClass {
+  font-size: 25px;
+  color: rgb(93, 61, 209);
+  border-bottom: rgb(61, 48, 110) solid 2px;
 }
 
 /*# sourceMappingURL=main.css.map */
