@@ -146,11 +146,15 @@
     }
     
     .bookingSceneContainer__SecondRoomSubmitBtnClass {
-        background-color: white;
-        margin: 400px 0px 0px 1400px;
-        height: 100px;
-        font-size: 25px;
-        border-radius: 5px;
+        
+            height: 60px;
+            background-color: white;
+            margin: 0px;
+            border-radius: 5px;
+            flex-direction: row;
+            align-self: flex-end;
+            margin: 300px 0px 0px 0px;
+            
     
     }
     }

@@ -1063,11 +1063,13 @@ header .navBar {
   padding: 10px;
 }
 .bookingSceneContainer__SecondSectionClass .bookingSceneContainer__SecondRoomSubmitBtnClass {
+  height: 60px;
   background-color: white;
-  margin: 400px 0px 0px 1400px;
-  height: 100px;
-  font-size: 25px;
+  margin: 0px;
   border-radius: 5px;
+  flex-direction: row;
+  align-self: flex-end;
+  margin: 300px 0px 0px 0px;
 }
 
 .bookingSceneContainer__LastSectionClass {
