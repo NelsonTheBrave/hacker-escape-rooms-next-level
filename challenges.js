@@ -1,6 +1,7 @@
+import { bookingManager } from "./main.js";
 const isOnChallengeSite = document.querySelector('.challenges-site');
 
-class Challenge {
+export class Challenge {
   constructor(data) {
     this.data = data;
   }
@@ -83,7 +84,14 @@ class Challenge {
     challengeButton.classList.add('challenges-container__challenge__button');
     challengeButton.textContent =
       this.data.type === 'online' ? 'Take challenge online' : 'Book this room';
-    wrapperDiv.append(challengeButton);
+      challengeCard.append(challengeButton);
+      
+      challengeButton.addEventListener('click', () => {
+      bookingManager.createBookingPage(this.data);
+
+      })
+    
+
 
     return challengeCard;
   }
@@ -129,6 +137,7 @@ class TopThreeView {
     }
   }
 }
+
 class FilterByRating {
   filter(challengesContainer) {
     const challenges = challengesContainer.querySelectorAll(
@@ -186,6 +195,7 @@ class ChallengeKeyFilter {
     this.noMatchingChallenges.style.display = anyChallengeVisible ? 'none' : '';
   }
 }
+
 
 // Starting point -------------------------------------------------------------------------
 
