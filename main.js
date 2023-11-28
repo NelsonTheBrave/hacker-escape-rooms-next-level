@@ -52,7 +52,7 @@ class BookingManager {
     // Arrival Paragraph
     const bookingSceneContainer__ArrivalText = this.createElement('p', null, 'bookingSceneContainer__ArrivalTextClass', 'What date would you like to come?');
     bookingSceneContainer__section.appendChild(bookingSceneContainer__ArrivalText);
-
+  console.log(challenge);
 
     //Adding label for date element
     const bookingScene__DateInputLabel = this.createElement('label', null, 'datelabel', 'Date');
@@ -76,7 +76,6 @@ class BookingManager {
       // Fetching user date-input
       let selectedDate = bookingSceneContainer__DateInput.value;
       //Fetching available times and using user-input as template litral on YYYY-MM-DD on api-URL. 
-      console.log(challenge);
       let fullUrl = `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${selectedDate}&challenge=${challenge.id}`
       const resultDates = await fetch(fullUrl);
       const timesAndDateResult = await resultDates.json();
@@ -154,16 +153,24 @@ class BookingManager {
       const bookingSceneContainer__SecondRoomSubmitBtn = this.createElement('button', 'bookingSceneContainer__SecondRoomSubmitBtnID', 'bookingSceneContainer__SecondRoomSubmitBtnClass', 'Submit booking', null)
       bookingSceneContainer__SecondSection.appendChild(bookingSceneContainer__SecondRoomSubmitBtn);
 
-      // creating array for min-max selection in select-element.
+      // Saving min/max-participants from challenge-class
       const minParticipants = challenge.minParticipants;
       const maxParticipants = challenge.maxParticipants;
 
-      const challengeMinMaxPart = Array.from({ length: maxParticipants - minParticipants + 1 }, (_, index) => minParticipants + index);
+      //Create array from objects min/max participants and using loop to push it to array.
+      const challengeMinMaxPart = [];
 
+      for (let i = minParticipants; i <= maxParticipants; i++) {
+        challengeMinMaxPart.push(i);
+      }
+      //Create option element for each participant inside array.
       challengeMinMaxPart.forEach(participants => {
+
         const bookingSceneContainer__SecondRoomParticipantsOption = document.createElement('option');
+        const participantsText = `${participants} Participants `;
         bookingSceneContainer__SecondRoomParticipantsOption.value = participants;
-        bookingSceneContainer__SecondRoomParticipantsOption.text = participants;
+        bookingSceneContainer__SecondRoomParticipantsOption.text = participantsText;
+
         bookingScene__SecondRoomSelectParticipants.appendChild(bookingSceneContainer__SecondRoomParticipantsOption);
       })
 

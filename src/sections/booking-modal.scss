@@ -10,17 +10,19 @@ height: 100%;
 background-color: rgba(255, 255, 255, 0.5);
 padding: 20px 0px 0px 50px;
 color: white;
+
 }
 // First Modal page
 .bookingSceneContainer__SectionClass { 
     position: sticky;
     z-index: 1;
     width: 95%;
-    height: 95%;
+    min-height: 700px;
     background-color: #011827;
     display: flex;
     flex-flow: column;
     padding: 20px;
+    border-radius: 10px;
 .bookingSceneContainer__h1Class {
 font-size: 60px ;
 }
@@ -42,12 +44,17 @@ margin-top: 50px;
     width: 290px;
     height: 50px;
     font-size: 25px;
+    border-radius: 5px;
+    padding: 10px;
 }
+
+
 
 .bookingSceneContainer__ContinueBtnClass {
 height: 60px;
 background-color: white;
 margin: 480px 0px 0px 1400px;
+border-radius: 5px;
 }
 
 }
@@ -62,6 +69,7 @@ margin: 480px 0px 0px 1400px;
     display: flex;
     flex-flow: column;
     padding: 20px;
+    border-radius: 5px ;
 
 
 .bookingScene__SecondRoomH1Class {
@@ -82,6 +90,8 @@ margin: 480px 0px 0px 1400px;
     height: 50px;
     font-size: 25px;
     margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px;
 
 }
 
@@ -95,6 +105,8 @@ margin: 480px 0px 0px 1400px;
     height: 50px;
     font-size: 25px;
     margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px;
 
 }
 
@@ -109,6 +121,8 @@ margin: 480px 0px 0px 1400px;
     height: 50px;
     font-size: 25px;
     margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px;
 
 
 }
@@ -122,14 +136,18 @@ margin: 480px 0px 0px 1400px;
     width: 290px;
     height: 50px;
     font-size: 25px;
+    border-radius: 5px;
+    padding: 10px;
+
 
 }
 
 .bookingSceneContainer__SecondRoomSubmitBtnClass {
     background-color: white;
     margin: 400px 0px 0px 1400px;
+    height: 100px;
     font-size: 25px;
-    
+    border-radius: 5px;
 
 }
 }
@@ -147,6 +165,8 @@ margin: 480px 0px 0px 1400px;
     align-items: center;
     justify-content: center;
     gap: 50px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 5px ;
 
 .bookingSceneContainer__LastSectionh2Class {
     font-size: 60px ;

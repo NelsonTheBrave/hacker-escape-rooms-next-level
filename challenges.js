@@ -81,13 +81,13 @@ export class Challenge {
     challengeButton.classList.add('challenges-container__challenge__button');
     challengeButton.textContent =
       this.data.type === 'online' ? 'Take challenge online' : 'Book this room';
-
+      challengeCard.append(challengeButton);
       
       challengeButton.addEventListener('click', () => {
       bookingManager.createBookingPage(this.data);
 
       })
-    challengeCard.append(challengeButton);
+    
 
 
     return challengeCard;

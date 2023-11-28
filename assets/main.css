@@ -940,11 +940,12 @@ header .navBar {
   position: sticky;
   z-index: 1;
   width: 95%;
-  height: 95%;
+  min-height: 700px;
   background-color: #011827;
   display: flex;
   flex-flow: column;
   padding: 20px;
+  border-radius: 10px;
 }
 .bookingSceneContainer__SectionClass .bookingSceneContainer__h1Class {
   font-size: 60px;
@@ -961,11 +962,14 @@ header .navBar {
   width: 290px;
   height: 50px;
   font-size: 25px;
+  border-radius: 5px;
+  padding: 10px;
 }
 .bookingSceneContainer__SectionClass .bookingSceneContainer__ContinueBtnClass {
   height: 60px;
   background-color: white;
   margin: 480px 0px 0px 1400px;
+  border-radius: 5px;
 }
 
 .bookingSceneContainer__SecondSectionClass {
@@ -977,6 +981,7 @@ header .navBar {
   display: flex;
   flex-flow: column;
   padding: 20px;
+  border-radius: 5px;
 }
 .bookingSceneContainer__SecondSectionClass .bookingScene__SecondRoomH1Class {
   font-size: 60px;
@@ -990,6 +995,8 @@ header .navBar {
   height: 50px;
   font-size: 25px;
   margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
 }
 .bookingSceneContainer__SecondSectionClass .E-MailClassLabel {
   font-size: 25px;
@@ -999,6 +1006,8 @@ header .navBar {
   height: 50px;
   font-size: 25px;
   margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
 }
 .bookingSceneContainer__SecondSectionClass .SelectTimeClassLabel {
   font-size: 25px;
@@ -1008,6 +1017,8 @@ header .navBar {
   height: 50px;
   font-size: 25px;
   margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
 }
 .bookingSceneContainer__SecondSectionClass .bookingScene__SecondRoomSelectParticipantslabelClass {
   font-size: 25px;
@@ -1016,11 +1027,15 @@ header .navBar {
   width: 290px;
   height: 50px;
   font-size: 25px;
+  border-radius: 5px;
+  padding: 10px;
 }
 .bookingSceneContainer__SecondSectionClass .bookingSceneContainer__SecondRoomSubmitBtnClass {
   background-color: white;
   margin: 400px 0px 0px 1400px;
+  height: 100px;
   font-size: 25px;
+  border-radius: 5px;
 }
 
 .bookingSceneContainer__LastSectionClass {
@@ -1034,6 +1049,8 @@ header .navBar {
   align-items: center;
   justify-content: center;
   gap: 50px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 }
 .bookingSceneContainer__LastSectionClass .bookingSceneContainer__LastSectionh2Class {
   font-size: 60px;
