@@ -1,5 +1,6 @@
 import { Challenge } from "./challenges.js";
 
+const isOnMainPage = document.querySelector('.main-page');
 
 
 
@@ -213,6 +214,85 @@ class BookingManager {
       })
 
 
+// Filter button and close filter
+if (!isOnMainPage) {
+filterButton.addEventListener('click', () => {
+  filterDiv.style.display = 'block';
+  filterButton.style.display = 'none';
+});
+closeMenu.addEventListener('click', () => {
+  filterDiv.style.display = 'none';
+  filterButton.style.display = 'block';
+});}
+
+
+
+// Rating Filter visual appearance
+let lowerRating = 0;
+let upperRating = 5;
+
+stars.forEach((star, index1) => {
+  let clickedStar = index1 + 1;
+  star.addEventListener('click', () => {
+    if (clickedStar > upperRating) {
+      return;
+    }
+    if (clickedStar == lowerRating) {
+      stars.forEach((star) => {
+        star.classList.remove('active');
+      });
+      lowerRating = 0;
+      return;
+    }
+    stars.forEach((star, index2) => {
+      if (index1 > index2) {
+        star.classList.add('active');
+      } else if (index1 == index2) {
+        star.classList.add('active');
+        lowerRating = index1 + 1;
+      } else {
+        star.classList.remove('active');
+      }
+    });
+  });
+});
+
+/* Tested code for making mouse-over effect on stars but skipped it or now
+stars.forEach((star, index1) => {
+  star.addEventListener('mouseover', () => {
+    stars.forEach((star, index2) => {
+      if (index1 >= index2) {
+        star.style.color = 'green';
+      } else {
+        star.style.color = 'black';
+      }
+    });
+  });
+});
+ */
+
+stars2.forEach((star, index1) => {
+  let clickedStar = index1 + 1;
+  star.addEventListener('click', () => {
+    if (clickedStar < lowerRating) {
+      return;
+    }
+    if (clickedStar == upperRating && lowerRating == 0) {
+      stars2.forEach((star) => {
+        star.classList.remove('active');
+      });
+      upperRating = 0;
+      return;
+    }
+    stars2.forEach((star, index2) => {
+      if (index1 > index2) {
+        star.classList.add('active');
+      } else if (index1 == index2) {
+        star.classList.add('active');
+        upperRating = index1 + 1;
+      } else {
+        star.classList.remove('active');
+      }
     });
 
 

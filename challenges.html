@@ -95,11 +95,11 @@
               </div>
               <p>to</p>
               <div class="stars2">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star active"></i>
+                <i class="fa-solid fa-star active"></i>
+                <i class="fa-solid fa-star active"></i>
+                <i class="fa-solid fa-star active"></i>
+                <i class="fa-solid fa-star active"></i>
               </div>
             </div>
             <div class="keywordFilter">
@@ -115,23 +115,26 @@
           <div class="tagsContainer">
             <h2>By tags</h2>
             <div class="tagButtonContainer">
-              <button class="tagButton">linux</button>
-              <button class="tagButton">web</button>
-              <button class="tagButton">javascript</button>
-              <button class="tagButton">phreaking</button>
-              <button class="tagButton">bash</button>
-              <button class="tagButton">ssh</button>
-              <button class="tagButton">coding</button>
-              <button class="tagButton">hacking</button>
-              <button class="tagButton">ctf</button>
-              <button class="tagButton">electronics</button>
+              <button id="linuxTag" class="tagButton">linux</button>
+              <button id="webTag" class="tagButton">web</button>
+              <button id="javascriptTag" class="tagButton">javascript</button>
+              <button id="phreakingTag" class="tagButton">phreaking</button>
+              <button id="bashTag" class="tagButton">bash</button>
+              <button id="sshTag" class="tagButton">ssh</button>
+              <button id="codingTag" class="tagButton">coding</button>
+              <button id="hackingTag" class="tagButton">hacking</button>
+              <button id="ctfTag" class="tagButton">ctf</button>
+              <button id="electronicsTag" class="tagButton">electronics</button>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Challenges container ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
-      <section id="challenges" class="challenges-container challenges-site"></section>
+      <section
+        id="challenges"
+        class="challenges-container challenges-site"
+      ></section>
     </main>
 
     <!-- ███████████████ FOOTER ███████████████ -->
@@ -160,5 +163,6 @@
       </ul>
     </footer>
     
+    <script src="filterByTag.js"></script>
   </body>
 </html>

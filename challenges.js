@@ -1,4 +1,6 @@
 import { bookingManager } from "./main.js";
+const isOnChallengeSite = document.querySelector('.challenges-site');
+
 export class Challenge {
   constructor(data) {
     this.data = data;
@@ -8,6 +10,7 @@ export class Challenge {
     const challengeCard = document.createElement('div');
     challengeCard.id = this.data.id;
     challengeCard.classList.add('challenges-container__challenge');
+    challengeCard.classList.add(this.data.type);
     for (let i = 0; i < this.data.labels.length; i++) {
       challengeCard.classList.add(this.data.labels[i]);
     }
@@ -135,49 +138,14 @@ class TopThreeView {
   }
 }
 
-// Starting point
-const challengesContainer = document.querySelector('.challenges-container.challenges-site');
-
-let view = new ChallengeListView();
-view.render(challengesContainer);
-
-
-const topThreeContainer = document.querySelector(
-  '.challenges-container.main-page'
-);
-new TopThreeView().render(topThreeContainer);
-//function keyword filter
-
-function keyFilter() {
-  // Declare variables
-  var input, filter, challenges, title, infoText, i;
-  input = document.getElementById('textFilter');
-  if (!input) {
-    console.error('Input element not found.!');
-    return;
-  }
-  filter = input.value.toUpperCase();
-  challenges = document.querySelectorAll('.challenges-container__challenge');
-
-  // loop through challenges
-  for (i = 0; i < challenges.length; i++) {
-    /* console.log('Challenge:', challenges[i]); */
-    title = challenges[i].querySelector(
-      '.challenges-container__challenge__title'
+class FilterByRating {
+  filter(challengesContainer) {
+    const challenges = challengesContainer.querySelectorAll(
+      '.challenges-container__challenge'
     );
-    /* console.log(title); */
-    infoText = challenges[i].querySelector(
-      '.challenges-container__challenge__text'
-    );
-    /* console.log(infoText); */
-    if (title && infoText) {
-      const titleText = title.textContent || title.innerHTML;
-      const textContent = infoText.textContent || infoText.innerText;
-
-      if (
-        titleText.toUpperCase().indexOf(filter) > -1 ||
-        textContent.toUpperCase().indexOf(filter) > -1
-      ) {
+    for (let i = 0; i < challenges.length; i++) {
+      let cardRating = challenges[i].querySelector('span').ariaValueNow;
+      if (lowerRating <= cardRating && upperRating >= cardRating) {
         challenges[i].style.display = '';
       } else {
         challenges[i].style.display = 'none';
@@ -185,81 +153,71 @@ function keyFilter() {
     }
   }
 }
-
- document.getElementById('textFilter').addEventListener('input', keyFilter);
-
- // HTML elements
- const stars = document.querySelectorAll('.stars i');
-const filterDiv = document.querySelector('.filterDiv');
-const filterButton = document.querySelector('.filterButton');
- const closeMenu = document.querySelector('.closeMenu');
-const stars2 = document.querySelectorAll('.stars2 i');
- const navBar = document.querySelector('.navBar');
-
-// Event listeners
- document.querySelector('.navbar-button').addEventListener('click', openPopup);
- visualViewport.onresize = closePopup;
-
-// //Event handlers
-function openPopup() {
-   document.querySelector('body').style.overflow = 'hidden';
-  const html = document.querySelector('html');
-  html.setAttribute('class', '--transparant');
-   setTimeout(() => {
-    html.classList.remove('--transparant');
-    navBar.setAttribute('class', 'navBar--popup');
-  }, 200);
-  navBar.addEventListener('click', closePopup);
- }
-
-function closePopup(event) {
-   if (
-     event.target.nodeName === 'BUTTON' ||
-     event.target.nodeName == 'A' ||
-    event.target.width > 900
-  ) {
-    navBar.setAttribute('class', 'navBar');
-     document.querySelector('body').style.overflow = 'auto';
-   }
- }
-
-// // Filter button and close filter
- filterButton.addEventListener('click', () => {
-   filterDiv.style.display = 'block';
-   filterButton.style.display = 'none';
-});
- closeMenu.addEventListener('click', () => {
-  filterDiv.style.display = 'none';
-   filterButton.style.display = 'block';
- });
-
-// // Function for adding and removing stars
-
- stars.forEach((star, index1) => {
-   star.addEventListener('click', () => {
-    stars.forEach((star, index2) => {
-       index1 >= index2
-        ? star.classList.add('active')
-        : star.classList.remove('active');
+class ChallengeKeyFilter {
+  constructor(challengesContainer) {
+    this.input = document.getElementById('textFilter');
+    this.challengesContainer = challengesContainer;
+    //create the no challenges message
+    this.noMatchingChallenges = document.createElement('h1');
+    this.noMatchingChallenges.classList.add('no-match-message');
+    this.noMatchingChallenges.textContent = 'No matching challenges';
+    this.noMatchingChallenges.style.display = 'none';
+    this.challengesContainer.appendChild(this.noMatchingChallenges);
+    this.input.addEventListener('input', this.keyFilter.bind(this));
+  }
+  // get the input
+  keyFilter() {
+    const filter = this.input.value.toUpperCase();
+    const challenges = this.challengesContainer.querySelectorAll(
+      '.challenges-container__challenge'
+    );
+    let anyChallengeVisible = false;
+    challenges.forEach((challenge) => {
+      const title = challenge.querySelector(
+        '.challenges-container__challenge__title'
+      );
+      const infoText = challenge.querySelector(
+        '.challenges-container__challenge__text'
+      );
+      if (title && infoText) {
+        const titleText = title.textContent || title.innerHTML;
+        const textContent = infoText.textContent || infoText.innerText;
+        const isVisible =
+          titleText.toUpperCase().includes(filter) ||
+          textContent.toUpperCase().includes(filter);
+        challenge.style.display = isVisible ? '' : 'none';
+        if (isVisible) {
+          anyChallengeVisible = true;
+        }
+      }
     });
-  });
- });
-
- stars2.forEach((star, index1) => {
-   star.addEventListener('click', () => {
-     stars2.forEach((star, index2) => {
-      index1 >= index2
-        ? star.classList.add('active')
-         : star.classList.remove('active');
-    });
-   });
- });
+    //Show or not show the "no matching challenges"
+    this.noMatchingChallenges.style.display = anyChallengeVisible ? 'none' : '';
+  }
+}
 
 
+// Starting point -------------------------------------------------------------------------
 
+if (isOnChallengeSite) {
+  const challengesContainer = document.querySelector(
+    '.challenges-container.challenges-site'
+  );
+  let view = new ChallengeListView();
+  view.render(challengesContainer);
+  const starsContainer = document.querySelector('.starsContainer');
+  if (starsContainer) {
+    starsContainer.addEventListener('click', filterByRating);
+  }
+  function filterByRating() {
+    new FilterByRating().filter(challengesContainer);
+  }
+  const filter = new ChallengeKeyFilter(challengesContainer);
+}
 
-
-
-
-
-
+if (!isOnChallengeSite) {
+  const topThreeContainer = document.querySelector(
+    '.challenges-container.main-page'
+  );
+  new TopThreeView().render(topThreeContainer);
+}
