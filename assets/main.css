@@ -906,6 +906,13 @@ header .navBar {
   padding: 0 1em;
   border-radius: 30px;
   font-size: 0.8em;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+.filterDiv .tagsContainer .tagButton:hover {
+  background-color: #8ACFE5;
+}
+.filterDiv .tagsContainer .-active {
+  background-color: #8ACFE5;
 }
 
 .challenges-container.challenges-site {
@@ -923,6 +930,28 @@ header .navBar {
   .challenges-container.challenges-site {
     justify-content: center;
   }
+}
+
+.no-match-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #011827;
+  font-size: 50px;
+  margin: 50px 0px;
+  font-weight: 700;
+}
+
+@keyframes challengeCard {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.challenges-container__challenge {
+  animation: challengeCard 0.5s;
 }
 
 .bookingSceneContainer__class {

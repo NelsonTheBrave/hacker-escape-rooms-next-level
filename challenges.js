@@ -109,14 +109,12 @@ stars2.forEach((star, index1) => {
 
 // BOOKING MANAGER ---------------------------------------------------------
 class BookingManager {
-  constructor() {
+/*   constructor() {
     this.bookBtns = document.querySelectorAll('.challenges-container__challenge__button');
     this.bookBtns.forEach((bookingBtn) => {
       bookingBtn.addEventListener('click', () => this.createBookingPage());
     });
-
-
-  }
+  } */
 
   // Method for creating elements
   createElement(tagName, id, className, textContent, type) {
@@ -333,7 +331,7 @@ class Challenge {
   }
 
   render() {
-    let hej = this.data;
+    let challenges = this.data;
     const challengeCard = document.createElement('div');
     challengeCard.id = this.data.id;
     challengeCard.classList.add('challenges-container__challenge');
@@ -412,16 +410,9 @@ class Challenge {
     challengeButton.textContent =
       this.data.type === 'online' ? 'Take challenge online' : 'Book this room';
     wrapperDiv.append(challengeButton);
-    challengeButton.addEventListener('click', bookingManager);
-      function bookingManager() {
-        new BookingManager().createBookingPage(hej);
-      } 
-
-      
+    challengeButton.addEventListener('click', () => {new BookingManager().createBookingPage(challenges)});
     return challengeCard;
-  }
-}
-
+  }}
 
 class APIAdapter {
   async getChallenges() {
