@@ -932,4 +932,26 @@ header .navBar {
   }
 }
 
+.no-match-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #011827;
+  font-size: 50px;
+  margin: 50px 0px;
+  font-weight: 700;
+}
+
+@keyframes challengeCard {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.challenges-container__challenge {
+  animation: challengeCard 0.5s;
+}
+
 /*# sourceMappingURL=main.css.map */
