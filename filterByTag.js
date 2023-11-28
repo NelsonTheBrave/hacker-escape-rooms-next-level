@@ -80,3 +80,8 @@ const electronicsButton = new FilterButton(
   viewTag,
   'electronics'
 );
+
+// Filter by type
+
+const onlineCheckbox = new FilterButton('includeOnline', viewTag, 'online');
+const onsiteCheckbox = new FilterButton('includeOnsite', viewTag, 'onsite');
