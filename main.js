@@ -1,120 +1,19 @@
-// ███████████████ MAIN JS ███████████████
+import { Challenge } from "./challenges.js";
 
-// import { Challenge } from "./challenges.js";
 const isOnMainPage = document.querySelector('.main-page');
 
-// HTML elements
-const stars = document.querySelectorAll('.stars i');
-const filterDiv = document.querySelector('.filterDiv');
-const filterButton = document.querySelector('.filterButton');
-const closeMenu = document.querySelector('.closeMenu');
-const stars2 = document.querySelectorAll('.stars2 i');
-const navBar = document.querySelector('.navBar');
-
-// Event listeners
-document.querySelector('.navbar-button').addEventListener('click', openPopup);
-visualViewport.onresize = closePopup;
-
-//Event handlers
-function openPopup() {
-  document.querySelector('body').style.overflow = 'hidden';
-  const html = document.querySelector('html');
-  html.setAttribute('class', '--transparant');
-  setTimeout(() => {
-    html.classList.remove('--transparant');
-    navBar.setAttribute('class', 'navBar--popup');
-  }, 200);
-  navBar.addEventListener('click', closePopup);
-}
-
-function closePopup(event) {
-  if (
-    event.target.nodeName === 'BUTTON' ||
-    event.target.nodeName == 'A' ||
-    event.target.width > 900
-  ) {
-    navBar.setAttribute('class', 'navBar');
-    document.querySelector('body').style.overflow = 'auto';
-  }
-}
-
-// Filter button and close filter
-if (!isOnMainPage) {
-filterButton.addEventListener('click', () => {
-  filterDiv.style.display = 'block';
-  filterButton.style.display = 'none';
-});
-closeMenu.addEventListener('click', () => {
-  filterDiv.style.display = 'none';
-  filterButton.style.display = 'block';
-});}
 
 
 
-// Rating Filter visual appearance
-let lowerRating = 0;
-let upperRating = 5;
-
-stars.forEach((star, index1) => {
-  let clickedStar = index1 + 1;
-  star.addEventListener('click', () => {
-    if (clickedStar > upperRating) {
-      return;
-    }
-    if (clickedStar == lowerRating) {
-      stars.forEach((star) => {
-        star.classList.remove('active');
-      });
-      lowerRating = 0;
-      return;
-    }
-    stars.forEach((star, index2) => {
-      if (index1 > index2) {
-        star.classList.add('active');
-      } else if (index1 == index2) {
-        star.classList.add('active');
-        lowerRating = index1 + 1;
-      } else {
-        star.classList.remove('active');
-      }
-    });
-  });
-});
-
-stars2.forEach((star, index1) => {
-  let clickedStar = index1 + 1;
-  star.addEventListener('click', () => {
-    if (clickedStar < lowerRating) {
-      return;
-    }
-    if (clickedStar == upperRating && lowerRating == 0) {
-      stars2.forEach((star) => {
-        star.classList.remove('active');
-      });
-      upperRating = 0;
-      return;
-    }
-    stars2.forEach((star, index2) => {
-      if (index1 > index2) {
-        star.classList.add('active');
-      } else if (index1 == index2) {
-        star.classList.add('active');
-        upperRating = index1 + 1;
-      } else {
-        star.classList.remove('active');
-      }
-    });
-  });
-});
-
-// BOOKING MANAGER ---------------------------------------------------------
 class BookingManager {
-/*   constructor() {
+  constructor() {
     this.bookBtns = document.querySelectorAll('.challenges-container__challenge__button');
     this.bookBtns.forEach((bookingBtn) => {
       bookingBtn.addEventListener('click', () => this.createBookingPage());
     });
-  } */
+
+
+  }
 
   // Method for creating elements
   createElement(tagName, id, className, textContent, type) {
@@ -149,12 +48,12 @@ class BookingManager {
     const bookingSceneContainer__section = this.createElement('section', 'bookingSceneContainer__SectionId', 'bookingSceneContainer__SectionClass', null)
     bookingSceneContainer.appendChild(bookingSceneContainer__section);
     //Titel for booking Room
-    console.log(challenge.title);
     const bookingSceneContainer__h1 = this.createElement('h1', null, 'bookingSceneContainer__h1Class', `Book room ${challenge.title} (step 1)`, null)
     bookingSceneContainer__section.appendChild(bookingSceneContainer__h1);
     // Arrival Paragraph
     const bookingSceneContainer__ArrivalText = this.createElement('p', null, 'bookingSceneContainer__ArrivalTextClass', 'What date would you like to come?');
     bookingSceneContainer__section.appendChild(bookingSceneContainer__ArrivalText);
+  console.log(challenge);
 
     //Adding label for date element
     const bookingScene__DateInputLabel = this.createElement('label', null, 'datelabel', 'Date');
@@ -169,7 +68,7 @@ class BookingManager {
     // Continue button, when this button is clicked, data is fetched from api, data-participants and available times.
     const bookingSceneContainer__ContinueBtn = this.createElement('button', 'bookingSceneContainer__ContinueBtnID', 'bookingSceneContainer__ContinueBtnClass', 'Search available times', null)
     bookingSceneContainer__section.appendChild(bookingSceneContainer__ContinueBtn);
-  
+
 
 
     // Creating second modal-section
@@ -310,231 +209,108 @@ class BookingManager {
         const bookingSceneContainer__LastSectionLink = this.createElement('a', 'bookingSceneContainer__LastSectionLinkID', 'bookingSceneContainer__LastSectionLinkClass', 'Back to challenges', null)
         bookingSceneContainer__LastSection.appendChild(bookingSceneContainer__LastSectionLink);
         bookingSceneContainer__LastSectionLink.href = 'challenges.html';
+
+
       })
-    });
-  }
-}
-// export const bookingManager = new BookingManager();
 
 
-// ███████████████ CHALLENGE JS ███████████████
+// Filter button and close filter
+if (!isOnMainPage) {
+filterButton.addEventListener('click', () => {
+  filterDiv.style.display = 'block';
+  filterButton.style.display = 'none';
+});
+closeMenu.addEventListener('click', () => {
+  filterDiv.style.display = 'none';
+  filterButton.style.display = 'block';
+});}
 
-// import { bookingManager } from "./main.js";
 
-const isOnChallengeSite = document.querySelector('.challenges-site');
 
-// export class Challenge {
+// Rating Filter visual appearance
+let lowerRating = 0;
+let upperRating = 5;
 
-class Challenge {
-  constructor(data) {
-    this.data = data;
-  }
-
-  render() {
-    let challenges = this.data;
-    const challengeCard = document.createElement('div');
-    challengeCard.id = this.data.id;
-    challengeCard.classList.add('challenges-container__challenge');
-    challengeCard.classList.add(this.data.type);
-    for (let i = 0; i < this.data.labels.length; i++) {
-      challengeCard.classList.add(this.data.labels[i]);
+stars.forEach((star, index1) => {
+  let clickedStar = index1 + 1;
+  star.addEventListener('click', () => {
+    if (clickedStar > upperRating) {
+      return;
     }
-
-    const img = document.createElement('img');
-    img.classList.add('challenges-container__challenge__img');
-    img.src = this.data.image + '?image=' + Math.floor(Math.random() * 16);
-    challengeCard.append(img);
-
-    const wrapperDiv = document.createElement('div');
-    wrapperDiv.classList.add('challenges-container__challenge__lowerWrapper');
-    challengeCard.append(wrapperDiv);
-
-    const title = document.createElement('h3');
-    title.classList.add('challenges-container__challenge__title');
-    title.textContent = this.data.title;
-    wrapperDiv.append(title);
-
-    const type = document.createElement('h3');
-    type.classList.add('challenges-container__challenge__type');
-    type.textContent = '(' + this.data.type + ')';
-    wrapperDiv.append(type);
-
-    const ratingContainer = document.createElement('small');
-    ratingContainer.classList.add('challenges-container__challenge__rating');
-    wrapperDiv.append(ratingContainer);
-
-    const rating = document.createElement('span');
-    rating.classList.add('challenges-container__challenge__rating__stars');
-    rating.ariaLabel = 'Rating';
-    rating.role = 'meter';
-    rating.ariaValueMin = '0';
-    rating.ariaValueMax = '5';
-    rating.ariaValueNow = this.data.rating;
-    ratingContainer.append(rating);
-
-    function addStar(starRating, starNumber) {
-      const newStar = document.createElement('i');
-      newStar.classList.add('fa');
-      if (starRating < starNumber - 0.5) {
-        newStar.classList.add('fa-star-o');
-      } else if (starRating === starNumber - 0.5) {
-        newStar.classList.add('fa-star-half-o');
+    if (clickedStar == lowerRating) {
+      stars.forEach((star) => {
+        star.classList.remove('active');
+      });
+      lowerRating = 0;
+      return;
+    }
+    stars.forEach((star, index2) => {
+      if (index1 > index2) {
+        star.classList.add('active');
+      } else if (index1 == index2) {
+        star.classList.add('active');
+        lowerRating = index1 + 1;
       } else {
-        newStar.classList.add('fa-star');
-      }
-      newStar.ariaHidden = true;
-      rating.append(newStar);
-    }
-
-    for (let i = 1; i < 6; i++) {
-      addStar(this.data.rating, i);
-    }
-
-    const participants = document.createElement('span');
-    participants.classList.add(
-      'challenges-container__challenge__rating__participants'
-    );
-    participants.textContent =
-      this.data.minParticipants === this.data.maxParticipants
-        ? `${this.data.minParticipants} participants`
-        : `${this.data.minParticipants}-${this.data.maxParticipants} participants`;
-    ratingContainer.append(participants);
-
-    const challengeText = document.createElement('p');
-    challengeText.classList.add('challenges-container__challenge__text');
-    challengeText.textContent = this.data.description;
-    wrapperDiv.append(challengeText);
-
-    const challengeButton = document.createElement('button');
-    challengeButton.classList.add('challenges-container__challenge__button');
-    challengeButton.textContent =
-      this.data.type === 'online' ? 'Take challenge online' : 'Book this room';
-    wrapperDiv.append(challengeButton);
-    challengeButton.addEventListener('click', () => {new BookingManager().createBookingPage(challenges)});
-    return challengeCard;
-  }}
-
-class APIAdapter {
-  async getChallenges() {
-    const res = await fetch(
-      'https://lernia-sjj-assignments.vercel.app/api/challenges'
-    );
-    const payload = await res.json();
-
-    return payload.challenges.map(
-      (challengeData) => new Challenge(challengeData)
-    );
-  }
-}
-
-class ChallengeListView {
-  async render(container) {
-    const api = new APIAdapter();
-    const challenges = await api.getChallenges();
-
-    for (let i = 0; i < challenges.length; i++) {
-      const challenge = challenges[i];
-      const element = challenge.render();
-
-      container.append(element);
-    }
-  }
-}
-
-class TopThreeView {
-  async render(container) {
-    const challenges = await new APIAdapter().getChallenges();
-    const challengesSortedByRating = challenges.sort(
-      (a, b) => b.data.rating - a.data.rating
-    );
-    for (let i = 0; i < 3; i++) {
-      const challenge = challengesSortedByRating[i];
-      const element = challenge.render();
-      container.append(element);
-    }
-  }
-}
-
-class FilterByRating {
-  filter(challengesContainer) {
-    const challenges = challengesContainer.querySelectorAll(
-      '.challenges-container__challenge'
-    );
-    for (let i = 0; i < challenges.length; i++) {
-      let cardRating = challenges[i].querySelector('span').ariaValueNow;
-      if (lowerRating <= cardRating && upperRating >= cardRating) {
-        challenges[i].style.display = '';
-      } else {
-        challenges[i].style.display = 'none';
-      }
-    }
-  }
-}
-class ChallengeKeyFilter {
-  constructor(challengesContainer) {
-    this.input = document.getElementById('textFilter');
-    this.challengesContainer = challengesContainer;
-    //create the no challenges message
-    this.noMatchingChallenges = document.createElement('h1');
-    this.noMatchingChallenges.classList.add('no-match-message');
-    this.noMatchingChallenges.textContent = 'No matching challenges';
-    this.noMatchingChallenges.style.display = 'none';
-    this.challengesContainer.appendChild(this.noMatchingChallenges);
-    this.input.addEventListener('input', this.keyFilter.bind(this));
-  }
-  // get the input
-  keyFilter() {
-    const filter = this.input.value.toUpperCase();
-    const challenges = this.challengesContainer.querySelectorAll(
-      '.challenges-container__challenge'
-    );
-    let anyChallengeVisible = false;
-    challenges.forEach((challenge) => {
-      const title = challenge.querySelector(
-        '.challenges-container__challenge__title'
-      );
-      const infoText = challenge.querySelector(
-        '.challenges-container__challenge__text'
-      );
-      if (title && infoText) {
-        const titleText = title.textContent || title.innerHTML;
-        const textContent = infoText.textContent || infoText.innerText;
-        const isVisible =
-          titleText.toUpperCase().includes(filter) ||
-          textContent.toUpperCase().includes(filter);
-        challenge.style.display = isVisible ? '' : 'none';
-        if (isVisible) {
-          anyChallengeVisible = true;
-        }
+        star.classList.remove('active');
       }
     });
-    //Show or not show the "no matching challenges"
-    this.noMatchingChallenges.style.display = anyChallengeVisible ? 'none' : '';
+  });
+});
+
+/* Tested code for making mouse-over effect on stars but skipped it or now
+stars.forEach((star, index1) => {
+  star.addEventListener('mouseover', () => {
+    stars.forEach((star, index2) => {
+      if (index1 >= index2) {
+        star.style.color = 'green';
+      } else {
+        star.style.color = 'black';
+      }
+    });
+  });
+});
+ */
+
+stars2.forEach((star, index1) => {
+  let clickedStar = index1 + 1;
+  star.addEventListener('click', () => {
+    if (clickedStar < lowerRating) {
+      return;
+    }
+    if (clickedStar == upperRating && lowerRating == 0) {
+      stars2.forEach((star) => {
+        star.classList.remove('active');
+      });
+      upperRating = 0;
+      return;
+    }
+    stars2.forEach((star, index2) => {
+      if (index1 > index2) {
+        star.classList.add('active');
+      } else if (index1 == index2) {
+        star.classList.add('active');
+        upperRating = index1 + 1;
+      } else {
+        star.classList.remove('active');
+      }
+    });
+
+
+
   }
 }
 
+export const bookingManager = new BookingManager();
+// init() {
+// this.bookBtns.forEach((bookingBtn) => {
+// bookingBtn.addEventListener('click', () => this.createBookingPage());
+// });
+// Usage
+// bookingManager.init();
 
-// ███████████████ Starting point ███████████████ -------------------------------------------------------------------------
+// HTML elements
 
-if (isOnChallengeSite) {
-  const challengesContainer = document.querySelector(
-    '.challenges-container.challenges-site'
-  );
-  let view = new ChallengeListView();
-  view.render(challengesContainer);
-  const starsContainer = document.querySelector('.starsContainer');
-  if (starsContainer) {
-    starsContainer.addEventListener('click', filterByRating);
-  }
-  function filterByRating() {
-    new FilterByRating().filter(challengesContainer);
-  }
-  const filter = new ChallengeKeyFilter(challengesContainer);
-}
 
-if (!isOnChallengeSite) {
-  const topThreeContainer = document.querySelector(
-    '.challenges-container.main-page'
-  );
-  new TopThreeView().render(topThreeContainer);
-}
+
+
+
