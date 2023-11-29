@@ -1,3 +1,5 @@
+import { BookingManager } from './booking-manager.js';
+
 class Challenge {
   constructor(data) {
     this.data = data;

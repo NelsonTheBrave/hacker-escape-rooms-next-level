@@ -79,9 +79,14 @@ export class BookingManager {
       'bookingSceneContainer__DateInput'
     );
     bookingSceneContainer__section.appendChild(bookingScene__DateInputLabel);
+
+    //Restrict date choice to only future dates.
+    let selectFuture = new Date();
+    let selectFutureIso = selectFuture.toISOString().split('T')[0];
     // Could not set type attribute in createElment function. Creating date-option.
     let bookingSceneContainer__DateInput = document.createElement('input');
     bookingSceneContainer__DateInput.setAttribute('type', 'date');
+    bookingSceneContainer__DateInput.setAttribute('min', selectFutureIso);
     bookingSceneContainer__DateInput.classList.add('dateInput');
     bookingSceneContainer__section.appendChild(
       bookingSceneContainer__DateInput
@@ -308,6 +313,13 @@ export class BookingManager {
       bookingSceneContainer__SecondRoomSubmitBtn.addEventListener(
         'click',
         async () => {
+          if (
+            bookingScene__SecondRoomInputName.value === '' ||
+            bookingScene__SecondRoomInputEmail.value === ''
+          ) {
+            alert('Please type in your information');
+            return;
+          }
           const body = {
             date: selectedDate,
             name: bookingScene__SecondRoomInputName.value,

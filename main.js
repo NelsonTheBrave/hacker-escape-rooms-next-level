@@ -2,6 +2,7 @@ import { TopThreeView } from './challenges.js';
 import { ChallengeListView } from './challenges.js';
 import { Filter } from './filterByTag.js';
 import { FilterButton } from './filterByTag.js';
+import { openPopup } from './mobile-menu.js';
 
 const isOnMainPage = document.querySelector('.main-page');
 const isOnChallengeSite = document.querySelector('.challenges-site');
@@ -12,34 +13,9 @@ const filterDiv = document.querySelector('.filterDiv');
 const filterButton = document.querySelector('.filterButton');
 const closeMenu = document.querySelector('.closeMenu');
 const stars2 = document.querySelectorAll('.stars2 i');
-const navBar = document.querySelector('.navBar');
 
 // Event listeners
 document.querySelector('.navbar-button').addEventListener('click', openPopup);
-visualViewport.onresize = closePopup;
-
-//Event handlers
-function openPopup() {
-  document.querySelector('body').style.overflow = 'hidden';
-  const html = document.querySelector('html');
-  html.setAttribute('class', '--transparant');
-  setTimeout(() => {
-    html.classList.remove('--transparant');
-    navBar.setAttribute('class', 'navBar--popup');
-  }, 200);
-  navBar.addEventListener('click', closePopup);
-}
-
-function closePopup(event) {
-  if (
-    event.target.nodeName === 'BUTTON' ||
-    event.target.nodeName == 'A' ||
-    event.target.width > 900
-  ) {
-    navBar.setAttribute('class', 'navBar');
-    document.querySelector('body').style.overflow = 'auto';
-  }
-}
 
 // Filter button and close filter
 if (!isOnMainPage) {
@@ -124,6 +100,7 @@ class FilterByRating {
     }
   }
 }
+
 class ChallengeKeyFilter {
   constructor(challengesContainer) {
     this.input = document.getElementById('textFilter');
