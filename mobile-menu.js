@@ -8,7 +8,7 @@ export function openPopup() {
     navBar.setAttribute('class', 'navBar--popup');
   }, 200);
   navBar.addEventListener('click', closePopup);
-  visualViewport.onresize = closePopup; // Förbättringspotential
+  visualViewport.onresize = closePopup;
 }
 
 export function closePopup(event) {
@@ -18,7 +18,9 @@ export function closePopup(event) {
     event.target.nodeName == 'A' ||
     event.target.width > 900
   ) {
-    navBar.setAttribute('class', 'navBar');
-    document.querySelector('body').style.overflow = 'auto';
+    if (navBar) {
+      navBar.setAttribute('class', 'navBar');
+      document.querySelector('body').style.overflow = 'auto';
+    }
   }
 }

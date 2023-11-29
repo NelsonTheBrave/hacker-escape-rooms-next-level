@@ -3,6 +3,7 @@ import { ChallengeListView } from './challenges.js';
 import { Filter } from './filterByTag.js';
 import { FilterButton } from './filterByTag.js';
 import { openPopup } from './mobile-menu.js';
+import { ChallengeKeyFilter } from './keywordFilter.js';
 
 const isOnMainPage = document.querySelector('.main-page');
 const isOnChallengeSite = document.querySelector('.challenges-site');
@@ -101,54 +102,6 @@ class FilterByRating {
   }
 }
 
-class ChallengeKeyFilter {
-  constructor(challengesContainer) {
-    this.input = document.getElementById('textFilter');
-    this.challengesContainer = challengesContainer;
-
-    //create the no challenges message
-    this.noMatchingChallenges = document.createElement('h1');
-    this.noMatchingChallenges.classList.add('no-match-message');
-    this.noMatchingChallenges.textContent = 'No matching challenges';
-    this.noMatchingChallenges.style.display = 'none';
-    this.challengesContainer.appendChild(this.noMatchingChallenges);
-    this.input.addEventListener('input', this.keyFilter.bind(this));
-  }
-  // get the input
-  keyFilter() {
-    const filter = this.input.value.toUpperCase();
-    const challenges = this.challengesContainer.querySelectorAll(
-      '.challenges-container__challenge'
-    );
-    let anyChallengeVisible = false;
-    challenges.forEach((challenge) => {
-      const title = challenge.querySelector(
-        '.challenges-container__challenge__title'
-      );
-      const infoText = challenge.querySelector(
-        '.challenges-container__challenge__text'
-      );
-      if (title && infoText) {
-        const titleText = title.textContent || title.innerHTML;
-        const textContent = infoText.textContent || infoText.innerText;
-        const isVisible =
-          titleText.toUpperCase().includes(filter) ||
-          textContent.toUpperCase().includes(filter);
-
-        // Check if other filters are active
-        if (isVisible && this.tagFilter.hasActiveTags(challenge)) {
-          challenge.style.display = '';
-          anyChallengeVisible = true;
-        } else {
-          challenge.style.display = 'none';
-        }
-      }
-    });
-    //Show or not show the "no matching challenges"
-    this.noMatchingChallenges.style.display = anyChallengeVisible ? 'none' : '';
-  }
-}
-
 // ███████████████ Starting point ███████████████ -------------------------------------------------------------------------
 
 if (isOnChallengeSite) {
@@ -165,39 +118,42 @@ if (isOnChallengeSite) {
     new FilterByRating().filter(challengesContainer);
   }
   const filter = new ChallengeKeyFilter(challengesContainer);
+
+  // Filter by tag starting point
+  let viewTag = new Filter();
+
+  // Buttons to filter by tag
+  const linuxButton = new FilterButton('linuxTag', viewTag, 'linux');
+  const webButton = new FilterButton('webTag', viewTag, 'web');
+  const javascriptButton = new FilterButton(
+    'javascriptTag',
+    viewTag,
+    'javascript'
+  );
+  const phreakingButton = new FilterButton(
+    'phreakingTag',
+    viewTag,
+    'phreaking'
+  );
+  const bashButton = new FilterButton('bashTag', viewTag, 'bash');
+  const sshButton = new FilterButton('sshTag', viewTag, 'ssh');
+  const codingButton = new FilterButton('codingTag', viewTag, 'coding');
+  const hackingButton = new FilterButton('hackingTag', viewTag, 'hacking');
+  const ctfButton = new FilterButton('ctfTag', viewTag, 'ctf');
+  const electronicsButton = new FilterButton(
+    'electronicsTag',
+    viewTag,
+    'electronics'
+  );
+
+  // Filter by type
+  const onlineCheckbox = new FilterButton('includeOnline', viewTag, 'online');
+  const onsiteCheckbox = new FilterButton('includeOnsite', viewTag, 'onsite');
 }
 
-if (!isOnChallengeSite) {
+if (isOnMainPage) {
   const topThreeContainer = document.querySelector(
     '.challenges-container.main-page'
   );
   new TopThreeView().render(topThreeContainer);
 }
-
-// Filter by tag starting point
-let viewTag = new Filter();
-
-// Buttons to filter by tag
-const linuxButton = new FilterButton('linuxTag', viewTag, 'linux');
-const webButton = new FilterButton('webTag', viewTag, 'web');
-const javascriptButton = new FilterButton(
-  'javascriptTag',
-  viewTag,
-  'javascript'
-);
-const phreakingButton = new FilterButton('phreakingTag', viewTag, 'phreaking');
-const bashButton = new FilterButton('bashTag', viewTag, 'bash');
-const sshButton = new FilterButton('sshTag', viewTag, 'ssh');
-const codingButton = new FilterButton('codingTag', viewTag, 'coding');
-const hackingButton = new FilterButton('hackingTag', viewTag, 'hacking');
-const ctfButton = new FilterButton('ctfTag', viewTag, 'ctf');
-const electronicsButton = new FilterButton(
-  'electronicsTag',
-  viewTag,
-  'electronics'
-);
-
-// Filter by type
-
-const onlineCheckbox = new FilterButton('includeOnline', viewTag, 'online');
-const onsiteCheckbox = new FilterButton('includeOnsite', viewTag, 'onsite');
