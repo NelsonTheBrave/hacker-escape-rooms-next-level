@@ -1,5 +1,5 @@
-import { TopThreeView } from './challenge.js';
-import { ChallengeListView } from './challenge.js';
+import { TopThreeView } from './challenges.js';
+import { ChallengeListView } from './challenges.js';
 import { Filter } from './filterByTag.js';
 import { FilterButton } from './filterByTag.js';
 
