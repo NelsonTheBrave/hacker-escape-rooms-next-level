@@ -1,6 +1,8 @@
 export class FilterLogic {
-  constructor() {
+  constructor(data, container) {
+    this.run(data, container);
   }
+
   run(filterInfo, container) {
     const challenges = container.querySelectorAll(
       '.challenges-container__challenge'
@@ -42,11 +44,11 @@ export class FilterLogic {
       } else {
         return;
       }
-    })
+    });
     if (visibleCount === 0) {
-        noMatchesMessage.style.display = '';
+      noMatchesMessage.style.display = '';
     } else {
-        noMatchesMessage.style.display = 'none';
+      noMatchesMessage.style.display = 'none';
     }
-  }
+}
 }
