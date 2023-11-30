@@ -1,8 +1,8 @@
 export class FilterLogic {
   constructor() {
   }
-  run(filterInfo) {
-    const challenges = document.querySelectorAll(
+  run(filterInfo, container) {
+    const challenges = container.querySelectorAll(
       '.challenges-container__challenge'
     );
     const noMatchesMessage = document.querySelector('.no-match-message');
