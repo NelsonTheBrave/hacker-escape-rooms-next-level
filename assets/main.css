@@ -383,6 +383,19 @@ header .navBar {
     overflow-x: auto;
     padding-left: 0px;
     padding-right: 0px;
+    justify-content: space-evenly;
+    margin: 0 0px 0 10px;
+    gap: 0;
+  }
+}
+@media (min-width: 1750px) {
+  .challenges-container {
+    padding-left: 0px;
+    padding-right: 0px;
+    justify-content: space-evenly;
+    overflow-x: auto;
+    padding-left: 0px;
+    padding-right: 0px;
     margin: 0 0px 0 10px;
     gap: 0;
   }
