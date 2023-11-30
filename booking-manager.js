@@ -104,18 +104,29 @@ export class BookingManager {
     bookingSceneContainer__section.appendChild(
       bookingSceneContainer__ContinueBtn
     );
-     //Return button
-     const bookingSceneContainer__BackBtn = this.createElement(
+
+    //Creating return button
+    const bookingSceneContainer__BackBtn = this.createElement(
       'button',
       'bookingSceneContainer__BackBtnID',
-       'bookingSceneContainer__BackBtnClass',
-       'Back to challenges',
-       null
-     );
-    
-    bookingSceneContainer__section.appendChild(
-       bookingSceneContainer__BackBtn
-     );
+      'bookingSceneContainer__BackBtnClass',
+      '',
+      null
+    );
+    bookingSceneContainer__section.appendChild(bookingSceneContainer__BackBtn);
+
+    // Link inside return button
+    const bookingSceneContainer__BackBtnLink = this.createElement(
+      'a',
+      'bookingSceneContainer__ReturnBtnLinkID',
+      'bookingSceneContainer__BackBtnLinkClass',
+      'Back to challenges',
+      null
+    );
+    bookingSceneContainer__BackBtnLink.href = 'challenges.html';
+    bookingSceneContainer__BackBtn.appendChild(bookingSceneContainer__BackBtnLink);
+
+
 
     // Creating second modal-section
     bookingSceneContainer__ContinueBtn.addEventListener('click', async () => {
@@ -285,17 +296,7 @@ export class BookingManager {
         'bookingScene__SecondRoomSelectParticipantsID'
       );
 
-      // Creating Submit button
-      const bookingSceneContainer__SecondRoomSubmitBtn = this.createElement(
-        'button',
-        'bookingSceneContainer__SecondRoomSubmitBtnID',
-        'bookingSceneContainer__SecondRoomSubmitBtnClass',
-        'Submit booking',
-        null
-      );
-      bookingSceneContainer__SecondSection.appendChild(
-        bookingSceneContainer__SecondRoomSubmitBtn
-      );
+
 
       // Saving min/max-participants from challenge-class
       const minParticipants = challenge.minParticipants;
@@ -321,6 +322,37 @@ export class BookingManager {
           bookingSceneContainer__SecondRoomParticipantsOption
         );
       });
+      // Creating Submit button
+      const bookingSceneContainer__SecondRoomSubmitBtn = this.createElement(
+        'button',
+        'bookingSceneContainer__SecondRoomSubmitBtnID',
+        'bookingSceneContainer__SecondRoomSubmitBtnClass',
+        'Submit booking',
+        null
+      );
+      bookingSceneContainer__SecondSection.appendChild(bookingSceneContainer__SecondRoomSubmitBtn);
+
+      //Creating return button
+      const bookingSceneContainer__SecondRoomBackBtn = this.createElement(
+        'button',
+        'bookingSceneContainer__SecondRoomBackBtnID',
+        'bookingSceneContainer__SecondRoomBackBtnClass',
+        '',
+        null
+      );
+      bookingSceneContainer__SecondSection.appendChild(bookingSceneContainer__SecondRoomBackBtn);
+
+      // Link inside return button
+      const bookingSceneContainer__SecondRoomBackBtnLink = this.createElement(
+        'a',
+        'bookingSceneContainer__LastSectionReturnBtnLinkID',
+        'bookingSceneContainer__LastSectionBackBtnLinkClass',
+        'Back to challenges',
+        null
+      );
+      bookingSceneContainer__SecondRoomBackBtnLink.href = 'challenges.html';
+      bookingSceneContainer__SecondRoomBackBtn.appendChild(bookingSceneContainer__SecondRoomBackBtnLink);
+
 
       // Creating the last bookingScene and post data to api.
       bookingSceneContainer__SecondRoomSubmitBtn.addEventListener(

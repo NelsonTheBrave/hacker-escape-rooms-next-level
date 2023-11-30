@@ -1012,7 +1012,11 @@ header .navBar {
   flex-direction: row;
   align-self: flex-start;
   position: relative;
-  top: 420px;
+  top: 425px;
+}
+
+.bookingSceneContainer__BackBtnLinkClass:hover {
+  color: black;
 }
 
 .bookingSceneContainer__SecondSectionClass {
@@ -1076,12 +1080,21 @@ header .navBar {
 .bookingSceneContainer__SecondSectionClass .bookingSceneContainer__SecondRoomSubmitBtnClass {
   height: 60px;
   background-color: white;
-  margin: 0px;
-  font-size: 24px;
+  font-size: 25px;
   border-radius: 5px;
-  flex-direction: row;
-  align-self: flex-end;
-  margin: 330px 0px 0px 0px;
+  position: relative;
+  top: 347px;
+  left: 700px;
+}
+.bookingSceneContainer__SecondSectionClass .bookingSceneContainer__SecondRoomBackBtnClass {
+  height: 60px;
+  background-color: white;
+  font-size: 25px;
+  border-radius: 5px;
+  margin: 300px 0px 0px 0px;
+}
+.bookingSceneContainer__SecondSectionClass .bookingSceneContainer__LastSectionBackBtnLinkClass:hover {
+  color: black;
 }
 
 .bookingSceneContainer__LastSectionClass {
