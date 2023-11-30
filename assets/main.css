@@ -380,20 +380,9 @@ header .navBar {
 }
 @media (min-width: 1200px) {
   .challenges-container {
-    width: fit-content;
     overflow-x: auto;
     padding-left: 0px;
     padding-right: 0px;
-    justify-content: space-evenly;
-    margin: 0 0px 0 10px;
-    gap: 0;
-  }
-}
-@media (min-width: 1750px) {
-  .challenges-container {
-    padding-left: 0px;
-    padding-right: 0px;
-    justify-content: space-evenly;
     margin: 0 0px 0 10px;
     gap: 0;
   }
@@ -428,7 +417,7 @@ header .navBar {
 @media screen and (min-width: 1200px) {
   .challenges-container__challenge {
     max-width: 29%;
-    margin: 87px 10px 77px 0px;
+    margin: 87px 0px 77px 0px;
   }
 }
 @media screen and (min-width: 1750px) {
