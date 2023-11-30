@@ -47,7 +47,6 @@ export class BookingManager {
     );
     bookingSceneContainer.appendChild(bookingSceneContainer__section);
     //Titel for booking Room
-    console.log(challenge.title);
     const bookingSceneContainer__h1 = this.createElement(
       'h1',
       null,

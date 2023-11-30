@@ -8,18 +8,13 @@ const isOnMainPage = document.querySelector('.main-page');
 const isOnChallengeSite = document.querySelector('.challenges-site');
 
 
-
-
-
-
 // ███████████████ Entry Point ███████████████ -------------------------------------------------------------------------
 
 if (isOnChallengeSite) {
   const challengesContainer = document.querySelector(
     '.challenges-container.challenges-site'
   );
-  let view = new ChallengeListView();
-  view.render(challengesContainer);
+  new ChallengeListView().render(challengesContainer);
   new FilterUI().render(challengesContainer);
   new FilterButton().render();
 }
@@ -29,5 +24,5 @@ if (isOnMainPage) {
     '.challenges-container.main-page'
   );
   new TopThreeView().render(topThreeContainer);
-  const mobileMenu = new MobileMenu
+  new MobileMenu;
 }
