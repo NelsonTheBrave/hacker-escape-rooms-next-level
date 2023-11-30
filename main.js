@@ -4,16 +4,16 @@ import { Filter } from './filterByTag.js';
 import { FilterButton } from './filterByTag.js';
 import { openPopup } from './mobile-menu.js';
 import { ChallengeKeyFilter } from './keywordFilter.js';
+import { FilterUI } from './filterUI.js';
+import { FilterLogic } from './filter-logic.js';
 
 const isOnMainPage = document.querySelector('.main-page');
 const isOnChallengeSite = document.querySelector('.challenges-site');
 
 // HTML elements
-const stars = document.querySelectorAll('.stars i');
 const filterDiv = document.querySelector('.filterDiv');
 const filterButton = document.querySelector('.filterButton');
 const closeMenu = document.querySelector('.closeMenu');
-const stars2 = document.querySelectorAll('.stars2 i');
 
 // Event listeners
 document.querySelector('.navbar-button').addEventListener('click', openPopup);
@@ -30,79 +30,9 @@ if (!isOnMainPage) {
   });
 }
 
-// Rating Filter visual appearance
-let lowerRating = 0;
-let upperRating = 5;
 
-stars.forEach((star, index1) => {
-  let clickedStar = index1 + 1;
-  star.addEventListener('click', () => {
-    if (clickedStar > upperRating) {
-      return;
-    }
-    if (clickedStar == lowerRating) {
-      stars.forEach((star) => {
-        star.classList.remove('active');
-      });
-      lowerRating = 0;
-      return;
-    }
-    stars.forEach((star, index2) => {
-      if (index1 > index2) {
-        star.classList.add('active');
-      } else if (index1 == index2) {
-        star.classList.add('active');
-        lowerRating = index1 + 1;
-      } else {
-        star.classList.remove('active');
-      }
-    });
-  });
-});
 
-stars2.forEach((star, index1) => {
-  let clickedStar = index1 + 1;
-  star.addEventListener('click', () => {
-    if (clickedStar < lowerRating) {
-      return;
-    }
-    if (clickedStar == upperRating && lowerRating == 0) {
-      stars2.forEach((star) => {
-        star.classList.remove('active');
-      });
-      upperRating = 0;
-      return;
-    }
-    stars2.forEach((star, index2) => {
-      if (index1 > index2) {
-        star.classList.add('active');
-      } else if (index1 == index2) {
-        star.classList.add('active');
-        upperRating = index1 + 1;
-      } else {
-        star.classList.remove('active');
-      }
-    });
-  });
-});
-
-class FilterByRating {
-  filter(challengesContainer) {
-    const challenges = challengesContainer.querySelectorAll(
-      '.challenges-container__challenge'
-    );
-    for (let i = 0; i < challenges.length; i++) {
-      let cardRating = challenges[i].querySelector('span').ariaValueNow;
-      if (lowerRating <= cardRating && upperRating >= cardRating) {
-        challenges[i].style.display = '';
-      } else {
-        challenges[i].style.display = 'none';
-      }
-    }
-  }
-}
-
-// ███████████████ Starting point ███████████████ -------------------------------------------------------------------------
+// ███████████████ Entry Point ███████████████ -------------------------------------------------------------------------
 
 if (isOnChallengeSite) {
   const challengesContainer = document.querySelector(
@@ -111,13 +41,9 @@ if (isOnChallengeSite) {
   let view = new ChallengeListView();
   view.render(challengesContainer);
   const starsContainer = document.querySelector('.starsContainer');
-  if (starsContainer) {
-    starsContainer.addEventListener('click', filterByRating);
-  }
-  function filterByRating() {
-    new FilterByRating().filter(challengesContainer);
-  }
   const filter = new ChallengeKeyFilter(challengesContainer);
+  new FilterUI().render();
+  // const filterLogic = new FilterLogic;
 
   // Filter by tag starting point
   let viewTag = new Filter();
@@ -157,3 +83,163 @@ if (isOnMainPage) {
   );
   new TopThreeView().render(topThreeContainer);
 }
+
+
+
+
+
+/* // FILTER ------------------------------------------------------------------------------
+
+class FilterUI {
+  constructor() {
+  this.filterInfo = {
+  tagsAndType: [""],
+  rating: [0,5],
+  keyword: ""
+};
+
+// Möjligen att detta är det enda i konstruktorn, och att man skapar UI-funktionalitet med metoder...?
+
+  
+
+
+// Tags and type UI - skapar eventlisteners på knappar som lägger till och tar bort i this.filterInfo
+// typ 
+let tagAndTypButtons = document.querySelectorAll('.tagButton');
+tagAndTypButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    if (this.filterInfo.tagsAndType.includes(button.id)) {
+      this.filterInfo.tagsAndType.remove(button.id) // eller nåt
+    } else { this.filterInfo.tagsAndType.push(button.id)};
+    filter();
+  })
+}) 
+
+
+//Rinse and repeat more or less for type-buttons...?
+
+let textFilterInput = document.querySelector('#textFilter');
+textFilterInput.addEventListener('input', () => {
+  this.filterInfo.keyword = textFilterInput.value;
+  filterFunction.filter(this.filterInfo);
+})
+}
+
+
+
+
+
+
+
+
+
+
+
+filter(challengesContainer) {
+  const challenges = challengesContainer.querySelectorAll(
+    '.challenges-container__challenge'
+  );
+
+  for (let i = 0; i < challenges.length; i++) {
+    let cardRating = challenges[i].querySelector('span').ariaValueNow;
+
+
+
+
+
+
+
+    
+    
+    if (this.filterInfo.rating[0] <= cardRating && this.filterInfo.rating[1] >= cardRating
+      && this.filterInfo.tags.every((tag) => card.classList.contains(tag))
+      && titleText.toUpperCase().includes(this.filterInfo.keyword) 
+      && textContent.toUpperCase().includes(this.filterInfo.keyword)) 
+       {
+      challenges[i].style.display = '';
+    } else {
+      challenges[i].style.display = 'none';
+    }
+  }
+  challenges.forEach((challenge) => { //checks all cards in DOM if any card is visible, if none are, display message
+    if (challenge.style.visibility = '') {
+      return 
+    } else {
+      // display message that there are no matching results!
+    }
+  })
+}
+}
+
+
+
+
+
+// ALternativt egen klass för filtreringen
+class FilterFunction {
+
+
+  filter(filterInfo) {
+    if (filterInfo.tagsAndType == "linux") {
+      console.log('Do some shit');
+    }
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+SKISS FÖR FILTER
+
+entry point skapar en filterknapp
+
+knappen öppnar filter-UI som är en klass/typ av objekt, dvs new FilterUI
+
+FilterUI {
+skapar grejer för stjärnor, tagsknappar, type, och keyword
+
+sparar i ett objekt
+let filterInfo = {};
+filterInfo = {
+  type: "onsite",
+  tags: ["linux", "hacking"],
+  rating: [1,5],
+  keyword: "Little weird guy"
+}
+
+skickar info till new FilterMaster().doIt(), eller metod inom detta objekt
+filter(filterInfo);
+
+
+filter(filterInfo) {
+
+här i körs alla våra filtrerande funktioner, 
+alltså typ filterTags()-motsvarande, mitt rating, och keyword, bara att de använder sin info från filterInfo
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+ */
