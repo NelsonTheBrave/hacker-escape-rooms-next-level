@@ -1,7 +1,6 @@
 import { TopThreeView } from './challenges.js';
 import { ChallengeListView } from './challenges.js';
 import { openPopup } from './mobile-menu.js';
-import { ChallengeKeyFilter } from './keywordFilter.js';
 import { FilterUI } from './filterUI.js';
 import { FilterLogic } from './filter-logic.js';
 
@@ -38,8 +37,6 @@ if (isOnChallengeSite) {
   );
   let view = new ChallengeListView();
   view.render(challengesContainer);
-  const starsContainer = document.querySelector('.starsContainer');
-  const filter = new ChallengeKeyFilter(challengesContainer);
   new FilterUI().render();
   // const filterLogic = new FilterLogic;
 }
@@ -57,33 +54,8 @@ if (isOnMainPage) {
 
 /* // FILTER ------------------------------------------------------------------------------
 
-class FilterUI {
-  constructor() {
-  this.filterInfo = {
-  tagsAndType: [""],
-  rating: [0,5],
-  keyword: ""
-};
-
-// Möjligen att detta är det enda i konstruktorn, och att man skapar UI-funktionalitet med metoder...?
-
-  
 
 
-// Tags and type UI - skapar eventlisteners på knappar som lägger till och tar bort i this.filterInfo
-// typ 
-let tagAndTypButtons = document.querySelectorAll('.tagButton');
-tagAndTypButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    if (this.filterInfo.tagsAndType.includes(button.id)) {
-      this.filterInfo.tagsAndType.remove(button.id) // eller nåt
-    } else { this.filterInfo.tagsAndType.push(button.id)};
-    filter();
-  })
-}) 
-
-
-//Rinse and repeat more or less for type-buttons...?
 
 let textFilterInput = document.querySelector('#textFilter');
 textFilterInput.addEventListener('input', () => {

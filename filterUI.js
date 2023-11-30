@@ -13,7 +13,7 @@ export class FilterUI {
   render() {
     const filterLogic = new FilterLogic();
 
-    // Rating Filter UI
+    // Rating UI
     const stars = document.querySelectorAll('.stars i');
     const stars2 = document.querySelectorAll('.stars2 i');
 
@@ -29,7 +29,6 @@ export class FilterUI {
           });
           this.filterInfo.rating[0] = 0;
           filterLogic.run(this.filterInfo);
-          console.log('1');
           return;
         }
         stars.forEach((star, index2) => {
@@ -43,7 +42,6 @@ export class FilterUI {
           }
         });
         filterLogic.run(this.filterInfo);
-        console.log('2');
       });
     });
 
@@ -62,7 +60,6 @@ export class FilterUI {
           });
           this.filterInfo.rating[1] = 0;
           filterLogic.run(this.filterInfo);
-          console.log('3');
           return;
         }
         stars2.forEach((star, index2) => {
@@ -76,7 +73,6 @@ export class FilterUI {
           }
         });
         filterLogic.run(this.filterInfo);
-        console.log('4');
       });
     });
 
@@ -84,19 +80,16 @@ export class FilterUI {
     const tagButton = document.querySelectorAll('.tagButton');
     tagButton.forEach((button) => {
       button.addEventListener('click', () => {
-        console.log(button.id);
         button.classList.toggle('-active');
         if (this.filterInfo.tagsAndType.includes(button.id)) {
           for (let i = 0; i < this.filterInfo.tagsAndType.length; i++) {
             if (this.filterInfo.tagsAndType[i] === button.id) {
               this.filterInfo.tagsAndType.splice(i, 1);
-              console.log(this.filterInfo.tagsAndType);
             }
           }
         } else {
           //   button.classList.add('-active');
           this.filterInfo.tagsAndType.push(button.id);
-          console.log(this.filterInfo.tagsAndType);
         }
         filterLogic.run(this.filterInfo);
       });
@@ -105,22 +98,25 @@ export class FilterUI {
     // Type UI
     const typeBox = document.querySelectorAll('.checkBoxContainer input');
     typeBox.forEach((box) => {
-        box.addEventListener('click', () => {
-          if (this.filterInfo.tagsAndType.includes(box.id)) {
-            for (let i = 0; i < this.filterInfo.tagsAndType.length; i++) {
-              if (this.filterInfo.tagsAndType[i] === box.id) {
-                this.filterInfo.tagsAndType.splice(i, 1);
-                console.log(this.filterInfo.tagsAndType);
-              }
+      box.addEventListener('click', () => {
+        if (this.filterInfo.tagsAndType.includes(box.id)) {
+          for (let i = 0; i < this.filterInfo.tagsAndType.length; i++) {
+            if (this.filterInfo.tagsAndType[i] === box.id) {
+              this.filterInfo.tagsAndType.splice(i, 1);
             }
-          } else {
-            this.filterInfo.tagsAndType.push(box.id);
-            console.log(this.filterInfo.tagsAndType);
           }
-          filterLogic.run(this.filterInfo);
-        });
+        } else {
+          this.filterInfo.tagsAndType.push(box.id);
+        }
+        filterLogic.run(this.filterInfo);
       });
+    });
 
-
+    // Keyword UI
+    const textFilterInput = document.querySelector('#textFilter');
+    textFilterInput.addEventListener('input', () => {
+      this.filterInfo.keyword = textFilterInput.value;
+      filterLogic.run(this.filterInfo);
+    });
   } // End of render method
 } // End of FilterUI
