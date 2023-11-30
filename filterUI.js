@@ -4,7 +4,7 @@ export class FilterUI {
   // Creating an object that can store information about filter settings
   constructor() {
     this.filterInfo = {
-      tagsAndType: [''],
+      tagsAndType: [],
       rating: [0, 5],
       keyword: '',
     };
@@ -79,5 +79,48 @@ export class FilterUI {
         console.log('4');
       });
     });
-  }
+
+    //Tags UI
+    const tagButton = document.querySelectorAll('.tagButton');
+    tagButton.forEach((button) => {
+      button.addEventListener('click', () => {
+        console.log(button.id);
+        button.classList.toggle('-active');
+        if (this.filterInfo.tagsAndType.includes(button.id)) {
+          for (let i = 0; i < this.filterInfo.tagsAndType.length; i++) {
+            if (this.filterInfo.tagsAndType[i] === button.id) {
+              this.filterInfo.tagsAndType.splice(i, 1);
+              console.log(this.filterInfo.tagsAndType);
+            }
+          }
+        } else {
+          //   button.classList.add('-active');
+          this.filterInfo.tagsAndType.push(button.id);
+          console.log(this.filterInfo.tagsAndType);
+        }
+        filterLogic.run(this.filterInfo);
+      });
+    });
+
+    // Type UI
+    const typeBox = document.querySelectorAll('.checkBoxContainer input');
+    typeBox.forEach((box) => {
+        box.addEventListener('click', () => {
+          if (this.filterInfo.tagsAndType.includes(box.id)) {
+            for (let i = 0; i < this.filterInfo.tagsAndType.length; i++) {
+              if (this.filterInfo.tagsAndType[i] === box.id) {
+                this.filterInfo.tagsAndType.splice(i, 1);
+                console.log(this.filterInfo.tagsAndType);
+              }
+            }
+          } else {
+            this.filterInfo.tagsAndType.push(box.id);
+            console.log(this.filterInfo.tagsAndType);
+          }
+          filterLogic.run(this.filterInfo);
+        });
+      });
+
+
+  } // End of render method
 } // End of FilterUI

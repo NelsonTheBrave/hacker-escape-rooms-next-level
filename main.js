@@ -1,7 +1,5 @@
 import { TopThreeView } from './challenges.js';
 import { ChallengeListView } from './challenges.js';
-import { Filter } from './filterByTag.js';
-import { FilterButton } from './filterByTag.js';
 import { openPopup } from './mobile-menu.js';
 import { ChallengeKeyFilter } from './keywordFilter.js';
 import { FilterUI } from './filterUI.js';
@@ -44,37 +42,6 @@ if (isOnChallengeSite) {
   const filter = new ChallengeKeyFilter(challengesContainer);
   new FilterUI().render();
   // const filterLogic = new FilterLogic;
-
-  // Filter by tag starting point
-  let viewTag = new Filter();
-
-  // Buttons to filter by tag
-  const linuxButton = new FilterButton('linuxTag', viewTag, 'linux');
-  const webButton = new FilterButton('webTag', viewTag, 'web');
-  const javascriptButton = new FilterButton(
-    'javascriptTag',
-    viewTag,
-    'javascript'
-  );
-  const phreakingButton = new FilterButton(
-    'phreakingTag',
-    viewTag,
-    'phreaking'
-  );
-  const bashButton = new FilterButton('bashTag', viewTag, 'bash');
-  const sshButton = new FilterButton('sshTag', viewTag, 'ssh');
-  const codingButton = new FilterButton('codingTag', viewTag, 'coding');
-  const hackingButton = new FilterButton('hackingTag', viewTag, 'hacking');
-  const ctfButton = new FilterButton('ctfTag', viewTag, 'ctf');
-  const electronicsButton = new FilterButton(
-    'electronicsTag',
-    viewTag,
-    'electronics'
-  );
-
-  // Filter by type
-  const onlineCheckbox = new FilterButton('includeOnline', viewTag, 'online');
-  const onsiteCheckbox = new FilterButton('includeOnsite', viewTag, 'onsite');
 }
 
 if (isOnMainPage) {
