@@ -35,8 +35,7 @@ if (isOnChallengeSite) {
   );
   let view = new ChallengeListView();
   view.render(challengesContainer);
-  new FilterUI().render();
-  // const filterLogic = new FilterLogic;
+  new FilterUI().render(challengesContainer);
 }
 
 if (isOnMainPage) {

@@ -10,7 +10,7 @@ export class FilterUI {
     };
   } // End of constructor
 
-  render() {
+  render(container) {
     const filterLogic = new FilterLogic();
 
     // Rating UI
@@ -28,7 +28,7 @@ export class FilterUI {
             star.classList.remove('active');
           });
           this.filterInfo.rating[0] = 0;
-          filterLogic.run(this.filterInfo);
+          filterLogic.run(this.filterInfo, container);
           return;
         }
         stars.forEach((star, index2) => {
@@ -41,7 +41,7 @@ export class FilterUI {
             star.classList.remove('active');
           }
         });
-        filterLogic.run(this.filterInfo);
+        filterLogic.run(this.filterInfo, container);
       });
     });
 
@@ -59,7 +59,7 @@ export class FilterUI {
             star.classList.remove('active');
           });
           this.filterInfo.rating[1] = 0;
-          filterLogic.run(this.filterInfo);
+          filterLogic.run(this.filterInfo, container);
           return;
         }
         stars2.forEach((star, index2) => {
@@ -72,7 +72,7 @@ export class FilterUI {
             star.classList.remove('active');
           }
         });
-        filterLogic.run(this.filterInfo);
+        filterLogic.run(this.filterInfo, container);
       });
     });
 
@@ -91,7 +91,7 @@ export class FilterUI {
           //   button.classList.add('-active');
           this.filterInfo.tagsAndType.push(button.id);
         }
-        filterLogic.run(this.filterInfo);
+        filterLogic.run(this.filterInfo, container);
       });
     });
 
@@ -108,7 +108,7 @@ export class FilterUI {
         } else {
           this.filterInfo.tagsAndType.push(box.id);
         }
-        filterLogic.run(this.filterInfo);
+        filterLogic.run(this.filterInfo, container);
       });
     });
 
@@ -116,7 +116,7 @@ export class FilterUI {
     const textFilterInput = document.querySelector('#textFilter');
     textFilterInput.addEventListener('input', () => {
       this.filterInfo.keyword = textFilterInput.value;
-      filterLogic.run(this.filterInfo);
+      filterLogic.run(this.filterInfo, container);
     });
   } // End of render method
 } // End of FilterUI
