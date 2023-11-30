@@ -399,6 +399,7 @@ header .navBar {
 }
 .challenges-container__challenge {
   background-color: #fff;
+  align-self: flex-end;
   width: 85%;
   max-width: 400px;
   flex: none;
@@ -451,7 +452,13 @@ header .navBar {
 }
 .challenges-container__challenge__title {
   margin-top: 12px;
+  margin-bottom: 10px;
   font-size: 28px;
+}
+@media screen and (min-width: 1200px) {
+  .challenges-container__challenge__title {
+    height: 55px;
+  }
 }
 @media screen and (min-width: 1750px) {
   .challenges-container__challenge__title {
@@ -460,6 +467,7 @@ header .navBar {
 }
 .challenges-container__challenge__rating {
   display: flex;
+  margin-top: 10px;
 }
 .challenges-container__challenge__rating__stars {
   display: flex;
@@ -488,12 +496,16 @@ header .navBar {
   margin-right: 10px;
   font-size: 18px;
 }
+@media screen and (min-width: 1200px) {
+  .challenges-container__challenge__text {
+    height: 35px;
+  }
+}
 @media screen and (700px <= width < 1200px) {
   .challenges-container__challenge__text {
     margin-top: 23px;
     margin-right: 10px;
     font-size: 22px;
-    padding-bottom: 60px;
   }
 }
 @media screen and (min-width: 1750px) {
@@ -501,7 +513,6 @@ header .navBar {
     margin-top: 23px;
     margin-right: 10px;
     font-size: 22px;
-    padding-bottom: 60px;
   }
 }
 .challenges-container__challenge__button {
