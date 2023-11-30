@@ -100,9 +100,22 @@ export class BookingManager {
       'Search available times',
       null
     );
+
     bookingSceneContainer__section.appendChild(
       bookingSceneContainer__ContinueBtn
     );
+     //Return button
+     const bookingSceneContainer__BackBtn = this.createElement(
+      'button',
+      'bookingSceneContainer__BackBtnID',
+       'bookingSceneContainer__BackBtnClass',
+       'Back to challenges',
+       null
+     );
+    
+    bookingSceneContainer__section.appendChild(
+       bookingSceneContainer__BackBtn
+     );
 
     // Creating second modal-section
     bookingSceneContainer__ContinueBtn.addEventListener('click', async () => {
@@ -186,7 +199,7 @@ export class BookingManager {
       bookingSceneContainer__SecondSection.appendChild(
         bookingScene__SecondRoomLabelEmail
       );
-      // Input Email needs to be saved somewhere
+      // User input email
       const bookingScene__SecondRoomInputEmail = this.createElement(
         'input',
         'bookingScene__SecondRoomInputEmailID',

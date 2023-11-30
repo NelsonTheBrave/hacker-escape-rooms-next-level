@@ -16,8 +16,8 @@
     .bookingSceneContainer__SectionClass { 
         position: sticky;
         z-index: 1;
-        width: 95%;
-        min-height: 700px;
+        width: 97%;
+        min-height: 95%;
         background-color: #011827;
         display: flex;
         flex-flow: column;
@@ -57,11 +57,21 @@
     border-radius: 5px;
     flex-direction: row;
     align-self: flex-end;
-    margin: 280px 0px 0px 0px;
+    position: relative;
+    top: 482px;
     }
     
     }
     
+    .bookingSceneContainer__BackBtnClass {
+        height: 60px;
+        margin: 0px;
+        font-size: 24px;
+        flex-direction: row;
+        align-self: flex-start;
+        position: relative;
+        top: 420px;
+    }
     // Second modal page
     .bookingSceneContainer__SecondSectionClass {
         position: sticky;
@@ -150,10 +160,11 @@
             height: 60px;
             background-color: white;
             margin: 0px;
+            font-size: 24px;
             border-radius: 5px;
             flex-direction: row;
             align-self: flex-end;
-            margin: 300px 0px 0px 0px;
+            margin: 330px 0px 0px 0px;
             
     
     }
