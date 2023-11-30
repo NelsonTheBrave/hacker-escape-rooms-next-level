@@ -42,15 +42,11 @@ export class FilterLogic {
       } else {
         return;
       }
-      //     console.log('found');
-      // } else {
-      //   // display message that there are no matching results!
-      //   console.log('no matches');
     })
     if (visibleCount === 0) {
         noMatchesMessage.style.display = '';
     } else {
         noMatchesMessage.style.display = 'none';
     }
-  } // End of method
-} // End of class
+  }
+}
