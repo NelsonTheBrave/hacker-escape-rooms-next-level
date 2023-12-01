@@ -366,7 +366,6 @@ header .navBar {
   padding-left: 10%;
   padding-right: 2%;
   display: flex;
-  flex-flow: wrap;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   gap: 5%;
@@ -467,6 +466,7 @@ header .navBar {
   margin-top: 12px;
   margin-bottom: 10px;
   font-size: 28px;
+  height: 55px;
 }
 @media screen and (min-width: 1200px) {
   .challenges-container__challenge__title {
@@ -508,6 +508,7 @@ header .navBar {
   margin-top: 23px;
   margin-right: 10px;
   font-size: 18px;
+  height: 35px;
 }
 @media screen and (min-width: 1200px) {
   .challenges-container__challenge__text {
