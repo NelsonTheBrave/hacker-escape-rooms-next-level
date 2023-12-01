@@ -9,7 +9,7 @@ export class FilterUI {
       keyword: '',
     };
 
-    // Check if URL contains ?type=online
+    // Check if URL contains ?type= online or onsite
     const params = new URLSearchParams(window.location.search);
     const filterType = params.get('type');
     if (filterType === 'online') {
@@ -17,7 +17,7 @@ export class FilterUI {
     } else if (filterType === 'onsite') {
       this.filterInfo.tagsAndType = ['onsite'];
     }
-  } // End of constructor
+  }
 
   render(container) {
     const filterLogic = new FilterLogic(this.filterInfo, container);
