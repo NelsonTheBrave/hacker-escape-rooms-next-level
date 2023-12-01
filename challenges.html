@@ -67,7 +67,8 @@
               <input
                 type="checkbox"
                 name="Include online challenges"
-                id="includeOnline"
+                id="onsite"
+                checked
               />
               <label for="includeOnline">Include Online challenges</label>
             </div>
@@ -75,7 +76,8 @@
               <input
                 type="checkbox"
                 name="Include on-site challenges"
-                id="includeOnsite"
+                id="online"
+                checked
               />
               <label for="includeOnsite">Include on-site challenges</label>
             </div>
@@ -113,16 +115,16 @@
           <div class="tagsContainer">
             <h2>By tags</h2>
             <div class="tagButtonContainer">
-              <button id="linuxTag" class="tagButton">linux</button>
-              <button id="webTag" class="tagButton">web</button>
-              <button id="javascriptTag" class="tagButton">javascript</button>
-              <button id="phreakingTag" class="tagButton">phreaking</button>
-              <button id="bashTag" class="tagButton">bash</button>
-              <button id="sshTag" class="tagButton">ssh</button>
-              <button id="codingTag" class="tagButton">coding</button>
-              <button id="hackingTag" class="tagButton">hacking</button>
-              <button id="ctfTag" class="tagButton">ctf</button>
-              <button id="electronicsTag" class="tagButton">electronics</button>
+              <button id="linux" class="tagButton">linux</button>
+              <button id="web" class="tagButton">web</button>
+              <button id="javascript" class="tagButton">javascript</button>
+              <button id="phreaking" class="tagButton">phreaking</button>
+              <button id="bash" class="tagButton">bash</button>
+              <button id="ssh" class="tagButton">ssh</button>
+              <button id="coding" class="tagButton">coding</button>
+              <button id="hacking" class="tagButton">hacking</button>
+              <button id="ctf" class="tagButton">ctf</button>
+              <button id="electronics" class="tagButton">electronics</button>
             </div>
           </div>
         </div>
@@ -133,6 +135,7 @@
         id="challenges"
         class="challenges-container challenges-site"
       ></section>
+      <h1 style="display: none" class="no-match-message">No matching challenges</h1>
     </main>
 
     <!-- ███████████████ FOOTER ███████████████ -->
