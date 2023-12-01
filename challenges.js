@@ -1,4 +1,6 @@
 import { BookingManager } from './booking-manager.js';
+import { FilterUI } from './filterUI.js';
+
 
 class Challenge {
   constructor(data) {
@@ -116,6 +118,7 @@ export class ChallengeListView {
 
       container.append(element);
     }
+    new FilterUI().render(container);
   }
 }
 

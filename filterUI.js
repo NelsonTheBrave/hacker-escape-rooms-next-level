@@ -2,9 +2,24 @@ import { FilterLogic } from './filter-logic.js';
 
 export class FilterUI {
   // Creating an object that can store information about filter settings
-  constructor(data) {
-    this.filterInfo = data
-    console.log(data);
+  constructor() {
+    this.filterInfo = {
+      tagsAndType: [],
+      rating: [0, 5],
+      keyword: '',
+    };
+
+    // if (
+    //     URL === '?type=online'
+    //   ) {
+    //     this.filterInfo.tagsAndType = ["online"]
+    //     }
+    //  else if (
+    //     URL === '?type=onsite'
+    //   ) {
+    //     this.filterInfo.tagsAndType = ["onsite"]
+    // }
+
   } // End of constructor
 
   render(container) {
@@ -94,8 +109,12 @@ export class FilterUI {
 
     // Type UI
     const typeBox = document.querySelectorAll('.checkBoxContainer input');
-    if (this.filterInfo.tagsAndType[0] == 'onsite') {typeBox[0].checked = false;}
-    if (this.filterInfo.tagsAndType[0] == 'online') {typeBox[1].checked = false;}
+    if (this.filterInfo.tagsAndType[0] == 'onsite') {
+      typeBox[0].checked = false;
+    }
+    if (this.filterInfo.tagsAndType[0] == 'online') {
+      typeBox[1].checked = false;
+    }
     typeBox.forEach((box) => {
       box.addEventListener('click', () => {
         if (this.filterInfo.tagsAndType.includes(box.id)) {
@@ -117,6 +136,5 @@ export class FilterUI {
       this.filterInfo.keyword = textFilterInput.value;
       filterLogic.run(this.filterInfo, container);
     });
-
   } // End of render method
 } // End of FilterUI
