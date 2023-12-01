@@ -16,7 +16,7 @@
     position: sticky;
     z-index: 1;
     width: 97%;
-    height: 95%;
+    min-height: 890px;
     background-color: #011827;
     display: flex;
     flex-flow: column;
@@ -86,7 +86,7 @@
     position: sticky;
     z-index: 1;
     width: 97%;
-    height: 97%;
+    min-height: 880px;
     background-color: #011827;
     display: flex;
     flex-flow: column;
@@ -253,7 +253,7 @@
         position: sticky;
         z-index: 1;
         width: 97%;
-        height: 95%;
+        max-height: 910px;
         background-color: #011827;
         display: flex;
         flex-flow: column;
@@ -320,7 +320,7 @@
         position: sticky;
         z-index: 1;
         width: 97%;
-        height: 98%;
+        max-height: 880px;
         background-color: #011827;
         display: flex;
         flex-flow: column;
@@ -408,7 +408,7 @@
             margin: 0px 0px 0px 0px;
             align-self: end;
             position: relative;
-            top: 358px;
+            top: 310px;
 
         }
 
@@ -419,7 +419,7 @@
             height: 60px;
             font-size: 25px;
             border-radius: 5px;
-            margin: 300px 0px 0px 0px;
+            margin: 250px 0px 0px 0px;
             align-self: start;
 
             .bookingSceneContainer__LastSectionBackBtnLinkClass {}
