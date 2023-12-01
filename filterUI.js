@@ -8,10 +8,19 @@ export class FilterUI {
       rating: [0, 5],
       keyword: '',
     };
+
+    // Check if URL contains ?type=online
+    const params = new URLSearchParams(window.location.search);
+    const filterType = params.get('type');
+    if (filterType === 'online') {
+      this.filterInfo.tagsAndType = ['online'];
+    } else if (filterType === 'onsite') {
+      this.filterInfo.tagsAndType = ['onsite'];
+    }
   } // End of constructor
 
   render(container) {
-    const filterLogic = new FilterLogic();
+    const filterLogic = new FilterLogic(this.filterInfo, container);
 
     // Rating UI
     const stars = document.querySelectorAll('.stars i');
@@ -97,6 +106,12 @@ export class FilterUI {
 
     // Type UI
     const typeBox = document.querySelectorAll('.checkBoxContainer input');
+    if (this.filterInfo.tagsAndType[0] == 'onsite') {
+      typeBox[0].checked = false;
+    }
+    if (this.filterInfo.tagsAndType[0] == 'online') {
+      typeBox[1].checked = false;
+    }
     typeBox.forEach((box) => {
       box.addEventListener('click', () => {
         if (this.filterInfo.tagsAndType.includes(box.id)) {
