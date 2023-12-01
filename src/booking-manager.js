@@ -70,7 +70,7 @@ export class BookingManager {
     // Link inside return button
     const bookingSceneContainer__BackBtnLink = this.createElement
     ('a','bookingSceneContainer__ReturnBtnLinkID','bookingSceneContainer__BackBtnLinkClass','Back to challenges',null);
-    bookingSceneContainer__BackBtnLink.href = 'challenges.html';
+    bookingSceneContainer__BackBtnLink.href = '/src/challenges.html';
     bookingSceneContainer__BackBtn.appendChild(bookingSceneContainer__BackBtnLink);
 
 
@@ -181,7 +181,7 @@ export class BookingManager {
       // Link inside return button
       const bookingSceneContainer__SecondRoomBackBtnLink = this.createElement
       ('a','bookingSceneContainer__LastSectionReturnBtnLinkID','bookingSceneContainer__LastSectionBackBtnLinkClass','Back to challenges',null);
-      bookingSceneContainer__SecondRoomBackBtnLink.href = 'challenges.html';
+      bookingSceneContainer__SecondRoomBackBtnLink.href = '/src/challenges.html';
       bookingSceneContainer__SecondRoomBackBtn.appendChild(bookingSceneContainer__SecondRoomBackBtnLink);
 
 
@@ -225,7 +225,7 @@ export class BookingManager {
           const bookingSceneContainer__LastSectionLink = this.createElement
           ('a','bookingSceneContainer__LastSectionLinkID','bookingSceneContainer__LastSectionLinkClass','Back to challenges',null);
           bookingSceneContainer__LastSection.appendChild(bookingSceneContainer__LastSectionLink);
-          bookingSceneContainer__LastSectionLink.href = 'challenges.html';
+          bookingSceneContainer__LastSectionLink.href = '/src/challenges.html';
         }
       );
     });
