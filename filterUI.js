@@ -9,17 +9,14 @@ export class FilterUI {
       keyword: '',
     };
 
-    // if (
-    //     URL === '?type=online'
-    //   ) {
-    //     this.filterInfo.tagsAndType = ["online"]
-    //     }
-    //  else if (
-    //     URL === '?type=onsite'
-    //   ) {
-    //     this.filterInfo.tagsAndType = ["onsite"]
-    // }
-
+    // Check if URL contains ?type=online
+    const params = new URLSearchParams(window.location.search);
+    const filterType = params.get('type');
+    if (filterType === 'online') {
+      this.filterInfo.tagsAndType = ['online'];
+    } else if (filterType === 'onsite') {
+      this.filterInfo.tagsAndType = ['onsite'];
+    }
   } // End of constructor
 
   render(container) {
