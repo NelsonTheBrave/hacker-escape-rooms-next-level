@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta property="og:title" content="Escape Hacker Rooms"/>
+    <meta property="og:description" content="Play challenging and entertaining Escape games with friends, either online or at our venue"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:image" content="https://nelsonthebrave.github.io/hacker-escape-rooms/assets/image 2large.png"/>
+    <link rel="stylesheet" href="/assets/main.css"  />
+    <script
+    src="https://kit.fontawesome.com/c866a2c3b1.js"
+    crossorigin="anonymous"
+  ></script>
+    <script defer src="main.js" type="module"></script>
+    <title>[ESC] Hacker Escape Rooms</title>
+  </head>
+
+  <body>
+    <!-- ███████████████ HEADER ███████████████ -->
+    <header>
+      <div>
+        <a href="index.html" class="logo" role="img" aria-label="Logotype of company">ESC</a>
+      <h1>Hacker Escape Rooms</h1>
+      <button class="navbar-button"></button>
+    </div>
+      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ NAVBAR ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+      <nav class="navBar">
+        <button class="navBar__close-button"></button>
+        <ul class="navBar__list" role="menubar">
+            <li role="menuitem"><a href="./src/challenges.html?type=online">Play online</a></li>
+            <li role="menuitem"><a href="./src/challenges.html?type=onsite">Play on-site</a></li>
+            <li role="menuitem"><a href="#our-story">The story</a></li>
+            <li role="menuitem"><a href="#contact-us">Contact us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ███████████████ MAIN ███████████████ -->
+
+    <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ HERO ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+    <img src="assets/image 2small.png" alt="Hero image of someone sitting in front of a computer" class="topImageSmall" />
+    <img src="assets/image 2large.png" alt="Hero image of someone sitting in front of a computer" class="topImageLarge" />
+
+      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ CALL TO ACTION ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+      <div class="buttons buttons--translate">
+      <button class="buttons__onsiteBtn"  onclick="window.location.href = './src/challenges.html?type=onsite'">On-site Challenges</button>
+      <button class="buttons__onlineBtn" onclick="window.location.href = './src/challenges.html?type=online'">Online Challenges</button>
+    </div>
+      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ TESTIMONIALS ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+      <section class="quotes-section">
+
+        <!-- ░░░░░░░░░░░░░░░ QUOTE 1 ░░░░░░░░░░░░░░░ -->
+        <div class="quote-container quote1">
+          <img
+            src="assets/image 3.png"
+            alt=""
+            class="quote-container__head"
+          />
+          <div class="quote-container__texts">
+          <p class="quote-container__quoteText">
+            This is a quote about how amazing this place is and how much fun me
+            and my friends had when we tried it
+          </p>
+          <p class="quote-container__name">John Doe, visited us in September 2021</p>
+        </div>
+        </div>
+
+        <!-- ░░░░░░░░░░░░░░░ QUOTE 2 ░░░░░░░░░░░░░░░ -->
+        <div class="quote-container quote2">
+          <img
+            src="assets/image 3.png"
+            alt=""
+            class="quote-container__head"
+
+          
+          />
+          <div class="quote-container__texts">
+          <p class="quote-container__quoteText">
+            This is a quote about how amazing this place is and how much fun me
+            and my friends had when we tried it
+          </p>
+          <p class="quote-container__name">John Doe, visited us in September 2021</p>
+        </div>
+        </div>
+      </section>
+
+      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ POPULAR CHALLENGES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+
+        <h2 class="challenges-container__title">
+          Popular challenges right now
+        </h2>
+        <section class="challenges-container main-page">
+      </section>
+
+      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ BUTTON BAR ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+<div class="buttons">
+      <button class="buttons__onsiteBtn" onclick="window.location.href = './src/challenges.html'+'?type=onsite';">On-site Challenges</button>
+      <button class="buttons__onlineBtn" onclick="window.location.href = './src/challenges.html'+'?type=online';">Online Challenges</button>
+    </div>
+      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ OUR STORY ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+      <section class="ourStory-container" id="our-story">
+        <p class="ourStory-container__text">
+          Quodsi haberent magnalia inter potentiam et divitias, et non illam
+          quidem haec eo spectant haec quoque vos omnino desit illud quo solo
+          felicitatis libertatisque perficiuntur.
+        </p>
+        <button class="ourStory-container__btn">Read the full story</button>
+      </section>
+
+      <!-- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ PLAY WITH FRIENDS AND ONLINE ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ -->
+
+<section class="PLAY-WITH-FRIENDS-AND-ONLINE-CONTAINER">
+
+      <!-- ░░░░░░░░░░░░░░░░ PLAY WITH FRIENDS ░░░░░░░░░░░░░░░░ -->
+      <img
+          src="assets/nesa-by-makers-IgUR1iX0mqM-unsplash 1.png"
+          alt=""
+          class="imgAbovePlayWithFriends"
+          id="play-on-site"
+        />
+
+      <section class="playWithFriends">
+        
+        <h3 class="playWithFriends__title">
+          Play with your friends or build your team stronger at work
+        </h3>
+        <p class="playWithFriends__text">
+          Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil
+          inuitam. Nemo nocere tibi erit, et non inimicos, et
+        </p>
+        <button class="playWithFriends__btn onsiteBtn" onclick="window.location.href = './src/challenges.html'+'?type=onsite';">Book on-site today</button>
+      </section>
+
+
+      <!-- ░░░░░░░░░░░░░░ PLAY ONLINE ░░░░░░░░░░░░░░░ -->
+      <img
+      src="assets/kelly-sikkema-YK0HPwWDJ1I-unsplash 1.png"
+      alt=""
+      class="imgAbovePlayOnline"
+      id="play-online"
+    />
+
+
+      <section class="PLAY-ONLINE-CONTAINER">
+        
+        <h3 class="PLAY-ONLINE-CONTAINER__title">
+          Play online or visit our venue for one of our 25 escape rooms
+        </h3>
+        <p class="PLAY-ONLINE-CONTAINER__text">
+          Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil
+          inuitam. Nemo nocere tibi erit, et non inimicos, et
+        </p>
+        <button class="PLAY-ONLINE-CONTAINER__btn onsiteBtn" onclick="window.location.href = './src/challenges.html';">See all challenges</button>
+      </section>
+    </main>
+
+  </section>
+</section>
+    <!-- ███████████████ FOOTER ███████████████ -->
+
+    <footer class="footer">
+      
+      <h3 class="footer__title">[ESC] Hacker Escape Rooms</h3>
+      <p class="footer__text">
+        Quodsi haberent magnalia inter potentiam et divitias, et non illam
+        quidem haec eo spectant haec quoque vos omnino desit illud quo solo
+        felicitatis libertatisque perficiuntur.
+      </p>
+        <h3 class="links__title">Site map</h3>
+        <ul class="links__list">
+          <li><a href="">The Story</a></li>
+          <li><a href="">Contact Us</a></li>
+          <li><a href="">Legal</a></li>
+          <li>&nbsp;</li>
+          <li><a href="./src/challenges.html?type=online">Play online</a></li>
+          <li><a href="./src/challenges.html?type=onsite">Play on-site</a></li>
+        </ul>
+        <h3 class="followUs__title" id="contact-us">Follow us on</h3>
+        <ul class="followUs__list">
+          <li><a href="">Facebook</a></li>
+          <li><a href="">Instagram</a></li>
+          <li><a href="">Twitter</a></li>
+        </ul>
+    </footer>
+
+    
+    
+  </body>
+</html>
