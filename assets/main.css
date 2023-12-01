@@ -829,6 +829,11 @@ header .navBar {
   border-radius: 8px;
   margin: 2em auto 0 auto;
 }
+@media screen and (max-width: 900px) {
+  .filterDiv {
+    margin: 0 auto;
+  }
+}
 .filterDiv h1 {
   font-size: 1.4em;
   margin: 1.2em 0 0 1.5em;
@@ -852,6 +857,20 @@ header .navBar {
   padding-right: 2em;
   width: 100%;
 }
+@media screen and (max-width: 900px) {
+  .filterDiv .middleSection {
+    flex-direction: column;
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 0;
+    padding-left: 2em;
+  }
+}
+@media screen and (max-width: 480px) {
+  .filterDiv .middleSection {
+    padding: 0;
+  }
+}
 .filterDiv .middleSection h2 {
   font-weight: bold;
   margin-bottom: 1em;
@@ -860,9 +879,20 @@ header .navBar {
   display: flex;
   flex-direction: column;
 }
+@media screen and (max-width: 900px) {
+  .filterDiv .middleSection .checkBoxContainer {
+    margin-top: 1em;
+  }
+}
 .filterDiv .middleSection .starSelection {
+  margin: 0 2em;
   display: flex;
   flex-direction: column;
+}
+@media screen and (max-width: 900px) {
+  .filterDiv .middleSection .starSelection {
+    margin: 1em 0 0 0;
+  }
 }
 .filterDiv .middleSection .starSelection .starsContainer {
   display: flex;
@@ -895,6 +925,11 @@ header .navBar {
   flex-direction: column;
   margin: 4em 0 2em 0;
 }
+@media screen and (max-width: 900px) {
+  .filterDiv .middleSection .starSelection .keywordFilter {
+    margin-top: 2em;
+  }
+}
 .filterDiv .middleSection .starSelection .keywordFilter input {
   border: 2px solid black;
   border-radius: 4px;
@@ -902,9 +937,15 @@ header .navBar {
   height: 40px;
   padding: 0 0.5em;
 }
+@media screen and (max-width: 480px) {
+  .filterDiv .middleSection .starSelection .keywordFilter input {
+    width: 200px;
+  }
+}
 .filterDiv .tagsContainer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 2em;
 }
 .filterDiv .tagsContainer .tagButtonContainer {
   display: flex;
