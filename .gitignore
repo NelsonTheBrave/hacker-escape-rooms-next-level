@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
-OOP.html
-OOP.js
+cypress
+assets/main.css.map
