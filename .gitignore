@@ -2,3 +2,7 @@ node_modules
 .DS_Store
 OOP.html
 OOP.js
+package.json
+package-lock.json
+assets/main.css.map
+cypress
