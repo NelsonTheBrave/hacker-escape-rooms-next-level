@@ -54,7 +54,7 @@ html.--transparant {
 
 header {
   height: 144px;
-  background-color: #011827;
+  background-color: #021928;
   color: white;
   padding-top: 26px;
 }
@@ -148,7 +148,7 @@ header .navBar {
 }
 @media (max-width: 899px) {
   header .navBar--popup {
-    background-color: #011827;
+    background-color: #021928;
     width: calc(100vw - 44px);
     height: calc(100vh - 44px);
     position: fixed;
@@ -250,7 +250,7 @@ header .navBar {
   }
 }
 .buttons__onsiteBtn {
-  color: #011827;
+  color: #021928;
   background: #8acfe5;
   margin-top: 25px;
 }
@@ -551,7 +551,7 @@ header .navBar {
   margin-top: 56px;
   padding-top: 95px;
   padding-bottom: 91px;
-  background-color: #011827;
+  background-color: #021928;
 }
 @media (min-width: 1200px) {
   .ourStory-container {
@@ -579,7 +579,7 @@ header .navBar {
 }
 .ourStory-container__btn {
   margin-top: 60px;
-  background-color: #011827;
+  background-color: #021928;
   color: #8acfe5;
   border: 2px solid #8acfe5;
 }
@@ -698,7 +698,7 @@ header .navBar {
 }
 
 .footer {
-  background-color: #011827;
+  background-color: #021928;
   margin-top: 38px;
   color: white;
   padding: 64px 20px 70px 20px;
