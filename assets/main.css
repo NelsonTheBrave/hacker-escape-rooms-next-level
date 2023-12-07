@@ -421,6 +421,9 @@ header .navBar {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
   scroll-snap-align: center;
 }
+.challenges-container__challenge:hover {
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
+}
 @media screen and (min-width: 700px) {
   .challenges-container__challenge {
     max-width: 520px;
