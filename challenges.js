@@ -18,7 +18,6 @@ class Challenge {
       challengeCard.innerHTML = '<i class="fa-solid fa-building-user"></i>';
     }
 
-    console.log(challengeCard.innerHTML);
     for (let i = 0; i < this.data.labels.length; i++) {
       challengeCard.classList.add(this.data.labels[i]);
     }
