@@ -1,7 +1,6 @@
 import { BookingManager } from './booking-manager.js';
 import { FilterUI } from './filterUI.js';
 
-
 class Challenge {
   constructor(data) {
     this.data = data;
@@ -13,6 +12,13 @@ class Challenge {
     challengeCard.id = this.data.id;
     challengeCard.classList.add('challenges-container__challenge');
     challengeCard.classList.add(this.data.type);
+    if (this.data.type === 'online') {
+      challengeCard.innerHTML = '<i class="fa-solid fa-globe"></i>';
+    } else {
+      challengeCard.innerHTML = '<i class="fa-solid fa-building-user"></i>';
+    }
+
+    console.log(challengeCard.innerHTML);
     for (let i = 0; i < this.data.labels.length; i++) {
       challengeCard.classList.add(this.data.labels[i]);
     }

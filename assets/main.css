@@ -410,6 +410,7 @@ header .navBar {
   }
 }
 .challenges-container__challenge {
+  position: relative;
   background-color: #fff;
   align-self: flex-end;
   width: 85%;
@@ -438,6 +439,13 @@ header .navBar {
     max-width: 29%;
     margin: 87px 10px 77px 0px;
   }
+}
+.challenges-container__challenge .fa-globe, .challenges-container__challenge .fa-building-user {
+  font-size: 3em;
+  position: absolute;
+  right: 0.1em;
+  top: 0.1em;
+  color: white;
 }
 .challenges-container__challenge__img {
   width: 100%;
