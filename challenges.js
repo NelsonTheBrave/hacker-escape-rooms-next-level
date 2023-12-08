@@ -85,9 +85,6 @@ class Challenge {
     {
     challengeText.textContent = this.data.description.slice(0, maxLength) + '...';
    }
-   else{
-    challengeText.textContent = this.data.description;
-   }
     wrapperDiv.append(challengeText);
 
     const challengeButton = document.createElement('button');
