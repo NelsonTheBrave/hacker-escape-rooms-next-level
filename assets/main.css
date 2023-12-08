@@ -1018,6 +1018,9 @@ header .navBar {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 20px 0px 0px 14px;
   color: white;
+  animation-name: mobileMenu;
+  animation-duration: 0.1s;
+  animation-timing-function: ease-in;
 }
 
 .bookingSceneContainer__SectionClass {
@@ -1032,6 +1035,8 @@ header .navBar {
   align-items: center;
   padding: 20px;
   border-radius: 10px;
+  animation-name: mobileMenu2;
+  animation-duration: 0.2s;
 }
 .bookingSceneContainer__SectionClass .bookingSceneContainer__h1Class {
   font-size: 30px;
@@ -1061,16 +1066,14 @@ header .navBar {
   align-self: center;
   font-size: 24px;
 }
-
-.bookingSceneContainer__BackBtnClass {
+.bookingSceneContainer__SectionClass .bookingSceneContainer__BackBtnClass {
   width: 290px;
   height: 60px;
   margin: 20px 0px 0px 0px;
   font-size: 24px;
   align-self: center;
 }
-
-.bookingSceneContainer__BackBtnLinkClass:hover {
+.bookingSceneContainer__SectionClass .bookingSceneContainer__BackBtnLinkClass:hover {
   color: black;
 }
 
@@ -1234,14 +1237,14 @@ header .navBar {
     align-self: end;
     font-size: 24px;
   }
-  .bookingSceneContainer__BackBtnClass {
+  .bookingSceneContainer__SectionClass .bookingSceneContainer__BackBtnClass {
     width: 290px;
     height: 60px;
     margin: 430px 0px 0px 0px;
     font-size: 24px;
     align-self: start;
   }
-  .bookingSceneContainer__BackBtnLinkClass:hover {
+  .bookingSceneContainer__SectionClass .bookingSceneContainer__BackBtnLinkClass:hover {
     color: black;
   }
   .bookingSceneContainer__SecondSectionClass {
@@ -1346,6 +1349,28 @@ header .navBar {
     font-size: 25px;
     color: rgb(93, 61, 209);
     border-bottom: rgb(61, 48, 110) solid 2px;
+  }
+}
+@keyframes mobileMenu {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes mobileMenu2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
