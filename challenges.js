@@ -1,7 +1,6 @@
 import { BookingManager } from './booking-manager.js';
 import { FilterUI } from './filterUI.js';
 
-
 class Challenge {
   constructor(data) {
     this.data = data;
