@@ -183,7 +183,7 @@ export class BookingManager {
         bookingScene__SecondRoomInputName
       );
 
-      // label connection to InputPhone
+      // label connection to Input Phone
       const bookingScene__SecondRoomLabelPhone = this.createElement(
         'label',
         null,
