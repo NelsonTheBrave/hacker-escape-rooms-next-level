@@ -182,7 +182,7 @@ export class BookingManager {
       bookingSceneContainer__SecondSection.appendChild(
         bookingScene__SecondRoomInputName
       );
-
+      
       // label connection to Input Phone
       const bookingScene__SecondRoomLabelPhone = this.createElement(
         'label',
@@ -311,11 +311,49 @@ export class BookingManager {
       );
 
       // Saving min/max-participants from challenge-class
+      
       const minParticipants = challenge.minParticipants;
       const maxParticipants = challenge.maxParticipants;
 
-      //Create array from objects min/max participants and using loop to push it to array.
-      const challengeMinMaxPart = [];
+      // Creating select-Element for max/min participants
+      const bookingScene__SecondRoomSelectParticipants = this.createElement(
+        'input',
+        'bookingScene__SecondRoomSelectParticipantsID',
+        'bookingScene__SecondRoomSelectParticipantsClass',
+        null,
+        'number'
+      );
+      bookingScene__SecondRoomSelectParticipants.setAttribute(
+        'name',
+        'minMaxParticipants'
+      );
+      bookingScene__SecondRoomSelectParticipants.setAttribute(
+        'min',
+        minParticipants
+      );
+      bookingScene__SecondRoomSelectParticipants.setAttribute(
+        'max',
+        maxParticipants
+      );
+      bookingSceneContainer__SecondSection.appendChild(
+        bookingScene__SecondRoomSelectParticipants
+      );
+
+      // //Create array from objects min/max participants and using loop to push it to array.
+      // const challengeMinMaxPart = [];
+
+      // for (let i = minParticipants; i <= maxParticipants; i++) {
+      //   challengeMinMaxPart.push(i);
+      // }
+
+      // //Create option element for each participant inside array.
+      //   challengeMinMaxPart.forEach((participants) => {
+      //   const bookingSceneContainer__SecondRoomParticipantsOption = document.createElement('option');
+      //   const participantsText = `${participants} Participants `;
+      //   bookingSceneContainer__SecondRoomParticipantsOption.value = participants;
+      //   bookingSceneContainer__SecondRoomParticipantsOption.text =  participantsText;
+      //   bookingScene__SecondRoomSelectParticipants.appendChild(bookingSceneContainer__SecondRoomParticipantsOption);
+      // });
 
       for (let i = minParticipants; i <= maxParticipants; i++) {
         challengeMinMaxPart.push(i);
