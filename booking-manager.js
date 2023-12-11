@@ -182,6 +182,33 @@ export class BookingManager {
       bookingSceneContainer__SecondSection.appendChild(
         bookingScene__SecondRoomInputName
       );
+      
+      // label connection to Input Phone
+      const bookingScene__SecondRoomLabelPhone = this.createElement(
+        'label',
+        null,
+        'userNameLabelClass',
+        'Phone'
+      );
+      bookingScene__SecondRoomLabelName.setAttribute(
+        'for',
+        'bookingScene__SecondRoomInputPhoneID'
+      );
+      bookingSceneContainer__SecondSection.appendChild(
+        bookingScene__SecondRoomLabelPhone
+      );
+
+      // UserInput Phone
+      const bookingScene__SecondRoomInputPhone = this.createElement(
+        'input',
+        'bookingScene__SecondRoomInputPhoneID',
+        'bookingScene__SecondRoomInputNameClass',
+        null,
+        null
+      );
+      bookingSceneContainer__SecondSection.appendChild(
+        bookingScene__SecondRoomInputPhone
+      );
 
       // label connection to InputEmail,
       const bookingScene__SecondRoomLabelEmail = this.createElement(
@@ -267,7 +294,24 @@ export class BookingManager {
         'bookingScene__SecondRoomSelectParticipantsID'
       );
 
-      // min/max-participants from challenge-class
+      // Creating select-Element for max/min participants
+      const bookingScene__SecondRoomSelectParticipants = this.createElement(
+        'select',
+        'bookingScene__SecondRoomSelectParticipantsID',
+        'bookingScene__SecondRoomSelectParticipantsClass',
+        null,
+        null
+      );
+      bookingScene__SecondRoomSelectParticipants.setAttribute(
+        'name',
+        'minMaxParticipants'
+      );
+      bookingSceneContainer__SecondSection.appendChild(
+        bookingScene__SecondRoomSelectParticipants
+      );
+
+      // Saving min/max-participants from challenge-class
+      
       const minParticipants = challenge.minParticipants;
       const maxParticipants = challenge.maxParticipants;
 
@@ -310,6 +354,24 @@ export class BookingManager {
       //   bookingSceneContainer__SecondRoomParticipantsOption.text =  participantsText;
       //   bookingScene__SecondRoomSelectParticipants.appendChild(bookingSceneContainer__SecondRoomParticipantsOption);
       // });
+
+      for (let i = minParticipants; i <= maxParticipants; i++) {
+        challengeMinMaxPart.push(i);
+      }
+
+      //Create option element for each participant inside array.
+      challengeMinMaxPart.forEach((participants) => {
+        const bookingSceneContainer__SecondRoomParticipantsOption =
+          document.createElement('option');
+        const participantsText = `${participants} Participants `;
+        bookingSceneContainer__SecondRoomParticipantsOption.value =
+          participants;
+        bookingSceneContainer__SecondRoomParticipantsOption.text =
+          participantsText;
+        bookingScene__SecondRoomSelectParticipants.appendChild(
+          bookingSceneContainer__SecondRoomParticipantsOption
+        );
+      });
 
       // Creating Submit button
       const bookingSceneContainer__SecondRoomSubmitBtn = this.createElement(
