@@ -182,7 +182,7 @@ export class BookingManager {
       bookingSceneContainer__SecondSection.appendChild(
         bookingScene__SecondRoomInputName
       );
-      
+
       // label connection to Input Phone
       const bookingScene__SecondRoomLabelPhone = this.createElement(
         'label',
@@ -294,24 +294,8 @@ export class BookingManager {
         'bookingScene__SecondRoomSelectParticipantsID'
       );
 
-      // Creating select-Element for max/min participants
-      const bookingScene__SecondRoomSelectParticipants = this.createElement(
-        'select',
-        'bookingScene__SecondRoomSelectParticipantsID',
-        'bookingScene__SecondRoomSelectParticipantsClass',
-        null,
-        null
-      );
-      bookingScene__SecondRoomSelectParticipants.setAttribute(
-        'name',
-        'minMaxParticipants'
-      );
-      bookingSceneContainer__SecondSection.appendChild(
-        bookingScene__SecondRoomSelectParticipants
-      );
-
       // Saving min/max-participants from challenge-class
-      
+
       const minParticipants = challenge.minParticipants;
       const maxParticipants = challenge.maxParticipants;
 
