@@ -125,16 +125,39 @@ class Loadingscreen {
 
 class APIAdapter {
   async getChallenges() {
+
+    try{
+
     Loadingscreen.show();
+
     const res = await fetch(
       'https://lernia-sjj-assignments.vercel.app/api/challenges'
     );
+    if (!res.ok){
+      throw new Error(`Failed to fetch challenges. status: ${res.status}`);
+    }
     const payload = await res.json();
     Loadingscreen.hide(500);
 
     return payload.challenges.map(
       (challengeData) => new Challenge(challengeData)
     );
+    } catch (error){
+      console.error('Error fetching challenges:', error.message);
+      const errorContainer = document.getElementById('challenges')
+      errorContainer.style.display = 'flex';
+      errorContainer.style.justifyContent = 'center';
+      errorContainer.style.alignItems = 'center';
+      
+
+      const errorMessage = document.createElement('h1')
+      errorMessage.style.fontSize = '25px';
+      errorMessage.style.display = 'flex';
+      errorMessage.style.alignSelf = 'center';
+      errorMessage.textContent = 'Challenges could not be loaded, this is not good.'
+      errorContainer.appendChild(errorMessage);
+      
+    }
   }
 }
 
