@@ -128,13 +128,14 @@ class APIAdapter {
 
     try{
 
-    Loadingscreen.show();
-
     const res = await fetch(
-      'https://lernia-sjj-assignments.vercel.app/api/challenges'
-    );
+      'https://lernia-sjj-assignments.vercel.app/api/challenges');
+
     if (!res.ok){
       throw new Error(`Failed to fetch challenges. status: ${res.status}`);
+    }
+    else {
+      Loadingscreen.show();
     }
     const payload = await res.json();
     Loadingscreen.hide(500);
