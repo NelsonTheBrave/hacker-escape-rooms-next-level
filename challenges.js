@@ -1,7 +1,6 @@
 import { BookingManager } from './booking-manager.js';
 import { FilterUI } from './filterUI.js';
 
-
 class Challenge {
   constructor(data) {
     this.data = data;
@@ -13,6 +12,12 @@ class Challenge {
     challengeCard.id = this.data.id;
     challengeCard.classList.add('challenges-container__challenge');
     challengeCard.classList.add(this.data.type);
+    if (this.data.type === 'online') {
+      challengeCard.innerHTML = '<i class="fa-solid fa-globe"></i>';
+    } else {
+      challengeCard.innerHTML = '<i class="fa-solid fa-building-user"></i>';
+    }
+
     for (let i = 0; i < this.data.labels.length; i++) {
       challengeCard.classList.add(this.data.labels[i]);
     }
@@ -78,8 +83,13 @@ class Challenge {
     ratingContainer.append(participants);
 
     const challengeText = document.createElement('p');
+    const maxLength = 50;
     challengeText.classList.add('challenges-container__challenge__text');
     challengeText.textContent = this.data.description;
+    if(challengeText.textContent.length > maxLength)
+    {
+    challengeText.textContent = this.data.description.slice(0, maxLength) + '...';
+   }
     wrapperDiv.append(challengeText);
 
     const challengeButton = document.createElement('button');

@@ -54,7 +54,7 @@ html.--transparant {
 
 header {
   height: 144px;
-  background-color: #011827;
+  background-color: #021928;
   color: white;
   padding-top: 26px;
 }
@@ -148,7 +148,7 @@ header .navBar {
 }
 @media (max-width: 899px) {
   header .navBar--popup {
-    background-color: #011827;
+    background-color: #021928;
     width: calc(100vw - 44px);
     height: calc(100vh - 44px);
     position: fixed;
@@ -250,7 +250,7 @@ header .navBar {
   }
 }
 .buttons__onsiteBtn {
-  color: #011827;
+  color: #021928;
   background: #8acfe5;
   margin-top: 25px;
 }
@@ -410,6 +410,7 @@ header .navBar {
   }
 }
 .challenges-container__challenge {
+  position: relative;
   background-color: #fff;
   align-self: flex-end;
   width: 85%;
@@ -420,6 +421,9 @@ header .navBar {
   border-radius: 8px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
   scroll-snap-align: center;
+}
+.challenges-container__challenge:hover {
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
 }
 @media screen and (min-width: 700px) {
   .challenges-container__challenge {
@@ -438,6 +442,13 @@ header .navBar {
     max-width: 29%;
     margin: 87px 10px 77px 0px;
   }
+}
+.challenges-container__challenge .fa-globe, .challenges-container__challenge .fa-building-user {
+  font-size: 2em;
+  position: absolute;
+  right: 0.2em;
+  top: 0.2em;
+  color: white;
 }
 .challenges-container__challenge__img {
   width: 100%;
@@ -551,7 +562,7 @@ header .navBar {
   margin-top: 56px;
   padding-top: 95px;
   padding-bottom: 91px;
-  background-color: #011827;
+  background-color: #021928;
 }
 @media (min-width: 1200px) {
   .ourStory-container {
@@ -579,7 +590,7 @@ header .navBar {
 }
 .ourStory-container__btn {
   margin-top: 60px;
-  background-color: #011827;
+  background-color: #021928;
   color: #8acfe5;
   border: 2px solid #8acfe5;
 }
@@ -698,7 +709,7 @@ header .navBar {
 }
 
 .footer {
-  background-color: #011827;
+  background-color: #021928;
   margin-top: 38px;
   color: white;
   padding: 64px 20px 70px 20px;
@@ -1031,15 +1042,18 @@ header .navBar {
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 20px 0px 0px 50px;
+  padding: 20px 0px 0px 14px;
   color: white;
+  animation-name: mobileMenu;
+  animation-duration: 0.1s;
+  animation-timing-function: ease-in;
 }
 
 .bookingSceneContainer__SectionClass {
   position: sticky;
   z-index: 1;
   width: 97%;
-  min-height: 890px;
+  min-height: 90%;
   background-color: #011827;
   display: flex;
   flex-flow: column;
@@ -1047,6 +1061,8 @@ header .navBar {
   align-items: center;
   padding: 20px;
   border-radius: 10px;
+  animation-name: mobileMenu2;
+  animation-duration: 0.2s;
 }
 .bookingSceneContainer__SectionClass .bookingSceneContainer__h1Class {
   font-size: 30px;
@@ -1076,16 +1092,14 @@ header .navBar {
   align-self: center;
   font-size: 24px;
 }
-
-.bookingSceneContainer__BackBtnClass {
+.bookingSceneContainer__SectionClass .bookingSceneContainer__BackBtnClass {
   width: 290px;
   height: 60px;
   margin: 20px 0px 0px 0px;
   font-size: 24px;
   align-self: center;
 }
-
-.bookingSceneContainer__BackBtnLinkClass:hover {
+.bookingSceneContainer__SectionClass .bookingSceneContainer__BackBtnLinkClass:hover {
   color: black;
 }
 
@@ -1249,14 +1263,14 @@ header .navBar {
     align-self: end;
     font-size: 24px;
   }
-  .bookingSceneContainer__BackBtnClass {
+  .bookingSceneContainer__SectionClass .bookingSceneContainer__BackBtnClass {
     width: 290px;
     height: 60px;
     margin: 430px 0px 0px 0px;
     font-size: 24px;
     align-self: start;
   }
-  .bookingSceneContainer__BackBtnLinkClass:hover {
+  .bookingSceneContainer__SectionClass .bookingSceneContainer__BackBtnLinkClass:hover {
     color: black;
   }
   .bookingSceneContainer__SecondSectionClass {
@@ -1327,14 +1341,14 @@ header .navBar {
     margin: 0px 0px 0px 0px;
     align-self: end;
     position: relative;
-    top: 310px;
+    top: 210px;
   }
   .bookingSceneContainer__SecondSectionClass .bookingSceneContainer__SecondRoomBackBtnClass {
     width: 290px;
     height: 60px;
     font-size: 25px;
     border-radius: 5px;
-    margin: 250px 0px 0px 0px;
+    margin: 150px 0px 0px 0px;
     align-self: start;
   }
   .bookingSceneContainer__SecondSectionClass .bookingSceneContainer__SecondRoomBackBtnClass .bookingSceneContainer__LastSectionBackBtnLinkClass:hover {
@@ -1361,6 +1375,28 @@ header .navBar {
     font-size: 25px;
     color: rgb(93, 61, 209);
     border-bottom: rgb(61, 48, 110) solid 2px;
+  }
+}
+@keyframes mobileMenu {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes mobileMenu2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
