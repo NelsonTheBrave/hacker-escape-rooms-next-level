@@ -324,20 +324,25 @@ export class BookingManager {
       );
 
       // //Create array from objects min/max participants and using loop to push it to array.
-      // const challengeMinMaxPart = [];
+      const challengeMinMaxPart = [];
 
-      // for (let i = minParticipants; i <= maxParticipants; i++) {
-      //   challengeMinMaxPart.push(i);
-      // }
+      for (let i = minParticipants; i <= maxParticipants; i++) {
+        challengeMinMaxPart.push(i);
+      }
 
-      // //Create option element for each participant inside array.
-      //   challengeMinMaxPart.forEach((participants) => {
-      //   const bookingSceneContainer__SecondRoomParticipantsOption = document.createElement('option');
-      //   const participantsText = `${participants} Participants `;
-      //   bookingSceneContainer__SecondRoomParticipantsOption.value = participants;
-      //   bookingSceneContainer__SecondRoomParticipantsOption.text =  participantsText;
-      //   bookingScene__SecondRoomSelectParticipants.appendChild(bookingSceneContainer__SecondRoomParticipantsOption);
-      // });
+      //Create option element for each participant inside array.
+      challengeMinMaxPart.forEach((participants) => {
+        const bookingSceneContainer__SecondRoomParticipantsOption =
+          document.createElement('option');
+        const participantsText = `${participants} Participants `;
+        bookingSceneContainer__SecondRoomParticipantsOption.value =
+          participants;
+        bookingSceneContainer__SecondRoomParticipantsOption.text =
+          participantsText;
+        bookingScene__SecondRoomSelectParticipants.appendChild(
+          bookingSceneContainer__SecondRoomParticipantsOption
+        );
+      });
 
       for (let i = minParticipants; i <= maxParticipants; i++) {
         challengeMinMaxPart.push(i);
