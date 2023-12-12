@@ -86,10 +86,9 @@ class Challenge {
     const maxLength = 50;
     challengeText.classList.add('challenges-container__challenge__text');
     challengeText.textContent = this.data.description;
-    if(challengeText.textContent.length > maxLength)
-    {
-    challengeText.textContent = this.data.description.slice(0, maxLength) + '...';
-   }
+    if (challengeText.textContent.length > maxLength) {
+      challengeText.textContent = this.data.description.slice(0, maxLength) + '...';
+    }
     wrapperDiv.append(challengeText);
 
     const challengeButton = document.createElement('button');
@@ -103,10 +102,34 @@ class Challenge {
     return challengeCard;
   }
 }
+class Loadingscreen {
+
+  static show() {
+    this.loadingAnimation = document.createElement('div');
+    this.loadingAnimation.classList.add('showLoading');
+    document.body.appendChild(this.loadingAnimation);
+
+    this.loadingText = document.createElement('h1');
+    this.loadingText.innerText = 'Jacking in..'
+    this.loadingAnimation.appendChild(this.loadingText);
+  }
+  static hide(delayMilliseconds) {
+    setTimeout(() => {
+      this.loadingAnimation.remove();
+    }, delayMilliseconds);
+    
+  }
+
+}
+
 
 class APIAdapter {
   async getChallenges() {
+
     try{
+
+    Loadingscreen.show();
+
     const res = await fetch(
       'https://lernia-sjj-assignments.vercel.app/api/challenges'
     );
@@ -114,6 +137,7 @@ class APIAdapter {
       throw new Error(`Failed to fetch challenges. status: ${res.status}`);
     }
     const payload = await res.json();
+    Loadingscreen.hide(500);
 
     return payload.challenges.map(
       (challengeData) => new Challenge(challengeData)
