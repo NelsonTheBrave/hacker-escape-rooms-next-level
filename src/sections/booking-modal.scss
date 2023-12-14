@@ -467,6 +467,24 @@
     }
 }
 
+.showLoading {
+
+    position: fixed;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 50%;
+        background-color: rgba(26, 197, 10, 0.808);
+        padding: 200px 0px 0px 700px;
+        margin-top: 215px;
+
+    h1 {
+        
+        font-size: 5em;
+        color: white;
+    }
+}
+
 // Animations
 
 @keyframes mobileMenu {
