@@ -24,7 +24,7 @@ class Challenge {
 
     const img = document.createElement('img');
     img.classList.add('challenges-container__challenge__img');
-    img.src = this.data.image + '?image=' + Math.floor(Math.random() * 16);
+    img.src = this.data.image;
     challengeCard.append(img);
 
     const wrapperDiv = document.createElement('div');
@@ -87,7 +87,8 @@ class Challenge {
     challengeText.classList.add('challenges-container__challenge__text');
     challengeText.textContent = this.data.description;
     if (challengeText.textContent.length > maxLength) {
-      challengeText.textContent = this.data.description.slice(0, maxLength) + '...';
+      challengeText.textContent =
+        this.data.description.slice(0, maxLength) + '...';
     }
     wrapperDiv.append(challengeText);
 
@@ -103,61 +104,54 @@ class Challenge {
   }
 }
 class Loadingscreen {
-
   static show() {
     this.loadingAnimation = document.createElement('div');
     this.loadingAnimation.classList.add('showLoading');
     document.body.appendChild(this.loadingAnimation);
 
     this.loadingText = document.createElement('h1');
-    this.loadingText.innerText = 'Jacking in..'
+    this.loadingText.innerText = 'Jacking in..';
     this.loadingAnimation.appendChild(this.loadingText);
   }
   static hide(delayMilliseconds) {
     setTimeout(() => {
       this.loadingAnimation.remove();
     }, delayMilliseconds);
-    
   }
-
 }
-
 
 class APIAdapter {
   async getChallenges() {
+    try {
+      const res = await fetch(
+        'https://lernia-sjj-assignments.vercel.app/api/challenges'
+      );
 
-    try{
+      if (!res.ok) {
+        throw new Error(`Failed to fetch challenges. status: ${res.status}`);
+      } else {
+        Loadingscreen.show();
+      }
+      const payload = await res.json();
+      Loadingscreen.hide(500);
 
-    const res = await fetch(
-      'https://lernia-sjj-assignments.vercel.app/api/challenges');
-
-    if (!res.ok){
-      throw new Error(`Failed to fetch challenges. status: ${res.status}`);
-    }
-    else {
-      Loadingscreen.show();
-    }
-    const payload = await res.json();
-    Loadingscreen.hide(500);
-
-    return payload.challenges.map(
-      (challengeData) => new Challenge(challengeData)
-    );
-    } catch (error){
+      return payload.challenges.map(
+        (challengeData) => new Challenge(challengeData)
+      );
+    } catch (error) {
       console.error('Error fetching challenges:', error.message);
-      const errorContainer = document.getElementById('challenges')
+      const errorContainer = document.getElementById('challenges');
       errorContainer.style.display = 'flex';
       errorContainer.style.justifyContent = 'center';
       errorContainer.style.alignItems = 'center';
-      
 
-      const errorMessage = document.createElement('h1')
+      const errorMessage = document.createElement('h1');
       errorMessage.style.fontSize = '25px';
       errorMessage.style.display = 'flex';
       errorMessage.style.alignSelf = 'center';
-      errorMessage.textContent = 'Challenges could not be loaded, this is not good.'
+      errorMessage.textContent =
+        'Challenges could not be loaded, this is not good.';
       errorContainer.appendChild(errorMessage);
-      
     }
   }
 }
