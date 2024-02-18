@@ -6,10 +6,10 @@ describe('Launch site', () => {
   })
 })
 describe('clicks a button', () => {
-  it('clicks the first button with class ".buttons__onsiteBtn" and navigates to another page', () => {
+  it('clicks the first button with class ".buttons__onsiteBtn" and navigates to another page and checks for h1-elements', () => {
     cy.visit('');
     cy.get('.buttons__onsiteBtn').eq(0).click();
-    cy.url().should('include', 'http://localhost:5500/challenges.html?type=onsite');
+    cy.url().should('include', 'http://localhost:5500/challenges.html?type=onsite').get('h1');
   });
 });
 
