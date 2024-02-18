@@ -5,20 +5,25 @@ describe('Launch site', () => {
 
   })
 })
-describe('clicks a button', ()=>{
-  it('clicks a button and navigates to other page', ()=>{
-    cy.visit('')
-    cy.wait(3000)
-    cy.get('.buttons__onsiteBtn').as('btn').click({ multiple: true });
-    cy.get('@btn').click();
+describe('clicks a button', () => {
+  it('clicks the first button with class ".buttons__onsiteBtn" and navigates to another page', () => {
+    cy.visit('');
+    cy.get('.buttons__onsiteBtn').eq(0).click();
     cy.url().should('include', 'http://localhost:5500/challenges.html?type=onsite');
-  })
-})
-describe('Visits different pages and looks for certain elements', () =>{
-  it('Checks for h1 on all pages.', () => {
-    cy.visit('http://127.0.0.1:5500/challenges.html?type=online').get('h1')
-    cy.visit('http://127.0.0.1:5500/challenges.html?type=onsite').get('h1')
-    cy.visit('http://127.0.0.1:5500/index.html#our-story').get('h1')
+  });
+});
+
+describe('Checks different pages and looks h1 with corresponding text ', () =>{
+  it('Checks all pages with an h1 and check texts', () => {
+    cy.visit('http://127.0.0.1:5500/challenges.html?type=online')
+    cy.get('h1').eq(0).should('have.text', 'Hacker Escape Rooms')
+
+    cy.visit('http://127.0.0.1:5500/challenges.html?type=onsite')
+    cy.get('h1').eq(0).should('have.text', 'Hacker Escape Rooms')
+    
+    
+    cy.visit('http://127.0.0.1:5500/index.html#our-story')
+    cy.get('h1').eq(0).should('have.text', 'Hacker Escape Rooms')
     cy.visit('http://127.0.0.1:5500/challenges.html?type=onsite#contact-us').contains('Contact Us').get('a')
 
     
